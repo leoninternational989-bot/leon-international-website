@@ -171,232 +171,234 @@ export default function Header() {
     };
 
     return (
-        <header
-            className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-primary-950/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'
-                }`}
-        >
-            <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div className="flex lg:flex-1">
-                    <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
-                        <span className="sr-only">Leon International</span>
-                        <div className="h-8 w-8 bg-accent-500 rounded flex items-center justify-center font-bold text-white">L</div>
-                        <span className="text-xl font-bold tracking-tight text-white uppercase drop-shadow-sm">Leon International</span>
-                    </Link>
-                </div>
-                <div className="flex lg:hidden">
-                    <button
-                        type="button"
-                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200 hover:text-white"
-                        onClick={() => setMobileMenuOpen(true)}
-                    >
-                        <span className="sr-only">Open main menu</span>
-                        <Menu className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                </div>
+        <>
+            <header
+                className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-primary-950/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'
+                    }`}
+            >
+                <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+                    <div className="flex lg:flex-1">
+                        <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
+                            <span className="sr-only">Leon International</span>
+                            <div className="h-8 w-8 bg-accent-500 rounded flex items-center justify-center font-bold text-white">L</div>
+                            <span className="text-xl font-bold tracking-tight text-white uppercase drop-shadow-sm">Leon International</span>
+                        </Link>
+                    </div>
+                    <div className="flex lg:hidden">
+                        <button
+                            type="button"
+                            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200 hover:text-white"
+                            onClick={() => setMobileMenuOpen(true)}
+                        >
+                            <span className="sr-only">Open main menu</span>
+                            <Menu className="h-6 w-6" aria-hidden="true" />
+                        </button>
+                    </div>
 
-                {/* Desktop menu */}
-                <div className="hidden lg:flex lg:gap-x-8 items-center h-full">
-                    {navigation.map((item) => (
-                        item.type === 'dropdown' ? (
-                            <div key={item.name} className="group/main relative h-full flex items-center">
-                                <Link href={item.href} className="flex items-center gap-1 text-sm font-semibold leading-6 text-gray-200 hover:text-accent-200 transition-colors py-2">
+                    {/* Desktop menu */}
+                    <div className="hidden lg:flex lg:gap-x-8 items-center h-full">
+                        {navigation.map((item) => (
+                            item.type === 'dropdown' ? (
+                                <div key={item.name} className="group/main relative h-full flex items-center">
+                                    <Link href={item.href} className="flex items-center gap-1 text-sm font-semibold leading-6 text-gray-200 hover:text-accent-200 transition-colors py-2">
+                                        {item.name}
+                                        <ChevronDown className="h-4 w-4 transition-transform group-hover/main:rotate-180" />
+                                    </Link>
+
+                                    {item.name === 'Products' ? (
+                                        /* Mega Menu for Products */
+                                        <div className="absolute left-1/2 -translate-x-[40%] top-10 pt-2 hidden group-hover/main:block z-50">
+                                            <div className="w-[850px] p-6 bg-primary-950/95 backdrop-blur-lg border border-white/10 shadow-2xl rounded-xl flex gap-6">
+                                                {/* Column 1: Engine Parts + sub items */}
+                                                <div className="w-[30%] border-r border-white/10 pr-6">
+                                                    <Link href="/engine-parts/" className="flex items-center gap-2 text-accent-500 hover:text-accent-400 font-bold mb-4 font-plus-jakarta-sans text-lg transition-colors">
+                                                        <Settings className="h-5 w-5" />
+                                                        Engine Parts
+                                                    </Link>
+                                                    <div className="flex flex-col gap-3">
+                                                        {productsMenu[0].subItems?.map(sub => (
+                                                            <Link key={sub.name} href={sub.href} className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">
+                                                                {sub.name}
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                                {/* Column 2 & 3: Other Products in 2-column grid */}
+                                                <div className="w-[70%]">
+                                                    <h3 className="text-white font-bold mb-4 font-plus-jakarta-sans text-lg px-2">Other Categories</h3>
+                                                    <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                                                        {productsMenu.slice(1).map(prod => (
+                                                            <Link key={prod.name} href={prod.href} className="flex items-center gap-3 px-3 py-2.5 hover:bg-white/10 rounded-lg text-gray-200 hover:text-accent-200 transition-colors group">
+                                                                {prod.icon && <prod.icon className="h-4 w-4 text-ocean flex-shrink-0 group-hover:text-accent-500 transition-colors" />}
+                                                                <span className="text-sm font-medium">{prod.name}</span>
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ) : item.name === 'Services' ? (
+                                        /* Mega Menu for Services */
+                                        <div className="absolute left-1/2 -translate-x-[60%] top-10 pt-2 hidden group-hover/main:block z-50">
+                                            <div className="w-[1000px] p-6 bg-primary-950/95 backdrop-blur-lg border border-white/10 shadow-2xl rounded-xl">
+                                                <div className="flex justify-between items-center mb-6 pb-4 border-b border-white/10">
+                                                    <h3 className="text-white font-bold font-plus-jakarta-sans text-xl">Our Services</h3>
+                                                    <Link href="/services/" className="text-accent-500 hover:text-accent-400 text-sm font-medium flex items-center gap-1 transition-colors">
+                                                        View All Services <span className="text-lg leading-none">→</span>
+                                                    </Link>
+                                                </div>
+
+                                                <div className="grid grid-cols-3 gap-x-8 gap-y-0">
+                                                    {/* Column 1 */}
+                                                    <div className="flex flex-col gap-6">
+                                                        {/* Ship Repair & Dry Docking */}
+                                                        <div>
+                                                            <Link href="/ship-repair/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
+                                                                <Anchor className="h-4 w-4" /> Ship Repair
+                                                            </Link>
+                                                            <div className="flex flex-col gap-2">
+                                                                <Link href="/dry-docking-slts/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Dry Docking & SLTS</Link>
+                                                                <Link href="/major-ship-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Major Ship Repair</Link>
+                                                                <Link href="/vessel-repair-anchorage/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Anchorage Repair</Link>
+                                                            </div>
+                                                        </div>
+
+                                                        {/* Fabrication & Welding */}
+                                                        <div>
+                                                            <Link href="/fabrication/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
+                                                                <Flame className="h-4 w-4" /> Fabrication & Welding
+                                                            </Link>
+                                                            <div className="flex flex-col gap-2">
+                                                                <Link href="/steel-structure-fabrication/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Steel Structure Fab.</Link>
+                                                                <Link href="/welding-services/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Welding (BV Approved)</Link>
+                                                                <Link href="/buoys-fabrication/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Buoys Fabrication</Link>
+                                                            </div>
+                                                        </div>
+
+                                                        {/* Electrical & Electronics */}
+                                                        <div>
+                                                            <Link href="/electrical/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
+                                                                <Lightbulb className="h-4 w-4" /> Electrical / Electronics
+                                                            </Link>
+                                                            <div className="flex flex-col gap-2">
+                                                                <Link href="/motor-rewinding/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Motor Rewinding</Link>
+                                                                <Link href="/pcb-card-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">PCB Card Repair</Link>
+                                                                <Link href="/transformer-rewinding/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Transformer Rewinding</Link>
+                                                                <Link href="/electrical-equipment-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Equipment Repair</Link>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Column 2 */}
+                                                    <div className="flex flex-col gap-6">
+                                                        {/* Mechanical Repair */}
+                                                        <div>
+                                                            <Link href="/mechanical-repair/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
+                                                                <Settings className="h-4 w-4" /> Mechanical Repair
+                                                            </Link>
+                                                            <div className="flex flex-col gap-2">
+                                                                <Link href="/main-engine-generator-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Main Engine & Gen. Repair</Link>
+                                                                <Link href="/boiler-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Boiler Repair</Link>
+                                                                <Link href="/hydraulic-pump-overhauling/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Hydraulic Pump Overhaul</Link>
+                                                                <Link href="/windlass-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Windlass Major Repair</Link>
+                                                                <Link href="/deck-machinery-overhauling/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Deck Machinery Overhaul</Link>
+                                                            </div>
+                                                        </div>
+
+                                                        {/* NDT & Inspection */}
+                                                        <div>
+                                                            <Link href="/ndt-inspection/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
+                                                                <Microscope className="h-4 w-4" /> NDT & Inspection
+                                                            </Link>
+                                                            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                                                                <Link href="/ultrasonic-gauging/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Ultrasonic Gauging</Link>
+                                                                <Link href="/ultrasonic-flaw-detection/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">UFD Testing</Link>
+                                                                <Link href="/magnetic-particle-inspection/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Magnetic Particle</Link>
+                                                                <Link href="/dye-penetrant-testing/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Dye Penetrant</Link>
+                                                                <Link href="/hardness-testing/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Hardness Testing</Link>
+                                                                <Link href="/crane-load-test/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Crane Load Test</Link>
+                                                                <Link href="/crane-inspection/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Crane Inspection</Link>
+                                                                <Link href="/marine-tools-calibration/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Tools Calibration</Link>
+                                                                <Link href="/hatch-cover-testing/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Hatch Cover Test</Link>
+                                                                <Link href="/gyro-compass-overhauling/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Gyro Compass</Link>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Column 3 */}
+                                                    <div className="flex flex-col gap-6">
+                                                        <div>
+                                                            <Link href="/protective-coatings/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
+                                                                <PaintRoller className="h-4 w-4" /> Protective Coatings
+                                                            </Link>
+                                                            <div className="flex flex-col gap-2">
+                                                                <Link href="/industrial-coatings/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Belzona / Coatings</Link>
+                                                                <Link href="/sandblasting/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Sandblasting</Link>
+                                                                <Link href="/metal-stitching/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Metal Stitching</Link>
+                                                            </div>
+                                                        </div>
+
+                                                        <div>
+                                                            <Link href="/hvac/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
+                                                                <Thermometer className="h-4 w-4" /> HVAC & Refrigeration
+                                                            </Link>
+                                                            <div className="flex flex-col gap-2">
+                                                                <Link href="/ac-plant-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">AC Plant Repair</Link>
+                                                                <Link href="/cold-storage-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Cold Storage Repair</Link>
+                                                            </div>
+                                                        </div>
+
+                                                        <div>
+                                                            <Link href="/specialized/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
+                                                                <Wrench className="h-4 w-4" /> Specialized Services
+                                                            </Link>
+                                                            <div className="flex flex-col gap-2">
+                                                                <Link href="/air-lifting-balloon/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Air Lifting Balloon</Link>
+                                                                <Link href="/spare-parts-supply/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Spare Parts Supply</Link>
+                                                                <Link href="/custom-parts-fabrication/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Custom Parts Fab.</Link>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        /* Standard Dropdown */
+                                        <div className="absolute left-0 top-10 pt-2 hidden group-hover/main:block z-50">
+                                            <div className="w-80 max-h-[75vh] overflow-y-auto bg-primary-950/95 backdrop-blur-lg border border-white/10 shadow-2xl rounded-xl py-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+                                                {item.items?.map((subItem, idx) => (
+                                                    <Link key={idx} href={subItem.href} className="flex items-center gap-3 px-4 py-3 hover:bg-white/10 text-gray-200 hover:text-accent-200 text-sm transition-colors group">
+                                                        {subItem.icon && <subItem.icon className="h-4 w-4 opacity-70 text-ocean group-hover:text-accent-500 group-hover:opacity-100 transition-colors flex-shrink-0" />}
+                                                        {subItem.name}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            ) : (
+                                <Link key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-200 hover:text-accent-200 transition-colors py-2 drop-shadow-sm">
                                     {item.name}
-                                    <ChevronDown className="h-4 w-4 transition-transform group-hover/main:rotate-180" />
                                 </Link>
+                            )
+                        ))}
+                    </div>
 
-                                {item.name === 'Products' ? (
-                                    /* Mega Menu for Products */
-                                    <div className="absolute left-1/2 -translate-x-[40%] top-10 pt-2 hidden group-hover/main:block z-50">
-                                        <div className="w-[850px] p-6 bg-primary-950/95 backdrop-blur-lg border border-white/10 shadow-2xl rounded-xl flex gap-6">
-                                            {/* Column 1: Engine Parts + sub items */}
-                                            <div className="w-[30%] border-r border-white/10 pr-6">
-                                                <Link href="/engine-parts/" className="flex items-center gap-2 text-accent-500 hover:text-accent-400 font-bold mb-4 font-plus-jakarta-sans text-lg transition-colors">
-                                                    <Settings className="h-5 w-5" />
-                                                    Engine Parts
-                                                </Link>
-                                                <div className="flex flex-col gap-3">
-                                                    {productsMenu[0].subItems?.map(sub => (
-                                                        <Link key={sub.name} href={sub.href} className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">
-                                                            {sub.name}
-                                                        </Link>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                            {/* Column 2 & 3: Other Products in 2-column grid */}
-                                            <div className="w-[70%]">
-                                                <h3 className="text-white font-bold mb-4 font-plus-jakarta-sans text-lg px-2">Other Categories</h3>
-                                                <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-                                                    {productsMenu.slice(1).map(prod => (
-                                                        <Link key={prod.name} href={prod.href} className="flex items-center gap-3 px-3 py-2.5 hover:bg-white/10 rounded-lg text-gray-200 hover:text-accent-200 transition-colors group">
-                                                            {prod.icon && <prod.icon className="h-4 w-4 text-ocean flex-shrink-0 group-hover:text-accent-500 transition-colors" />}
-                                                            <span className="text-sm font-medium">{prod.name}</span>
-                                                        </Link>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ) : item.name === 'Services' ? (
-                                    /* Mega Menu for Services */
-                                    <div className="absolute left-1/2 -translate-x-[60%] top-10 pt-2 hidden group-hover/main:block z-50">
-                                        <div className="w-[1000px] p-6 bg-primary-950/95 backdrop-blur-lg border border-white/10 shadow-2xl rounded-xl">
-                                            <div className="flex justify-between items-center mb-6 pb-4 border-b border-white/10">
-                                                <h3 className="text-white font-bold font-plus-jakarta-sans text-xl">Our Services</h3>
-                                                <Link href="/services/" className="text-accent-500 hover:text-accent-400 text-sm font-medium flex items-center gap-1 transition-colors">
-                                                    View All Services <span className="text-lg leading-none">→</span>
-                                                </Link>
-                                            </div>
-
-                                            <div className="grid grid-cols-3 gap-x-8 gap-y-0">
-                                                {/* Column 1 */}
-                                                <div className="flex flex-col gap-6">
-                                                    {/* Ship Repair & Dry Docking */}
-                                                    <div>
-                                                        <Link href="/ship-repair/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
-                                                            <Anchor className="h-4 w-4" /> Ship Repair
-                                                        </Link>
-                                                        <div className="flex flex-col gap-2">
-                                                            <Link href="/dry-docking-slts/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Dry Docking & SLTS</Link>
-                                                            <Link href="/major-ship-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Major Ship Repair</Link>
-                                                            <Link href="/vessel-repair-anchorage/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Anchorage Repair</Link>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Fabrication & Welding */}
-                                                    <div>
-                                                        <Link href="/fabrication/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
-                                                            <Flame className="h-4 w-4" /> Fabrication & Welding
-                                                        </Link>
-                                                        <div className="flex flex-col gap-2">
-                                                            <Link href="/steel-structure-fabrication/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Steel Structure Fab.</Link>
-                                                            <Link href="/welding-services/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Welding (BV Approved)</Link>
-                                                            <Link href="/buoys-fabrication/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Buoys Fabrication</Link>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Electrical & Electronics */}
-                                                    <div>
-                                                        <Link href="/electrical/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
-                                                            <Lightbulb className="h-4 w-4" /> Electrical / Electronics
-                                                        </Link>
-                                                        <div className="flex flex-col gap-2">
-                                                            <Link href="/motor-rewinding/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Motor Rewinding</Link>
-                                                            <Link href="/pcb-card-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">PCB Card Repair</Link>
-                                                            <Link href="/transformer-rewinding/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Transformer Rewinding</Link>
-                                                            <Link href="/electrical-equipment-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Equipment Repair</Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                {/* Column 2 */}
-                                                <div className="flex flex-col gap-6">
-                                                    {/* Mechanical Repair */}
-                                                    <div>
-                                                        <Link href="/mechanical-repair/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
-                                                            <Settings className="h-4 w-4" /> Mechanical Repair
-                                                        </Link>
-                                                        <div className="flex flex-col gap-2">
-                                                            <Link href="/main-engine-generator-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Main Engine & Gen. Repair</Link>
-                                                            <Link href="/boiler-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Boiler Repair</Link>
-                                                            <Link href="/hydraulic-pump-overhauling/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Hydraulic Pump Overhaul</Link>
-                                                            <Link href="/windlass-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Windlass Major Repair</Link>
-                                                            <Link href="/deck-machinery-overhauling/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Deck Machinery Overhaul</Link>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* NDT & Inspection */}
-                                                    <div>
-                                                        <Link href="/ndt-inspection/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
-                                                            <Microscope className="h-4 w-4" /> NDT & Inspection
-                                                        </Link>
-                                                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-                                                            <Link href="/ultrasonic-gauging/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Ultrasonic Gauging</Link>
-                                                            <Link href="/ultrasonic-flaw-detection/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">UFD Testing</Link>
-                                                            <Link href="/magnetic-particle-inspection/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Magnetic Particle</Link>
-                                                            <Link href="/dye-penetrant-testing/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Dye Penetrant</Link>
-                                                            <Link href="/hardness-testing/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Hardness Testing</Link>
-                                                            <Link href="/crane-load-test/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Crane Load Test</Link>
-                                                            <Link href="/crane-inspection/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Crane Inspection</Link>
-                                                            <Link href="/marine-tools-calibration/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Tools Calibration</Link>
-                                                            <Link href="/hatch-cover-testing/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Hatch Cover Test</Link>
-                                                            <Link href="/gyro-compass-overhauling/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Gyro Compass</Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                {/* Column 3 */}
-                                                <div className="flex flex-col gap-6">
-                                                    <div>
-                                                        <Link href="/protective-coatings/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
-                                                            <PaintRoller className="h-4 w-4" /> Protective Coatings
-                                                        </Link>
-                                                        <div className="flex flex-col gap-2">
-                                                            <Link href="/industrial-coatings/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Belzona / Coatings</Link>
-                                                            <Link href="/sandblasting/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Sandblasting</Link>
-                                                            <Link href="/metal-stitching/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Metal Stitching</Link>
-                                                        </div>
-                                                    </div>
-
-                                                    <div>
-                                                        <Link href="/hvac/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
-                                                            <Thermometer className="h-4 w-4" /> HVAC & Refrigeration
-                                                        </Link>
-                                                        <div className="flex flex-col gap-2">
-                                                            <Link href="/ac-plant-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">AC Plant Repair</Link>
-                                                            <Link href="/cold-storage-repair/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Cold Storage Repair</Link>
-                                                        </div>
-                                                    </div>
-
-                                                    <div>
-                                                        <Link href="/specialized/" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
-                                                            <Wrench className="h-4 w-4" /> Specialized Services
-                                                        </Link>
-                                                        <div className="flex flex-col gap-2">
-                                                            <Link href="/air-lifting-balloon/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Air Lifting Balloon</Link>
-                                                            <Link href="/spare-parts-supply/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Spare Parts Supply</Link>
-                                                            <Link href="/custom-parts-fabrication/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Custom Parts Fab.</Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    /* Standard Dropdown */
-                                    <div className="absolute left-0 top-10 pt-2 hidden group-hover/main:block z-50">
-                                        <div className="w-80 max-h-[75vh] overflow-y-auto bg-primary-950/95 backdrop-blur-lg border border-white/10 shadow-2xl rounded-xl py-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-                                            {item.items?.map((subItem, idx) => (
-                                                <Link key={idx} href={subItem.href} className="flex items-center gap-3 px-4 py-3 hover:bg-white/10 text-gray-200 hover:text-accent-200 text-sm transition-colors group">
-                                                    {subItem.icon && <subItem.icon className="h-4 w-4 opacity-70 text-ocean group-hover:text-accent-500 group-hover:opacity-100 transition-colors flex-shrink-0" />}
-                                                    {subItem.name}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                        ) : (
-                            <Link key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-200 hover:text-accent-200 transition-colors py-2 drop-shadow-sm">
-                                {item.name}
-                            </Link>
-                        )
-                    ))}
-                </div>
-
-                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link
-                        href="/quote/"
-                        className="text-sm font-semibold leading-6 bg-accent-500 hover:bg-accent-400 text-white px-6 py-2.5 rounded-md transition-colors shadow-lg"
-                    >
-                        Request a Quote
-                    </Link>
-                </div>
-            </nav>
+                    <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                        <Link
+                            href="/quote/"
+                            className="text-sm font-semibold leading-6 bg-accent-500 hover:bg-accent-400 text-white px-6 py-2.5 rounded-md transition-colors shadow-lg"
+                        >
+                            Request a Quote
+                        </Link>
+                    </div>
+                </nav>
+            </header>
 
             {/* Mobile menu */}
-            <div className={`lg:hidden ${mobileMenuOpen ? 'fixed inset-0 z-50' : 'hidden'}`}>
+            <div className={`lg:hidden ${mobileMenuOpen ? 'fixed inset-0 z-[100]' : 'hidden'}`}>
                 <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
-                <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-primary-950 px-6 py-6 sm:max-w-sm shadow-2xl">
+                <div className="fixed inset-y-0 right-0 z-[100] w-full overflow-y-auto bg-primary-950 px-6 py-6 sm:max-w-sm shadow-2xl">
                     <div className="flex items-center justify-between">
                         <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
                             <span className="sr-only">Leon International</span>
@@ -497,6 +499,6 @@ export default function Header() {
                     </div>
                 </div>
             </div>
-        </header>
+        </>
     );
 }
