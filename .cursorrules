@@ -1,0 +1,55 @@
+# Project Context
+This is the Leon International website, a marine engineering and ship repair company. The website is built to be significantly better than international competitors (reference: Wärtsilä, Ocean & Brine) and local competitors.
+
+## Tech Stack
+- Next.js 14+ (App Router)
+- Tailwind CSS v4
+- TypeScript
+- Framer Motion
+
+## Brand Identity & Design System
+- **Primary Colors**: Dark navy headers/heroes with white text for authority.
+  - `#071A26` (primary-950)
+  - `navy: '#0E2F44'`
+  - `ocean: '#2E86C1'`
+- **Accent Colors**: Orange ONLY for CTAs and important highlights.
+  - `#FAD7A0` (accent-200)
+- **Neutral Colors**:
+  - `steel: '#5D6D7E'`
+  - `lightgray: '#F8F9FA'`
+- **Typography**:
+  - Headings: Inter or Plus Jakarta Sans (bold, clean, modern)
+  - Body: Inter
+  - Accent/Numbers: DM Sans or Outfit
+- **Design Principles**:
+  - Professional photography — avoid generic stock. Use actual ship/workshop/engine imagery.
+  - Subtle scroll animations (Framer Motion fade-up on sections).
+  - Mobile-first responsive design.
+  - Mega menu navigation for Services and Products.
+
+## URL Rules
+- All URLs must be flat (no nesting like `/services/ship-repair/` or `/products/engine-parts/`).
+- Every URL must have a trailing slash (e.g., `/ship-repair/`).
+- Configure `trailingSlash: true` in `next.config.ts`.
+
+## Complete Sitemap
+- `/` → Homepage
+- `/about/` → About Us
+- `/services/` → Services Overview
+- `/ship-repair/` → Ship Repair & Dry Docking
+- `/mechanical-repair/` → Mechanical Repair & Engineering
+- `/electrical/` → Electrical & Electronics
+- `/fabrication/` → Fabrication & Welding
+- `/ndt-inspection/` → Testing, Inspection & Calibration (NDT)
+- `/protective-coatings/` → Protective Coatings & Surface Treatment
+- `/hvac/` → HVAC & Refrigeration
+- `/specialized/` → Specialized Services
+- `/products/` → Products Overview
+... plus individual product pages (e.g. `/engine-parts/`, `/mtu-parts/`, etc.)
+- `/projects/` → Projects / Portfolio Gallery
+- `/contact/` → Contact Us
+- `/quote/` → Request a Quote
+- `/blog/` → Blog / Resources
+- `/blog/[slug]/` → Individual Blog Post
+
+**For detailed content of each page, refer to `Leon_International_Website_Blueprint (1).md`.**

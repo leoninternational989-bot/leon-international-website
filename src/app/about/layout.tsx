@@ -1,0 +1,13 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "About Leon International — 50+ Years in Marine Engineering",
+    description: "Discover Leon International's journey — from our founding in Karachi to becoming a multi-national marine engineering company with offices in Pakistan, UAE, China & Latvia. ISO 9001 certified, Lloyd's & Bureau Veritas approved.",
+    alternates: {
+        canonical: 'https://leoninternational.com/about/',
+    },
+};
+
+export default function AboutLayout({ children }: { children: React.ReactNode }) {
+    return <>{children}</>;
+}

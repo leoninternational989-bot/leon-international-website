@@ -1,0 +1,29 @@
+# *
+User-agent: *
+Allow: /
+
+# GPTBot
+User-agent: GPTBot
+Allow: /
+
+# ChatGPT-User
+User-agent: ChatGPT-User
+Allow: /
+
+# Google-Extended
+User-agent: Google-Extended
+Allow: /
+
+# PerplexityBot
+User-agent: PerplexityBot
+Allow: /
+
+# ClaudeBot
+User-agent: ClaudeBot
+Allow: /
+
+# Host
+Host: https://leoninternational.com
+
+# Sitemaps
+Sitemap: https://leoninternational.com/sitemap.xml
