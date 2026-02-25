@@ -3,15 +3,17 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+import Image from 'next/image';
+
 const productCategories = [
-    { name: 'Engine Parts', href: '/engine-parts/' },
-    { name: 'Diesel Generators', href: '/diesel-generators/' },
-    { name: 'Turbocharger Spares', href: '/turbocharger-spares/' },
-    { name: 'Navigation Systems', href: '/navigation-systems/' },
-    { name: 'Electrical Equipment', href: '/electrical-equipment/' },
-    { name: 'Propulsion Systems', href: '/propulsion-systems/' },
-    { name: 'Deck Machinery', href: '/deck-machinery/' },
-    { name: 'Hydraulic Equipment', href: '/hydraulic-equipment/' },
+    { name: 'Engine Parts', href: '/engine-parts/', image: '/Products/engine_parts.webp' },
+    { name: 'Diesel Generators', href: '/diesel-generators/', image: '/Products/diesel_generators.webp' },
+    { name: 'Turbocharger Spares', href: '/turbocharger-spares/', image: '/Products/turbocharger_spares.webp' },
+    { name: 'Navigation Systems', href: '/navigation-systems/', image: '/Products/navigation_systems.webp' },
+    { name: 'Electrical Equipment', href: '/electrical-equipment/', image: '/Products/electrical_equipment.webp' },
+    { name: 'Propulsion Systems', href: '/propulsion-systems/', image: '/Products/propulsion_systems.webp' },
+    { name: 'Deck Machinery', href: '/deck-machinery/', image: '/Products/deck_machinery.webp' },
+    { name: 'Hydraulic Equipment', href: '/hydraulic-equipment/', image: '/Products/hydraulic_equipment.webp' },
 ];
 
 export default function ProductsShowcase() {
@@ -43,10 +45,13 @@ export default function ProductsShowcase() {
                             className="relative group overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-2 hover:bg-white/10 hover:border-accent-400/50 transition-all duration-300"
                         >
                             <div className="aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-navy to-primary-800 overflow-hidden relative">
-                                {/* Placeholder graphic for product Image since we lack real assets */}
-                                <div className="absolute inset-0 flex items-center justify-center border-2 border-dashed border-white/10 m-4 rounded-lg">
-                                    <div className="text-white/20 text-4xl font-black font-dm-sans">{category.name.substring(0, 2).toUpperCase()}</div>
-                                </div>
+                                <Image
+                                    src={category.image}
+                                    alt={category.name}
+                                    fill
+                                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                />
                                 {/* Hover overlay gradient */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary-950 via-primary-950/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
                             </div>

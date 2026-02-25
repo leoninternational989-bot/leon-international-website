@@ -3,43 +3,44 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+import Image from 'next/image';
+
 const projects = [
     {
         title: 'Buoys Fabrication',
         category: 'Steel structure fabrication',
         href: '/projects/',
-        // Using tailored background colors/gradients since we don't have images
-        bgClass: 'bg-gradient-to-br from-primary-900 to-navy',
+        image: '/Projects/buoys_fabrication.webp',
     },
     {
         title: 'Generator Overhauling',
         category: 'Daihatsu DK20 complete overhaul',
         href: '/projects/',
-        bgClass: 'bg-gradient-to-bl from-accent-700 to-primary-800',
+        image: '/Projects/generator_overhauling.webp',
     },
     {
         title: 'Loading Arms Repairing',
         category: 'Port facility maintenance',
         href: '/projects/',
-        bgClass: 'bg-gradient-to-tr from-steel to-navy',
+        image: '/Projects/loading_arms_repair.webp',
     },
     {
         title: 'Fender Repair Work',
         category: 'Marine fender restoration',
         href: '/projects/',
-        bgClass: 'bg-gradient-to-b from-ocean to-primary-950',
+        image: '/Projects/fender_repair.webp',
     },
     {
         title: 'Weighbridge Repair',
         category: 'Industrial infrastructure',
         href: '/projects/',
-        bgClass: 'bg-gradient-to-t from-primary-800 to-accent-600',
+        image: '/Projects/weighbridge_repair.webp',
     },
     {
         title: 'Main Engine Overhaul',
         category: 'Complete reconditioning',
         href: '/projects/',
-        bgClass: 'bg-gradient-to-br from-navy to-ocean',
+        image: '/Projects/main_engine_overhaul.webp',
     },
 ];
 
@@ -73,16 +74,25 @@ export default function ProjectsGallery() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className={`group relative overflow-hidden rounded-2xl ${project.bgClass} flex flex-col justify-end p-6 ${index === 0 || index === 3 ? 'md:row-span-2' : '' // make some items taller to break grid monotony
+                            className={`group relative overflow-hidden rounded-2xl flex flex-col justify-end p-6 ${index === 0 || index === 3 ? 'md:row-span-2' : '' // make some items taller to break grid monotony
                                 }`}
                         >
+                            {/* Background Image */}
+                            <Image
+                                src={project.image}
+                                alt={project.title}
+                                fill
+                                className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            />
+
                             {/* Premium overlay effect */}
-                            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
+                            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay z-10 pointer-events-none"></div>
 
                             {/* Hover gradient sweep */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary-950 via-primary-950/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary-950 via-primary-950/60 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none"></div>
 
-                            <div className="relative z-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <div className="relative z-20 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                 <p className="text-sm font-medium text-accent-200 mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 uppercase tracking-wider">
                                     {project.category}
                                 </p>
