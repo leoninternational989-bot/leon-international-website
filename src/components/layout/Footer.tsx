@@ -15,7 +15,7 @@ export default function Footer() {
                     <div className="space-y-8 xl:col-span-1">
                         <Link href="/" className="flex items-center gap-2">
                             <div className="relative h-[83px] w-[183px] flex items-center justify-center">
-                                <Image src="/images/logo.png" alt="Leon International Logo" fill className="object-contain" priority />
+                                <Image src="/images/logo-transparent.png" alt="Leon International Logo" fill className="object-contain" priority />
                             </div>
                         </Link>
                         <p className="text-sm leading-6 text-gray-300">
