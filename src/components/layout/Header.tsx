@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X, ChevronDown, Anchor, Settings, Zap, Drill, Search, PaintBucket, Snowflake, PlusCircle, Database, BatteryCharging, Wind, Gauge, Compass, Plug, Droplets, Flame, ShieldAlert, Navigation, Filter, Factory, Lightbulb, Microscope, PaintRoller, Thermometer, Wrench } from 'lucide-react';
 
 type SubItem = {
@@ -180,8 +181,9 @@ export default function Header() {
                     <div className="flex lg:flex-1">
                         <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
                             <span className="sr-only">Leon International</span>
-                            <div className="h-8 w-8 bg-accent-500 rounded flex items-center justify-center font-bold text-white">L</div>
-                            <span className="text-xl font-bold tracking-tight text-white uppercase drop-shadow-sm">Leon International</span>
+                            <div className="relative h-[50px] lg:h-[83px] w-[118px] lg:w-[185px] flex items-center justify-center -my-2 lg:-my-[17px]">
+                                <Image src="/images/logo.png" alt="Leon International Logo" fill className="object-contain" priority />
+                            </div>
                         </Link>
                     </div>
                     <div className="flex lg:hidden">
@@ -402,8 +404,9 @@ export default function Header() {
                     <div className="flex items-center justify-between">
                         <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
                             <span className="sr-only">Leon International</span>
-                            <div className="h-8 w-8 bg-accent-500 rounded flex items-center justify-center font-bold text-white">L</div>
-                            <span className="text-xl font-bold tracking-tight text-white uppercase">Leon Int.</span>
+                            <div className="relative h-[50px] w-[50px] flex items-center justify-center">
+                                <Image src="/images/logo.png" alt="Leon International Logo" fill className="object-contain" priority />
+                            </div>
                         </Link>
                         <button
                             type="button"

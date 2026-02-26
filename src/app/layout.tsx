@@ -87,7 +87,7 @@ const organizationSchema = {
   "@type": "Organization",
   "name": "Leon International",
   "url": "https://leoninternational.com",
-  "logo": "https://leoninternational.com/logo.png",
+  "logo": "https://leoninternational.com/images/logo.png",
   "description": "Marine engineering company specializing in ship repair, NDT inspection, fabrication, protective coatings, HVAC, and marine spare parts supply.",
   "foundingDate": "1974",
   "numberOfEmployees": {

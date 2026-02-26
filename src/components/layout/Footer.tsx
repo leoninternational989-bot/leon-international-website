@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Facebook, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
@@ -13,8 +14,9 @@ export default function Footer() {
                     {/* Column 1 - Company */}
                     <div className="space-y-8 xl:col-span-1">
                         <Link href="/" className="flex items-center gap-2">
-                            <div className="h-8 w-8 bg-accent-500 rounded flex items-center justify-center font-bold text-white">L</div>
-                            <span className="text-2xl font-bold tracking-tight text-white uppercase">Leon International</span>
+                            <div className="relative h-[83px] w-[183px] flex items-center justify-center">
+                                <Image src="/images/logo.png" alt="Leon International Logo" fill className="object-contain" priority />
+                            </div>
                         </Link>
                         <p className="text-sm leading-6 text-gray-300">
                             Your global partner in marine engineering, ship repair, and industrial spare parts supply.
