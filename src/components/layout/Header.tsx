@@ -145,6 +145,7 @@ const productsMenu: SubItem[] = [
 ];
 
 const navigation: MenuItem[] = [
+    { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about/' },
     { name: 'Services', href: '/services/', type: 'dropdown', items: servicesMenu },
     { name: 'Products', href: '/products/', type: 'dropdown', items: productsMenu },
