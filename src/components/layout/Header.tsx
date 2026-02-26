@@ -406,7 +406,7 @@ export default function Header() {
                         <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
                             <span className="sr-only">Leon International</span>
                             <div className="relative h-[50px] w-[50px] flex items-center justify-center">
-                                <Image src="/images/logo.png" alt="Leon International Logo" fill className="object-contain" priority />
+                                <Image src="/images/logo-transparent.png" alt="Leon International Logo" fill className="object-contain" priority />
                             </div>
                         </Link>
                         <button
