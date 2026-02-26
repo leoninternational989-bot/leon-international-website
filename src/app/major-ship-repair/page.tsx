@@ -2,84 +2,117 @@ import PageHero from '@/components/ui/PageHero';
 import QuickQuote from '@/components/sections/home/QuickQuote';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Wrench, ShieldAlert, FileSearch } from 'lucide-react';
+import FaqAccordion from '@/components/ui/FaqAccordion';
 
 export default function Page() {
     return (
         <main className="bg-primary-950 min-h-screen">
             <PageHero
                 title="Major Ship Repair Projects"
-                subtitle="Extensive structural and mechanical ship repair projects undertaken globally."
+                subtitle="Expert structural renovations and marine diesel engine overhaul facilities globally."
                 breadcrumbs={[
                     { label: 'Services', href: '/services/' },
                     { label: 'Major Ship Repair Projects', href: '/major-ship-repair/' }
                 ]}
+                image="/images/major-repair/banner.webp"
             />
 
             <section className="py-20 lg:py-28 relative z-10 w-full min-w-full m-0 p-0 border-0 outline-none">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-                        <div>
-                            <h2 className="text-3xl font-bold text-white mb-6 font-plus-jakarta-sans">
-                                About Our Major Ship Repair Projects
-                            </h2>
-                            <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                                Extensive structural and mechanical ship repair projects undertaken globally. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia.
-                            </p>
-                            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                                Our highly trained technicians and marine engineers ensure that every project meets the highest international maritime standards. Whether it's emergency response at anchorage or routine maintenance, you can rely on our expertise.
-                            </p>
-                            
-                            <h3 className="text-xl font-bold text-white mb-4">Why Choose Leon International?</h3>
-                            <ul className="space-y-4 mb-8">
-                                {[
-                                    '50+ Years Maritime Experience',
-                                    '24/7 Fast Response Teams',
-                                    'ISO 9001:2008 & BV Certified',
-                                    'Global Supply Chain & Logistics'
-                                ].map((feature, i) => (
-                                    <li key={i} className="flex items-center text-gray-300">
-                                        <CheckCircle2 className="h-5 w-5 text-accent-500 mr-3 hidden sm:block" />
-                                        <span>{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
 
-                            <Link href="/quote/" className="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-400 text-white font-bold py-3 px-6 rounded-lg transition-colors">
-                                Request a Quote <ArrowRight className="h-4 w-4" />
-                            </Link>
-                        </div>
-                        
-                        <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
-                            {/* Standardizing the image across all for now */}
-                            <Image 
-                                src="https://images.unsplash.com/photo-1542317148-8bdfbc8cb8c9?q=80&w=1200"
-                                alt="Major Ship Repair Projects performed by Leon International Marine Engineers"
+                    {/* Intro Content */}
+                    <div className="max-w-4xl mb-16">
+                        <h2 className="text-3xl font-bold text-white mb-6 font-plus-jakarta-sans">
+                            Comprehensive Ship Repair Facilities in Karachi
+                        </h2>
+                        <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                            At Leon International, we pride ourselves on providing top-tier major ship repair operations. Our state-of-the-art facilities and highly skilled marine engineers are equipped to handle complex repairs, ensuring your vessels remain seaworthy and operationally efficient. We understand the critical importance of minimizing fleet downtime, and our services are designed to get your ships back on the water fast.
+                        </p>
+                    </div>
+
+                    {/* Image & Key Capabilities Split */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+                        <div className="relative h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(46,134,193,0.15)] border border-white/10 group">
+                            <Image
+                                src="/images/major-repair/service-1.webp"
+                                alt="Marine engineers operating advanced diagnostics on a major diesel propulsion engine"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary-950/90 via-transparent to-transparent" />
+                            <div className="absolute bottom-0 left-0 right-0 p-8">
+                                <p className="text-white font-bold text-xl drop-shadow-md">Precision Diagnostics & Mechanical Refits</p>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col gap-6">
+                            {/* Card 1 */}
+                            <div className="p-8 rounded-2xl bg-primary-900/40 border border-white/5 backdrop-blur-sm hover:bg-primary-900/60 hover:border-accent-500/30 transition-all duration-300 group">
+                                <div className="flex items-start gap-5">
+                                    <div className="p-3 bg-accent-500/10 rounded-lg text-accent-500 group-hover:bg-accent-500 group-hover:text-white transition-colors duration-300">
+                                        <Wrench className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-white mb-2">Marine Diesel Engine Repair</h3>
+                                        <p className="text-gray-400 text-sm leading-relaxed">Specialized breakdown and restoration services for heavy marine diesel engines. Our team rapidly identifies propulsion issues, executing overhauls with precision to extend the operational lifespan of your prime movers.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Card 2 */}
+                            <div className="p-8 rounded-2xl bg-primary-900/40 border border-white/5 backdrop-blur-sm hover:bg-primary-900/60 hover:border-accent-500/30 transition-all duration-300 group">
+                                <div className="flex items-start gap-5">
+                                    <div className="p-3 bg-ocean/10 rounded-lg text-ocean group-hover:bg-ocean group-hover:text-white transition-colors duration-300">
+                                        <ShieldAlert className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-white mb-2">Complex Structural Overhauls</h3>
+                                        <p className="text-gray-400 text-sm leading-relaxed">From localized hull damage to major steel renewals, we safely restore structural integrity. Every repair adheres to stringent international classification society standards and safety regulations.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Card 3 */}
+                            <div className="p-8 rounded-2xl bg-primary-900/40 border border-white/5 backdrop-blur-sm hover:bg-primary-900/60 hover:border-accent-500/30 transition-all duration-300 group">
+                                <div className="flex items-start gap-5">
+                                    <div className="p-3 bg-accent-500/10 rounded-lg text-accent-500 group-hover:bg-accent-500 group-hover:text-white transition-colors duration-300">
+                                        <FileSearch className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-white mb-2">Advanced Diagnostics & Maintenance</h3>
+                                        <p className="text-gray-400 text-sm leading-relaxed">Utilizing cutting-edge diagnostic equipment to isolate complex auxiliary machinery faults. We also offer expertly tailored preventive maintenance programs to keep your fleet in continuous, optimal condition.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Link href="/quote/" className="mt-4 inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-400 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-[0_0_20px_rgba(230,126,34,0.3)] hover:shadow-[0_0_30px_rgba(230,126,34,0.5)] self-start">
+                                Schedule an Inspection <ArrowRight className="h-5 w-5" />
+                            </Link>
                         </div>
                     </div>
 
-                    <div className="mt-24 pt-16 border-t border-white/10 w-full">
+                    {/* FAQ */}
+                    <div className="mt-24 pt-16 border-t border-white/10 w-full relative">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-950 px-4 text-white/20">
+                            <Wrench className="h-8 w-8" />
+                        </div>
                         <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
-                        <div className="max-w-4xl mx-auto space-y-6">
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">What major ship repair projects does Leon International offer?</h3>
-                                <p className="text-gray-300">Leon International provides comprehensive major ship repair projects for marine vessels and industrial clients at Karachi Port, Bin Qasim anchorage, and worldwide.</p>
-                            </div>
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">Does Leon International provide emergency major ship repair projects?</h3>
-                                <p className="text-gray-300">Yes, we offer 24/7 rapid response for emergency marine repairs and services.</p>
-                            </div>
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">Are your technicians certified?</h3>
-                                <p className="text-gray-300">Yes, our engineers and technicians are highly experienced and hold necessary class approvals (including BV, LR) for specialized marine engineering tasks.</p>
-                            </div>
-                            
+                        <div className="max-w-4xl mx-auto">
+                            <FaqAccordion faqs={[
+                                {
+                                    question: "Do you handle complete marine diesel engine breakdowns?",
+                                    answer: "Absolutely. Our expert teams are heavily trained in rapid response and overhaul for all primary marine diesel propulsion systems and auxiliary generators. We focus on diagnosing the root cause and repairing it swiftly to minimize your vessel's downtime."
+                                },
+                                {
+                                    question: "What types of structural repairs can your facilities perform?",
+                                    answer: "We perform comprehensive structural overhauls including major steel renewals, hull repairs after collision or grounding, and internal bulkhead restoration. All our structural work strictly follows the requirements of international classification societies."
+                                },
+                                {
+                                    question: "Does Leon International offer preventive maintenance programs?",
+                                    answer: "Yes, we highly recommend and provide tailored preventive maintenance schedules. By utilizing advanced diagnostics before a failure occurs, we can significantly extend the lifespan and improve the operating efficiency of your vessels."
+                                }
+                            ]} />
                         </div>
                     </div>
                 </div>

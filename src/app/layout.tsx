@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans, DM_Sans, Outfit } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
+import LayoutShell from "@/components/layout/LayoutShell";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -169,10 +167,7 @@ export default function RootLayout({
         className={`${inter.variable} ${plusJakartaSans.variable} ${dmSans.variable} ${outfit.variable} antialiased min-h-screen flex flex-col`}
       >
         <JsonLd data={organizationSchema} />
-        <Header />
-        <main className="flex-grow flex flex-col pt-20 lg:pt-24">{children}</main>
-        <Footer />
-        <WhatsAppFloat />
+        <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
   );

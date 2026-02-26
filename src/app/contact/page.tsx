@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import PageHero from '@/components/ui/PageHero';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import JsonLd from '@/components/JsonLd';
+import ContactForm from '@/components/forms/ContactForm';
 
 export const metadata: Metadata = {
     title: 'Contact Us | Leon International',
@@ -119,48 +120,7 @@ export default function ContactPage() {
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                         {/* Left Column: Contact Form */}
-                        <div className="bg-primary-900/50 p-8 rounded-2xl border border-white/5 shadow-xl">
-                            <h2 className="text-3xl font-bold text-white mb-6 font-plus-jakarta-sans">Send Us a Message</h2>
-                            <form className="space-y-6">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
-                                        <input type="text" id="name" className="w-full bg-primary-950/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-colors" placeholder="John Doe" />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
-                                        <input type="email" id="email" className="w-full bg-primary-950/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-colors" placeholder="john@company.com" />
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
-                                        <input type="tel" id="phone" className="w-full bg-primary-950/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-colors" placeholder="+1 234 567 890" />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">Company Name</label>
-                                        <input type="text" id="company" className="w-full bg-primary-950/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-colors" placeholder="Company Ltd." />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">Subject</label>
-                                    <select id="subject" className="w-full bg-primary-950/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-colors appearance-none">
-                                        <option>General Inquiry</option>
-                                        <option>Service Request</option>
-                                        <option>Parts Inquiry</option>
-                                        <option>Quote Request</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Message</label>
-                                    <textarea id="message" rows={5} className="w-full bg-primary-950/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-colors resize-none" placeholder="How can we help you?"></textarea>
-                                </div>
-                                <button type="button" className="w-full bg-accent-500 hover:bg-accent-400 text-white font-bold py-4 rounded-lg transition-colors shadow-lg">
-                                    Send Message
-                                </button>
-                            </form>
-                        </div>
+                        <ContactForm />
 
                         {/* Right Column: Contact Info */}
                         <div className="flex flex-col gap-8">

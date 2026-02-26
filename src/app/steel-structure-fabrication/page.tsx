@@ -2,7 +2,8 @@ import PageHero from '@/components/ui/PageHero';
 import QuickQuote from '@/components/sections/home/QuickQuote';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Wrench, Focus, ShieldCheck } from 'lucide-react';
+import FaqAccordion from '@/components/ui/FaqAccordion';
 
 export default function Page() {
     return (
@@ -14,72 +15,104 @@ export default function Page() {
                     { label: 'Services', href: '/services/' },
                     { label: 'Steel Structure Fabrication', href: '/steel-structure-fabrication/' }
                 ]}
+                image="/images/steel-structure/banner-v2.webp"
             />
 
             <section className="py-20 lg:py-28 relative z-10 w-full min-w-full m-0 p-0 border-0 outline-none">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-                        <div>
-                            <h2 className="text-3xl font-bold text-white mb-6 font-plus-jakarta-sans">
-                                About Our Steel Structure Fabrication
-                            </h2>
-                            <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                                Heavy steel renewal, pipe replacement, and custom marine structural fabrication. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia.
-                            </p>
-                            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                                Our highly trained technicians and marine engineers ensure that every project meets the highest international maritime standards. Whether it's emergency response at anchorage or routine maintenance, you can rely on our expertise.
-                            </p>
-                            
-                            <h3 className="text-xl font-bold text-white mb-4">Why Choose Leon International?</h3>
-                            <ul className="space-y-4 mb-8">
-                                {[
-                                    '50+ Years Maritime Experience',
-                                    '24/7 Fast Response Teams',
-                                    'ISO 9001:2008 & BV Certified',
-                                    'Global Supply Chain & Logistics'
-                                ].map((feature, i) => (
-                                    <li key={i} className="flex items-center text-gray-300">
-                                        <CheckCircle2 className="h-5 w-5 text-accent-500 mr-3 hidden sm:block" />
-                                        <span>{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
 
-                            <Link href="/quote/" className="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-400 text-white font-bold py-3 px-6 rounded-lg transition-colors">
-                                Request a Quote <ArrowRight className="h-4 w-4" />
-                            </Link>
-                        </div>
-                        
-                        <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
-                            {/* Standardizing the image across all for now */}
-                            <Image 
-                                src="https://images.unsplash.com/photo-1542317148-8bdfbc8cb8c9?q=80&w=1200"
-                                alt="Steel Structure Fabrication performed by Leon International Marine Engineers"
+                    {/* Intro Content */}
+                    <div className="max-w-4xl mb-16">
+                        <h2 className="text-3xl font-bold text-white mb-6 font-plus-jakarta-sans">
+                            Heavy-Duty Maritime Structural Integrity
+                        </h2>
+                        <p className="text-lg text-gray-300 leading-relaxed">
+                            A vessel's structural integrity is its first line of defense against the elements. At Leon International, we specialize in heavy steel renewal, intricate pipe replacement, and custom marine structural fabrication. Using top-tier BV-approved materials and strict internationally certified welding protocols, our specialized engineers restore your vessel's framework to peak condition—whether at Karachi Port, Bin Qasim anchorage, or offshore.
+                        </p>
+                    </div>
+
+                    {/* Image & Key Capabilities Split */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+                        <div className="relative h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(46,134,193,0.15)] border border-white/10 group">
+                            <Image
+                                src="/images/steel-structure/service-1.webp"
+                                alt="Marine structural engineer inspecting a massive heavy-duty steel hull plate weld"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary-950/90 via-transparent to-transparent" />
+                            <div className="absolute bottom-0 left-0 right-0 p-8">
+                                <p className="text-white font-bold text-xl drop-shadow-md">Precision Class-Approved Welding & Fitting</p>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col gap-6">
+                            {/* Card 1 */}
+                            <div className="p-8 rounded-2xl bg-primary-900/40 border border-white/5 backdrop-blur-sm hover:bg-primary-900/60 hover:border-accent-500/30 transition-all duration-300 group">
+                                <div className="flex items-start gap-5">
+                                    <div className="p-3 bg-accent-500/10 rounded-lg text-accent-500 group-hover:bg-accent-500 group-hover:text-white transition-colors duration-300">
+                                        <ShieldCheck className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-white mb-2">Heavy Steel Hull Renewal</h3>
+                                        <p className="text-gray-400 text-sm leading-relaxed">We execute massive steel plate replacements for damaged hulls, decks, and bulkheads. Every cut and weld is subjected to rigorous ultrasonic testing to guarantee absolute watertight integrity.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Card 2 */}
+                            <div className="p-8 rounded-2xl bg-primary-900/40 border border-white/5 backdrop-blur-sm hover:bg-primary-900/60 hover:border-accent-500/30 transition-all duration-300 group">
+                                <div className="flex items-start gap-5">
+                                    <div className="p-3 bg-ocean/10 rounded-lg text-ocean group-hover:bg-ocean group-hover:text-white transition-colors duration-300">
+                                        <Wrench className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-white mb-2">Marine Pipe Replacement</h3>
+                                        <p className="text-gray-400 text-sm leading-relaxed">Expert bending and high-pressure welding of vital ship piping networks. We handle hydraulic lines, seawater cooling systems, and critical fuel transfer pipes using marine-grade corrosion-resistant alloys.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Card 3 */}
+                            <div className="p-8 rounded-2xl bg-primary-900/40 border border-white/5 backdrop-blur-sm hover:bg-primary-900/60 hover:border-accent-500/30 transition-all duration-300 group">
+                                <div className="flex items-start gap-5">
+                                    <div className="p-3 bg-accent-500/10 rounded-lg text-accent-500 group-hover:bg-accent-500 group-hover:text-white transition-colors duration-300">
+                                        <Focus className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-white mb-2">Custom Mechanical Fabrication</h3>
+                                        <p className="text-gray-400 text-sm leading-relaxed">Manufacturing tailored mounting brackets, engine beds, and heavy-duty structural braces. Our CNC plasma cutting and fabrication workshops deliver exact tolerances for critical shipboard modifications.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Link href="/quote/" className="mt-4 inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-400 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-[0_0_20px_rgba(230,126,34,0.3)] hover:shadow-[0_0_30px_rgba(230,126,34,0.5)] self-start">
+                                Discuss Your Structural Project <ArrowRight className="h-5 w-5" />
+                            </Link>
                         </div>
                     </div>
 
-                    <div className="mt-24 pt-16 border-t border-white/10 w-full">
+                    {/* FAQ */}
+                    <div className="mt-24 pt-16 border-t border-white/10 w-full relative">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-950 px-4 text-white/20">
+                            <ShieldCheck className="h-8 w-8" />
+                        </div>
                         <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
-                        <div className="max-w-4xl mx-auto space-y-6">
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">What steel structure fabrication does Leon International offer?</h3>
-                                <p className="text-gray-300">Leon International provides comprehensive steel structure fabrication for marine vessels and industrial clients at Karachi Port, Bin Qasim anchorage, and worldwide.</p>
-                            </div>
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">Does Leon International provide emergency steel structure fabrication?</h3>
-                                <p className="text-gray-300">Yes, we offer 24/7 rapid response for emergency marine repairs and services.</p>
-                            </div>
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">Are your technicians certified?</h3>
-                                <p className="text-gray-300">Yes, our engineers and technicians are highly experienced and hold necessary class approvals (including BV, LR) for specialized marine engineering tasks.</p>
-                            </div>
-                            
+                        <div className="max-w-4xl mx-auto">
+                            <FaqAccordion faqs={[
+                                {
+                                    question: "How do you ensure the quality of heavy steel hull renewals?",
+                                    answer: "We use only marine-grade, class-approved steel plates. Every weld is conducted by certified professionals and is followed by rigorous Non-Destructive Testing (NDT), such as ultrasonic or radiographic screening, to ensure absolute watertight integrity and compliance with LR and BV standards."
+                                },
+                                {
+                                    question: "Can structural pipe replacement be done while the vessel is at anchorage?",
+                                    answer: "Yes, our mobile fabrication units are designed precisely for this. We deploy expert pipefitters and welders directly to your vessel at Karachi Port or Bin Qasim anchorage to cut, fit, and weld high-pressure marine pipe systems without needing a dry dock."
+                                },
+                                {
+                                    question: "Do you fabricate custom structural supports for auxiliary machinery?",
+                                    answer: "Absolutely. Our fabrication workshops use precision CNC cutting and heavy-duty press braking to manufacture custom engine beds, specialized mounting brackets, and structural braces tailored to the exact specifications of newly installed marine machinery."
+                                }
+                            ]} />
                         </div>
                     </div>
                 </div>

@@ -10,13 +10,15 @@ interface PageHeroProps {
     subtitle: string;
     bgClass?: string;
     breadcrumbs?: { label: string; href: string }[];
+    image?: string;
 }
 
 export default function PageHero({
     title,
     subtitle,
     bgClass = "bg-gradient-to-tr from-primary-950 via-navy to-ocean",
-    breadcrumbs
+    breadcrumbs,
+    image
 }: PageHeroProps) {
     const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
         "@context": "https://schema.org",
@@ -38,11 +40,20 @@ export default function PageHero({
     } : null;
 
     return (
-        <section className={`relative min-h-[40vh] py-20 lg:py-28 w-full overflow-hidden top-[-80px] lg:top-[-96px] mb-[-80px] lg:mb-[-96px] flex flex-col justify-end ${bgClass}`}>
+        <section className={`relative min-h-[40vh] py-20 lg:py-28 w-full overflow-hidden top-[-80px] lg:top-[-96px] mb-[-80px] lg:mb-[-96px] flex flex-col justify-end ${image ? 'bg-primary-950/80' : bgClass}`}>
+            {image && (
+                <div className="absolute inset-0 w-full h-full">
+                    <img
+                        src={image}
+                        alt={`${title} Background`}
+                        className="object-cover w-full h-full opacity-80"
+                    />
+                </div>
+            )}
             {breadcrumbSchema && <JsonLd data={breadcrumbSchema} />}
             {/* Background textures */}
             <div className="absolute inset-0 opacity-10 mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary-950 to-transparent opacity-80" />
+            <div className={`absolute inset-0 bg-gradient-to-t from-primary-950 to-transparent ${image ? 'opacity-40' : 'opacity-80'}`} />
 
             <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 w-full">
                 {breadcrumbs && breadcrumbs.length > 0 && (

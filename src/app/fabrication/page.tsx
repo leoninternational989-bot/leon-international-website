@@ -2,84 +2,117 @@ import PageHero from '@/components/ui/PageHero';
 import QuickQuote from '@/components/sections/home/QuickQuote';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Flame, Layers, Award } from 'lucide-react';
+import FaqAccordion from '@/components/ui/FaqAccordion';
 
 export default function Page() {
     return (
         <main className="bg-primary-950 min-h-screen">
             <PageHero
-                title="Steel Fabrication & Welding"
-                subtitle="BV-approved welding, steel structure fabrication, and custom buoy building by certified professionals."
+                title="Steel & Pipe Fabrication"
+                subtitle="Class-approved marine welding, structural steel fabrication, and custom engineering."
                 breadcrumbs={[
                     { label: 'Services', href: '/services/' },
                     { label: 'Steel Fabrication & Welding', href: '/fabrication/' }
                 ]}
+                image="/images/fabrication/banner.webp"
             />
 
             <section className="py-20 lg:py-28 relative z-10 w-full min-w-full m-0 p-0 border-0 outline-none">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-                        <div>
-                            <h2 className="text-3xl font-bold text-white mb-6 font-plus-jakarta-sans">
-                                About Our Steel Fabrication & Welding
-                            </h2>
-                            <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                                BV-approved welding, steel structure fabrication, and custom buoy building by certified professionals. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia.
-                            </p>
-                            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                                Our highly trained technicians and marine engineers ensure that every project meets the highest international maritime standards. Whether it's emergency response at anchorage or routine maintenance, you can rely on our expertise.
-                            </p>
-                            
-                            <h3 className="text-xl font-bold text-white mb-4">Why Choose Leon International?</h3>
-                            <ul className="space-y-4 mb-8">
-                                {[
-                                    '50+ Years Maritime Experience',
-                                    '24/7 Fast Response Teams',
-                                    'ISO 9001:2008 & BV Certified',
-                                    'Global Supply Chain & Logistics'
-                                ].map((feature, i) => (
-                                    <li key={i} className="flex items-center text-gray-300">
-                                        <CheckCircle2 className="h-5 w-5 text-accent-500 mr-3 hidden sm:block" />
-                                        <span>{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
 
-                            <Link href="/quote/" className="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-400 text-white font-bold py-3 px-6 rounded-lg transition-colors">
-                                Request a Quote <ArrowRight className="h-4 w-4" />
-                            </Link>
-                        </div>
-                        
-                        <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
-                            {/* Standardizing the image across all for now */}
-                            <Image 
-                                src="https://images.unsplash.com/photo-1542317148-8bdfbc8cb8c9?q=80&w=1200"
-                                alt="Steel Fabrication & Welding performed by Leon International Marine Engineers"
+                    {/* Intro Content */}
+                    <div className="max-w-4xl mb-16">
+                        <h2 className="text-3xl font-bold text-white mb-6 font-plus-jakarta-sans">
+                            Precision Marine Steel Engineering
+                        </h2>
+                        <p className="text-lg text-gray-300 leading-relaxed">
+                            Leon International operates a world-class steel and pipe fabrication facility in Karachi, backed by over 50 years of marine engineering expertise. From routine structural patches to massive custom buoy fabrications, our BV-approved technicians utilize state-of-the-art welding technology to deliver robust, class-compliant solutions for the global maritime industry.
+                        </p>
+                    </div>
+
+                    {/* Image & Key Capabilities Split */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+                        <div className="relative h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(46,134,193,0.15)] border border-white/10 group">
+                            <Image
+                                src="/images/fabrication/service-1.webp"
+                                alt="Certified marine engineers performing precision heavy-duty welding on a commercial vessel"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary-950/90 via-transparent to-transparent" />
+                            <div className="absolute bottom-0 left-0 right-0 p-8">
+                                <p className="text-white font-bold text-xl drop-shadow-md">Heavy-Duty Ship Structural Fabrication</p>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col gap-6">
+                            {/* Card 1 */}
+                            <div className="p-8 rounded-2xl bg-primary-900/40 border border-white/5 backdrop-blur-sm hover:bg-primary-900/60 hover:border-accent-500/30 transition-all duration-300 group">
+                                <div className="flex items-start gap-5">
+                                    <div className="p-3 bg-accent-500/10 rounded-lg text-accent-500 group-hover:bg-accent-500 group-hover:text-white transition-colors duration-300">
+                                        <Layers className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-white mb-2">Steel Structure & Plate Renewal</h3>
+                                        <p className="text-gray-400 text-sm leading-relaxed">Comprehensive steel renewals for vessel hulls, bulkheads, and decks. We handle everything from minor plating repairs to replacing multi-ton structural sections ensuring absolute seaworthiness.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Card 2 */}
+                            <div className="p-8 rounded-2xl bg-primary-900/40 border border-white/5 backdrop-blur-sm hover:bg-primary-900/60 hover:border-accent-500/30 transition-all duration-300 group">
+                                <div className="flex items-start gap-5">
+                                    <div className="p-3 bg-ocean/10 rounded-lg text-ocean group-hover:bg-ocean group-hover:text-white transition-colors duration-300">
+                                        <Flame className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-white mb-2">Industrial Pipe Fabrication</h3>
+                                        <p className="text-gray-400 text-sm leading-relaxed">Expert bending, threading, and high-pressure welding of complex marine piping systems including hydraulic lines, cooling/heating manifolds, and cargo pumping conduits.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Card 3 */}
+                            <div className="p-8 rounded-2xl bg-primary-900/40 border border-white/5 backdrop-blur-sm hover:bg-primary-900/60 hover:border-accent-500/30 transition-all duration-300 group">
+                                <div className="flex items-start gap-5">
+                                    <div className="p-3 bg-accent-500/10 rounded-lg text-accent-500 group-hover:bg-accent-500 group-hover:text-white transition-colors duration-300">
+                                        <Award className="h-6 w-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-white mb-2">Class-Approved Custom Welding</h3>
+                                        <p className="text-gray-400 text-sm leading-relaxed">All welding operations are executed strictly by BV and LR certified professionals. From custom mooring buoy fabrication to specialized mechanical casing repairs, we guarantee standard compliance.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Link href="/quote/" className="mt-4 inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-400 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-[0_0_20px_rgba(230,126,34,0.3)] hover:shadow-[0_0_30px_rgba(230,126,34,0.5)] self-start">
+                                Request a Fabrication Quote <ArrowRight className="h-5 w-5" />
+                            </Link>
                         </div>
                     </div>
 
-                    <div className="mt-24 pt-16 border-t border-white/10 w-full">
+                    {/* FAQ */}
+                    <div className="mt-24 pt-16 border-t border-white/10 w-full relative">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-950 px-4 text-white/20">
+                            <Flame className="h-8 w-8" />
+                        </div>
                         <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
-                        <div className="max-w-4xl mx-auto space-y-6">
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">What steel fabrication & welding does Leon International offer?</h3>
-                                <p className="text-gray-300">Leon International provides comprehensive steel fabrication & welding for marine vessels and industrial clients at Karachi Port, Bin Qasim anchorage, and worldwide.</p>
-                            </div>
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">Does Leon International provide emergency steel fabrication & welding?</h3>
-                                <p className="text-gray-300">Yes, we offer 24/7 rapid response for emergency marine repairs and services.</p>
-                            </div>
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">Are your technicians certified?</h3>
-                                <p className="text-gray-300">Yes, our engineers and technicians are highly experienced and hold necessary class approvals (including BV, LR) for specialized marine engineering tasks.</p>
-                            </div>
-                            
+                        <div className="max-w-4xl mx-auto">
+                            <FaqAccordion faqs={[
+                                {
+                                    question: "What types of metals do your fabricators work with?",
+                                    answer: "We specialize in heavy marine steel, stainless steel, aluminum, and various specialized alloys. Our fabrication workshops are fully equipped to cut, bend, thread, and weld these materials into precise ship structural components and heavy-duty piping."
+                                },
+                                {
+                                    question: "Are your welding services certified by international classification societies?",
+                                    answer: "Yes, absolute quality and safety compliance are our top priorities. All of our marine welders are highly experienced and hold necessary class approvals (including BV and LR) for specialized structural and pressure-grade welding."
+                                },
+                                {
+                                    question: "Do you offer emergency mobile welding for vessels at anchorage?",
+                                    answer: "Yes, we deploy 24/7 rapid response teams fully equipped with mobile welding generators and technical gear to perform critical steel and pipe repairs on vessels anchored at Bin Qasim, Karachi Port, or offshore."
+                                }
+                            ]} />
                         </div>
                     </div>
                 </div>
