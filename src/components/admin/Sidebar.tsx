@@ -4,13 +4,13 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase-browser';
 import { useUser } from '@/contexts/UserContext';
+import Image from 'next/image';
 import {
   LayoutDashboard,
   Mail,
   FileText,
   Settings,
   LogOut,
-  Anchor,
   X,
   Inbox,
   Users,
@@ -75,9 +75,15 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
       >
         {/* Brand */}
         <div className="flex items-center justify-between px-5 h-16 border-b border-white/10">
-          <Link href="/admin" className="flex items-center gap-3">
-            <Anchor className="h-6 w-6 text-[#E67E22]" />
-            <span className="text-white font-bold text-lg font-plus-jakarta-sans">Leon CRM</span>
+          <Link href="/admin" className="flex items-center gap-2">
+            <Image
+              src="/images/logo-transparent.png"
+              alt="Leon International"
+              width={36}
+              height={36}
+              className="object-contain"
+            />
+            <span className="text-white font-bold text-[15px] font-plus-jakarta-sans leading-tight">Leon CRM</span>
           </Link>
           <button onClick={onClose} className="lg:hidden text-gray-400 hover:text-white">
             <X className="h-5 w-5" />

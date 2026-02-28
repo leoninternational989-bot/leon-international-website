@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase-browser';
 import { useUser } from '@/contexts/UserContext';
-import { Mail, FileText, Clock, AlertTriangle, TrendingUp, ArrowUpRight, Inbox, MessageSquare, MailOpen } from 'lucide-react';
+import { Mail, FileText, Clock, AlertTriangle, TrendingUp, ArrowUpRight, Inbox, MessageSquare, MailOpen, HardDrive } from 'lucide-react';
 import { formatDate } from '@/lib/utils';
 import Link from 'next/link';
 import {
@@ -18,6 +18,11 @@ interface Stats {
   totalConversations: number;
   unreadMessages: number;
   openConversations: number;
+}
+
+interface StorageInfo {
+  count: number;
+  totalBytes: number;
 }
 
 interface RecentItem {
@@ -47,6 +52,7 @@ export default function DashboardPage() {
   const [recent, setRecent] = useState<RecentItem[]>([]);
   const [weekly, setWeekly] = useState<WeeklyData[]>([]);
   const [urgency, setUrgency] = useState<UrgencyItem[]>([]);
+  const [storage, setStorage] = useState<StorageInfo>({ count: 0, totalBytes: 0 });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -58,7 +64,7 @@ export default function DashboardPage() {
     const todayStart = new Date();
     todayStart.setHours(0, 0, 0, 0);
 
-    const [contactsRes, quotationsRes, contactsTodayRes, quotationsTodayRes, pendingContactsRes, pendingQuotationsRes, recentContactsRes, recentQuotationsRes, quotationsAllRes, conversationsRes, unreadConvRes, openConvRes] = await Promise.all([
+    const [contactsRes, quotationsRes, contactsTodayRes, quotationsTodayRes, pendingContactsRes, pendingQuotationsRes, recentContactsRes, recentQuotationsRes, quotationsAllRes, conversationsRes, unreadConvRes, openConvRes, storageRes] = await Promise.all([
       supabase.from('contacts').select('id', { count: 'exact', head: true }),
       supabase.from('quotations').select('id', { count: 'exact', head: true }),
       supabase.from('contacts').select('id', { count: 'exact', head: true }).gte('created_at', todayStart.toISOString()),
@@ -71,6 +77,7 @@ export default function DashboardPage() {
       supabase.from('conversations').select('id', { count: 'exact', head: true }),
       supabase.from('conversations').select('id', { count: 'exact', head: true }).gt('unread_count', 0),
       supabase.from('conversations').select('id', { count: 'exact', head: true }).in('status', ['open', 'assigned']),
+      supabase.from('attachments').select('file_size'),
     ]);
 
     setStats({
@@ -81,6 +88,13 @@ export default function DashboardPage() {
       totalConversations: conversationsRes.count || 0,
       unreadMessages: unreadConvRes.count || 0,
       openConversations: openConvRes.count || 0,
+    });
+
+    // Storage info
+    const storageData = storageRes.data || [];
+    setStorage({
+      count: storageData.length,
+      totalBytes: storageData.reduce((sum, a) => sum + (a.file_size || 0), 0),
     });
 
     // Merge recent
@@ -208,6 +222,40 @@ export default function DashboardPage() {
           )}
         </div>
       </div>
+
+      {/* Storage Usage */}
+      {isSuperAdmin && (() => {
+        const STORAGE_LIMIT = 1024 * 1024 * 1024; // 1 GB
+        const usedMB = Math.round((storage.totalBytes / 1024 / 1024) * 10) / 10;
+        const pct = Math.min(Math.round((storage.totalBytes / STORAGE_LIMIT) * 1000) / 10, 100);
+        const barColor = pct > 80 ? '#E74C3C' : pct > 50 ? '#E67E22' : '#2E86C1';
+        return (
+          <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-semibold text-gray-800 flex items-center gap-2">
+                <HardDrive className="h-4 w-4 text-gray-400" />
+                Storage Usage
+              </h3>
+              <span className="text-xs text-gray-500">
+                {storage.count} file{storage.count !== 1 ? 's' : ''}
+              </span>
+            </div>
+            <div className="flex items-end justify-between mb-2">
+              <span className="text-2xl font-bold text-gray-900">{usedMB} MB</span>
+              <span className="text-xs text-gray-400">/ 1 GB ({pct}%)</span>
+            </div>
+            <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden">
+              <div
+                className="h-full rounded-full transition-all duration-500"
+                style={{ width: `${Math.max(pct, 1)}%`, backgroundColor: barColor }}
+              />
+            </div>
+            {pct > 80 && (
+              <p className="text-xs text-red-500 mt-2">Storage is running low. Consider cleaning up old conversations.</p>
+            )}
+          </div>
+        );
+      })()}
 
       {/* Recent Submissions */}
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">

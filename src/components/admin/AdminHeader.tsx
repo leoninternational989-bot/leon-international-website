@@ -14,6 +14,25 @@ const pageTitles: Record<string, string> = {
   '/admin/settings': 'Settings',
 };
 
+// Map alias emails to panel names
+function getPanelName(role?: string, aliasEmail?: string): string {
+  if (role === 'super_admin') return 'Admin Panel';
+  if (!aliasEmail) return 'Admin Panel';
+
+  const prefix = aliasEmail.split('@')[0]?.toLowerCase();
+  switch (prefix) {
+    case 'sale': return 'Sales Panel';
+    case 'support': return 'Support Panel';
+    case 'info': return 'Info Panel';
+    case 'admin': return 'Admin Panel';
+    default: {
+      // Capitalize first letter for custom aliases (e.g., "hassan" → "Hassan Panel")
+      const name = prefix.charAt(0).toUpperCase() + prefix.slice(1);
+      return `${name} Panel`;
+    }
+  }
+}
+
 interface AdminHeaderProps {
   onMenuClick: () => void;
 }
@@ -22,6 +41,7 @@ export default function AdminHeader({ onMenuClick }: AdminHeaderProps) {
   const pathname = usePathname();
   const { user } = useUser();
   const title = pageTitles[pathname] || 'Admin';
+  const panelName = getPanelName(user?.role, user?.alias_email ?? undefined);
 
   const initial = user?.full_name?.charAt(0)?.toUpperCase() || 'A';
   const displayName = user?.full_name || 'Admin';
@@ -36,7 +56,12 @@ export default function AdminHeader({ onMenuClick }: AdminHeaderProps) {
         >
           <Menu className="h-5 w-5" />
         </button>
-        <h1 className="text-lg font-semibold text-gray-800 font-plus-jakarta-sans">{title}</h1>
+        <div className="flex items-center gap-2">
+          <h1 className="text-lg font-semibold text-gray-800 font-plus-jakarta-sans">{title}</h1>
+          <span className="hidden sm:inline-flex text-[10px] font-medium bg-[#0E2F44]/10 text-[#0E2F44] px-2 py-0.5 rounded-full">
+            {panelName}
+          </span>
+        </div>
       </div>
 
       <div className="flex items-center gap-3">
