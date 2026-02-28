@@ -234,6 +234,7 @@ async function processMessage(
       body_html: html,
       gmail_message_id: gmailMessageId,
       gmail_thread_id: gmailThreadId,
+      message_id_header: messageIdHeader || null,
       in_reply_to: inReplyTo || null,
       is_read: direction === 'outbound',
     })

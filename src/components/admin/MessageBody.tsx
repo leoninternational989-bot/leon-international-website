@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import DOMPurify from 'dompurify';
 
 interface MessageBodyProps {
@@ -13,6 +13,8 @@ const MAX_HEIGHT = 300;
 
 export default function MessageBody({ html, text, isOutbound }: MessageBodyProps) {
   const [expanded, setExpanded] = useState(false);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const sanitizedHtml = useMemo(() => {
     if (!html) return '';
@@ -22,6 +24,13 @@ export default function MessageBody({ html, text, isOutbound }: MessageBodyProps
       FORBID_TAGS: ['script', 'iframe', 'object', 'embed', 'form'],
     });
   }, [html]);
+
+  // Check if content overflows the max height
+  useEffect(() => {
+    if (contentRef.current) {
+      setIsOverflowing(contentRef.current.scrollHeight > MAX_HEIGHT);
+    }
+  }, [sanitizedHtml]);
 
   if (!html) {
     return (
@@ -34,10 +43,9 @@ export default function MessageBody({ html, text, isOutbound }: MessageBodyProps
   return (
     <div className="relative">
       <div
-        className={`overflow-hidden transition-all duration-200 ${
-          !expanded ? '' : ''
-        }`}
-        style={!expanded ? { maxHeight: `${MAX_HEIGHT}px` } : undefined}
+        ref={contentRef}
+        className="overflow-hidden transition-all duration-200"
+        style={!expanded && isOverflowing ? { maxHeight: `${MAX_HEIGHT}px` } : undefined}
       >
         <div
           className={`text-sm leading-relaxed prose prose-sm max-w-none break-words overflow-hidden
@@ -50,14 +58,14 @@ export default function MessageBody({ html, text, isOutbound }: MessageBodyProps
         />
       </div>
 
-      {/* Gradient fade + toggle */}
-      {!expanded && (
+      {/* Gradient fade + toggle — only when content overflows */}
+      {isOverflowing && !expanded && (
         <div
           className={`absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t ${
             isOutbound
               ? 'from-[#0E2F44] via-[#0E2F44]/80'
               : 'from-white via-white/80'
-          } to-transparent flex items-end justify-center pb-1 message-fade`}
+          } to-transparent flex items-end justify-center pb-1`}
         >
           <button
             onClick={() => setExpanded(true)}
@@ -72,7 +80,7 @@ export default function MessageBody({ html, text, isOutbound }: MessageBodyProps
         </div>
       )}
 
-      {expanded && (
+      {isOverflowing && expanded && (
         <button
           onClick={() => setExpanded(false)}
           className={`text-[11px] font-medium mt-2 ${

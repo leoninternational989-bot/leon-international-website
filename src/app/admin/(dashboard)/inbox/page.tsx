@@ -240,6 +240,7 @@ export default function InboxPage() {
             <ConversationThread
               conversationId={selectedId}
               onBack={() => setSelectedId(null)}
+              onRead={() => fetchConversations()}
             />
           ) : (
             <div className="flex-1 flex items-center justify-center text-gray-400">

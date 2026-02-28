@@ -40,11 +40,12 @@ interface Conversation {
 interface ConversationThreadProps {
   conversationId: string;
   onBack: () => void;
+  onRead?: () => void;
 }
 
 const STATUS_OPTIONS = ['open', 'assigned', 'resolved', 'closed'];
 
-export default function ConversationThread({ conversationId, onBack }: ConversationThreadProps) {
+export default function ConversationThread({ conversationId, onBack, onRead }: ConversationThreadProps) {
   const { user } = useUser();
   const [conversation, setConversation] = useState<Conversation | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -84,6 +85,9 @@ export default function ConversationThread({ conversationId, onBack }: Conversat
         .from('conversations')
         .update({ unread_count: 0 })
         .eq('id', conversationId);
+
+      // Notify parent to refresh conversation list (clears badge)
+      onRead?.();
     }
   }
 
@@ -131,6 +135,13 @@ export default function ConversationThread({ conversationId, onBack }: Conversat
                 .from('messages')
                 .update({ is_read: true })
                 .eq('id', data.id);
+
+              await supabase
+                .from('conversations')
+                .update({ unread_count: 0 })
+                .eq('id', conversationId);
+
+              onRead?.();
             }
           }
         }
