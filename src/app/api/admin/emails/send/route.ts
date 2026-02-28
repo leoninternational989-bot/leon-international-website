@@ -3,10 +3,6 @@ import { createClient } from '@supabase/supabase-js';
 import { createClient as createServerClient } from '@/lib/supabase-server';
 import { sendGmailEmail, gmail, getHeader } from '@/lib/gmail';
 
-// Allow up to 25MB request body for attachments (Gmail's limit is 25MB)
-export const maxDuration = 30;
-
-
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!

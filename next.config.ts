@@ -2,12 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
-  serverExternalPackages: [],
-  experimental: {
-    serverActions: {
-      bodySizeLimit: '25mb',
-    },
-  },
   images: {
     remotePatterns: [
       {
