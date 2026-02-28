@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Conversation not found' }, { status: 404 });
     }
 
-    // Get the last message for threading
+    // Get the last message for subject/threadId
     const { data: lastMessage } = await supabaseAdmin
       .from('messages')
       .select('gmail_message_id, gmail_thread_id, message_id_header, subject')
@@ -42,6 +42,18 @@ export async function POST(request: NextRequest) {
       .order('created_at', { ascending: false })
       .limit(1)
       .single();
+
+    // Find the most recent message with a valid RFC Message-ID (for In-Reply-To/References)
+    const { data: lastWithMsgId } = await supabaseAdmin
+      .from('messages')
+      .select('message_id_header')
+      .eq('conversation_id', conversationId)
+      .not('message_id_header', 'is', null)
+      .order('created_at', { ascending: false })
+      .limit(1)
+      .single();
+
+    const inReplyToHeader = lastWithMsgId?.message_id_header || undefined;
 
     // Strip existing Re:/Fwd: prefixes to avoid "Re: Re: Re:" stacking
     const baseSubject = (lastMessage?.subject || conversation.subject || '').replace(/^(Re:\s*|Fwd:\s*)+/i, '');
@@ -65,19 +77,19 @@ export async function POST(request: NextRequest) {
     }
 
     // Send via Gmail API
-    const { messageId, threadId } = await sendGmailEmail({
+    const { messageId, threadId, rfc822MessageId } = await sendGmailEmail({
       from: aliasEmail,
       fromName: aliasName,
       to: conversation.external_email,
       subject: replySubject,
       bodyHtml,
       bodyText,
-      inReplyTo: lastMessage?.message_id_header || undefined,
+      inReplyTo: inReplyToHeader,
       threadId: lastMessage?.gmail_thread_id || undefined,
       attachments,
     });
 
-    // Save message to database
+    // Save message to database (including RFC Message-ID for future threading)
     const { data: newMsg, error: msgError } = await supabaseAdmin
       .from('messages')
       .insert({
@@ -91,7 +103,8 @@ export async function POST(request: NextRequest) {
         body_html: bodyHtml,
         gmail_message_id: messageId,
         gmail_thread_id: threadId,
-        in_reply_to: lastMessage?.message_id_header || null,
+        message_id_header: rfc822MessageId || null,
+        in_reply_to: inReplyToHeader || null,
         is_read: true,
         sent_by_user: user.id,
       })

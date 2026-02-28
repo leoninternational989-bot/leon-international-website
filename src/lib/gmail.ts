@@ -185,7 +185,7 @@ export async function sendGmailEmail(params: {
   inReplyTo?: string;
   threadId?: string;
   attachments?: Array<{ filename: string; mimeType: string; content: Buffer }>;
-}): Promise<{ messageId: string; threadId: string }> {
+}): Promise<{ messageId: string; threadId: string; rfc822MessageId: string }> {
   const fromHeader = params.fromName
     ? `${params.fromName} <${params.from}>`
     : params.from;
@@ -259,8 +259,25 @@ export async function sendGmailEmail(params: {
     },
   });
 
+  // Fetch the sent message to get its RFC 822 Message-ID header
+  let rfc822MessageId = '';
+  if (res.data.id) {
+    try {
+      const sent = await gmail.users.messages.get({
+        userId: 'me',
+        id: res.data.id,
+        format: 'metadata',
+        metadataHeaders: ['Message-ID'],
+      });
+      rfc822MessageId = getHeader(sent.data.payload?.headers, 'Message-ID');
+    } catch {
+      // Non-critical: threading will still work via threadId
+    }
+  }
+
   return {
     messageId: res.data.id || '',
     threadId: res.data.threadId || '',
+    rfc822MessageId,
   };
 }

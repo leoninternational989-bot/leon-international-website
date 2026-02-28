@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send via Gmail API
-    const { messageId, threadId } = await sendGmailEmail({
+    const { messageId, threadId, rfc822MessageId } = await sendGmailEmail({
       from: alias.alias_email,
       fromName: alias.display_name,
       to,
@@ -78,6 +78,7 @@ export async function POST(request: NextRequest) {
         body_html: bodyHtml,
         gmail_message_id: messageId,
         gmail_thread_id: threadId,
+        message_id_header: rfc822MessageId || null,
         is_read: true,
         sent_by_user: user.id,
       })
