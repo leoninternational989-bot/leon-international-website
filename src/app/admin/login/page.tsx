@@ -65,7 +65,7 @@ export default function AdminLoginPage() {
         {/* Logo */}
         <div className="relative w-64 h-24 mb-10 drop-shadow-2xl">
           <Image
-            src="/images/logo.png"
+            src="/images/logo-transparent.png"
             alt="Leon International Logo"
             fill
             className="object-contain"
