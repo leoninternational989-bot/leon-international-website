@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { supabase } from '@/lib/supabase';
+import { createClient } from '@supabase/supabase-js';
 import { generateEmailTemplate } from '@/lib/email-template';
+
+const supabaseAdmin = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
 
 const GMAIL_USER = process.env.Gmail_User!;
 const GMAIL_APP_PASSWORD = process.env.Gmail_APP_Password!;
@@ -90,14 +96,14 @@ export async function POST(request: NextRequest) {
     };
 
     // Save to Supabase
-    const { error: dbError } = await supabase.from('contacts').insert({
+    const { data: contactData, error: dbError } = await supabase.from('contacts').insert({
       name: trimmed.name,
       email: trimmed.email,
       phone: trimmed.phone,
       company: trimmed.company,
       subject: trimmed.subject,
       message: trimmed.message,
-    });
+    }).select('id').single();
 
     if (dbError) {
       console.error('Supabase error:', dbError);
@@ -105,6 +111,48 @@ export async function POST(request: NextRequest) {
         { success: false, message: 'Failed to save your inquiry. Please try again.' },
         { status: 500 }
       );
+    }
+
+    // Auto-create conversation for the email system
+    try {
+      const { data: adminAlias } = await supabaseAdmin
+        .from('email_aliases')
+        .select('id')
+        .eq('alias_email', 'admin@leon-international.com')
+        .single();
+
+      if (adminAlias) {
+        const { data: conv } = await supabaseAdmin
+          .from('conversations')
+          .upsert({
+            alias_id: adminAlias.id,
+            external_email: trimmed.email,
+            external_name: trimmed.name,
+            subject: `Contact: ${trimmed.subject}`,
+            status: 'open',
+            source: 'contact_form',
+            contact_id: contactData?.id || null,
+            unread_count: 1,
+          }, { onConflict: 'alias_id,external_email' })
+          .select('id')
+          .single();
+
+        if (conv) {
+          await supabaseAdmin.from('messages').insert({
+            conversation_id: conv.id,
+            direction: 'inbound',
+            sender_email: trimmed.email,
+            sender_name: trimmed.name,
+            recipient_email: 'admin@leon-international.com',
+            subject: trimmed.subject,
+            body_text: trimmed.message,
+            body_html: `<p>${trimmed.message.replace(/\n/g, '<br>')}</p>`,
+            is_read: false,
+          });
+        }
+      }
+    } catch (convErr) {
+      console.error('Conversation creation error (non-fatal):', convErr);
     }
 
     // Build email sections

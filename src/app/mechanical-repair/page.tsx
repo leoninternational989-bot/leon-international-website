@@ -3,17 +3,19 @@ import QuickQuote from '@/components/sections/home/QuickQuote';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import FaqAccordion from '@/components/ui/FaqAccordion';
 
 export default function Page() {
     return (
         <main className="bg-primary-950 min-h-screen">
             <PageHero
-                title="Mechanical Repair & Engine Overhaul"
+                title="Mechanical Repair & Reconditioning"
                 subtitle="Comprehensive mechanical repairs including main engine overhauls, boiler repairs, and hydraulic systems."
                 breadcrumbs={[
                     { label: 'Services', href: '/services/' },
-                    { label: 'Mechanical Repair & Engine Overhaul', href: '/mechanical-repair/' }
+                    { label: 'Mechanical Repair & Reconditioning', href: '/mechanical-repair/' }
                 ]}
+                image="/images/mechanical-repair/banner.webp"
             />
 
             <section className="py-20 lg:py-28 relative z-10 w-full min-w-full m-0 p-0 border-0 outline-none">
@@ -21,15 +23,15 @@ export default function Page() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
                         <div>
                             <h2 className="text-3xl font-bold text-white mb-6 font-plus-jakarta-sans">
-                                About Our Mechanical Repair & Engine Overhaul
+                                About Our Mechanical Repair & Reconditioning
                             </h2>
                             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                                Comprehensive mechanical repairs including main engine overhauls, boiler repairs, and hydraulic systems. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia.
+                                We offer comprehensive mechanical repair and reconditioning services to keep your machinery operating at peak performance. Leon International provides class-approved solutions including main engine overhauls, boiler repairs, and precise component reconditioning to ship owners, managers, and offshore industrial operators worldwide.
                             </p>
                             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                                 Our highly trained technicians and marine engineers ensure that every project meets the highest international maritime standards. Whether it's emergency response at anchorage or routine maintenance, you can rely on our expertise.
                             </p>
-                            
+
                             <h3 className="text-xl font-bold text-white mb-4">Why Choose Leon International?</h3>
                             <ul className="space-y-4 mb-8">
                                 {[
@@ -49,12 +51,11 @@ export default function Page() {
                                 Request a Quote <ArrowRight className="h-4 w-4" />
                             </Link>
                         </div>
-                        
+
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
-                            {/* Standardizing the image across all for now */}
-                            <Image 
-                                src="https://images.unsplash.com/photo-1542317148-8bdfbc8cb8c9?q=80&w=1200"
-                                alt="Mechanical Repair & Engine Overhaul performed by Leon International Marine Engineers"
+                            <Image
+                                src="/images/mechanical-repair/component.webp"
+                                alt="Mechanical Repair & Reconditioning performed by Leon International Marine Engineers"
                                 fill
                                 className="object-cover"
                             />
@@ -63,23 +64,21 @@ export default function Page() {
 
                     <div className="mt-24 pt-16 border-t border-white/10 w-full">
                         <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
-                        <div className="max-w-4xl mx-auto space-y-6">
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">What mechanical repair & engine overhaul does Leon International offer?</h3>
-                                <p className="text-gray-300">Leon International provides comprehensive mechanical repair & engine overhaul for marine vessels and industrial clients at Karachi Port, Bin Qasim anchorage, and worldwide.</p>
-                            </div>
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">Does Leon International provide emergency mechanical repair & engine overhaul?</h3>
-                                <p className="text-gray-300">Yes, we offer 24/7 rapid response for emergency marine repairs and services.</p>
-                            </div>
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">Are your technicians certified?</h3>
-                                <p className="text-gray-300">Yes, our engineers and technicians are highly experienced and hold necessary class approvals (including BV, LR) for specialized marine engineering tasks.</p>
-                            </div>
-                            
+                        <div className="max-w-4xl mx-auto">
+                            <FaqAccordion faqs={[
+                                {
+                                    question: "What mechanical repair & reconditioning does Leon International offer?",
+                                    answer: "Leon International provides comprehensive mechanical repair and reconditioning for marine vessels and industrial clients at Karachi Port, Bin Qasim anchorage, and worldwide."
+                                },
+                                {
+                                    question: "Does Leon International provide emergency mechanical repair?",
+                                    answer: "Yes, we offer 24/7 rapid response for emergency marine mechanical repairs and component reconditioning services."
+                                },
+                                {
+                                    question: "Are your technicians certified?",
+                                    answer: "Yes, our engineers and technicians are highly experienced and hold necessary class approvals (including BV, LR) for specialized marine engineering tasks."
+                                }
+                            ]} />
                         </div>
                     </div>
                 </div>

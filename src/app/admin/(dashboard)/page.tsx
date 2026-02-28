@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase-browser';
-import { Mail, FileText, Clock, AlertTriangle, TrendingUp, ArrowUpRight } from 'lucide-react';
+import { useUser } from '@/contexts/UserContext';
+import { Mail, FileText, Clock, AlertTriangle, TrendingUp, ArrowUpRight, Inbox, MessageSquare, MailOpen } from 'lucide-react';
 import { formatDate } from '@/lib/utils';
 import Link from 'next/link';
 import {
@@ -14,6 +15,9 @@ interface Stats {
   totalQuotations: number;
   newToday: number;
   pendingActions: number;
+  totalConversations: number;
+  unreadMessages: number;
+  openConversations: number;
 }
 
 interface RecentItem {
@@ -38,7 +42,8 @@ interface UrgencyItem {
 }
 
 export default function DashboardPage() {
-  const [stats, setStats] = useState<Stats>({ totalContacts: 0, totalQuotations: 0, newToday: 0, pendingActions: 0 });
+  const { user, isSuperAdmin } = useUser();
+  const [stats, setStats] = useState<Stats>({ totalContacts: 0, totalQuotations: 0, newToday: 0, pendingActions: 0, totalConversations: 0, unreadMessages: 0, openConversations: 0 });
   const [recent, setRecent] = useState<RecentItem[]>([]);
   const [weekly, setWeekly] = useState<WeeklyData[]>([]);
   const [urgency, setUrgency] = useState<UrgencyItem[]>([]);
@@ -46,14 +51,14 @@ export default function DashboardPage() {
 
   useEffect(() => {
     loadDashboard();
-  }, []);
+  }, [user]);
 
   async function loadDashboard() {
     const supabase = createClient();
     const todayStart = new Date();
     todayStart.setHours(0, 0, 0, 0);
 
-    const [contactsRes, quotationsRes, contactsTodayRes, quotationsTodayRes, pendingContactsRes, pendingQuotationsRes, recentContactsRes, recentQuotationsRes, quotationsAllRes] = await Promise.all([
+    const [contactsRes, quotationsRes, contactsTodayRes, quotationsTodayRes, pendingContactsRes, pendingQuotationsRes, recentContactsRes, recentQuotationsRes, quotationsAllRes, conversationsRes, unreadConvRes, openConvRes] = await Promise.all([
       supabase.from('contacts').select('id', { count: 'exact', head: true }),
       supabase.from('quotations').select('id', { count: 'exact', head: true }),
       supabase.from('contacts').select('id', { count: 'exact', head: true }).gte('created_at', todayStart.toISOString()),
@@ -63,6 +68,9 @@ export default function DashboardPage() {
       supabase.from('contacts').select('id, name, subject, status, created_at').order('created_at', { ascending: false }).limit(5),
       supabase.from('quotations').select('id, name, request_type, status, created_at').order('created_at', { ascending: false }).limit(5),
       supabase.from('quotations').select('urgency'),
+      supabase.from('conversations').select('id', { count: 'exact', head: true }),
+      supabase.from('conversations').select('id', { count: 'exact', head: true }).gt('unread_count', 0),
+      supabase.from('conversations').select('id', { count: 'exact', head: true }).in('status', ['open', 'assigned']),
     ]);
 
     setStats({
@@ -70,6 +78,9 @@ export default function DashboardPage() {
       totalQuotations: quotationsRes.count || 0,
       newToday: (contactsTodayRes.count || 0) + (quotationsTodayRes.count || 0),
       pendingActions: (pendingContactsRes.count || 0) + (pendingQuotationsRes.count || 0),
+      totalConversations: conversationsRes.count || 0,
+      unreadMessages: unreadConvRes.count || 0,
+      openConversations: openConvRes.count || 0,
     });
 
     // Merge recent
@@ -125,6 +136,9 @@ export default function DashboardPage() {
     { label: 'Total Quotations', value: stats.totalQuotations, icon: FileText, color: 'text-purple-600', bg: 'bg-purple-50' },
     { label: 'New Today', value: stats.newToday, icon: TrendingUp, color: 'text-green-600', bg: 'bg-green-50' },
     { label: 'Pending Actions', value: stats.pendingActions, icon: Clock, color: 'text-amber-600', bg: 'bg-amber-50' },
+    { label: 'Conversations', value: stats.totalConversations, icon: MessageSquare, color: 'text-cyan-600', bg: 'bg-cyan-50' },
+    { label: 'Unread', value: stats.unreadMessages, icon: MailOpen, color: 'text-red-600', bg: 'bg-red-50' },
+    { label: 'Open Threads', value: stats.openConversations, icon: Inbox, color: 'text-teal-600', bg: 'bg-teal-50' },
   ];
 
   const totalUrgency = urgency.reduce((s, u) => s + u.count, 0);

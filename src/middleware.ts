@@ -1,6 +1,9 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
+// Routes restricted to super_admin only
+const SUPER_ADMIN_ROUTES = ['/admin/users'];
+
 export async function middleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
@@ -44,6 +47,21 @@ export async function middleware(request: NextRequest) {
     const url = request.nextUrl.clone();
     url.pathname = '/admin';
     return NextResponse.redirect(url);
+  }
+
+  // Role-based protection for super_admin-only routes
+  if (user && SUPER_ADMIN_ROUTES.some((r) => request.nextUrl.pathname.startsWith(r))) {
+    const { data: crmUser } = await supabase
+      .from('crm_users')
+      .select('role')
+      .eq('id', user.id)
+      .single();
+
+    if (crmUser?.role !== 'super_admin') {
+      const url = request.nextUrl.clone();
+      url.pathname = '/admin';
+      return NextResponse.redirect(url);
+    }
   }
 
   return supabaseResponse;

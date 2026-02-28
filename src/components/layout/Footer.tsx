@@ -86,7 +86,7 @@ export default function Footer() {
                                 <ul role="list" className="mt-6 space-y-4 text-sm leading-6">
                                     <li className="flex items-start gap-3">
                                         <span className="font-semibold text-white">HQ:</span>
-                                        <span>Plot#122-C, Keamari Township,<br />Keamari, Karachi-75260, Pakistan</span>
+                                        <span>C-102 Block 4 Gulshan-E-Iqbal<br />Karachi, Pakistan</span>
                                     </li>
                                     <li className="flex gap-3">
                                         <span className="font-semibold text-white">Phone:</span>
@@ -95,10 +95,6 @@ export default function Footer() {
                                     <li className="flex gap-3">
                                         <span className="font-semibold text-white">Email:</span>
                                         <a href="mailto:info@leon-international.com" className="hover:text-accent-200 transition-colors">info@leon-international.com</a>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <span className="font-semibold text-white">24/7 Ops:</span>
-                                        <a href="mailto:ops@leon-international.com" className="hover:text-accent-200 transition-colors">ops@leon-international.com</a>
                                     </li>
                                 </ul>
                             </div>

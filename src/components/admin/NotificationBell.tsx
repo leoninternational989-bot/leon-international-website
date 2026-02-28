@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Bell } from 'lucide-react';
+import { Bell, Mail, FileText, Inbox } from 'lucide-react';
 import { createClient } from '@/lib/supabase-browser';
 import { formatDistanceToNow } from '@/lib/utils';
 
@@ -111,11 +111,17 @@ export default function NotificationBell() {
                   }`}
                 >
                   <div className="flex items-start gap-3">
-                    <div
-                      className={`mt-1 w-2 h-2 rounded-full shrink-0 ${
-                        n.is_read ? 'bg-transparent' : 'bg-[#E67E22]'
-                      }`}
-                    />
+                    <div className="mt-0.5 shrink-0">
+                      {n.type === 'email' ? (
+                        <Inbox className={`h-4 w-4 ${n.is_read ? 'text-gray-300' : 'text-[#2E86C1]'}`} />
+                      ) : n.type === 'contact' ? (
+                        <Mail className={`h-4 w-4 ${n.is_read ? 'text-gray-300' : 'text-[#E67E22]'}`} />
+                      ) : n.type === 'quotation' ? (
+                        <FileText className={`h-4 w-4 ${n.is_read ? 'text-gray-300' : 'text-purple-500'}`} />
+                      ) : (
+                        <div className={`w-2 h-2 rounded-full ${n.is_read ? 'bg-transparent' : 'bg-[#E67E22]'}`} />
+                      )}
+                    </div>
                     <div className="min-w-0">
                       <p className="text-sm font-medium text-gray-800 truncate">{n.title}</p>
                       <p className="text-xs text-gray-500 mt-0.5 truncate">{n.message}</p>

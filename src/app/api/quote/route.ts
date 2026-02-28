@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { supabase } from '@/lib/supabase';
+import { createClient } from '@supabase/supabase-js';
 import { generateEmailTemplate } from '@/lib/email-template';
+
+const supabaseAdmin = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
 
 const GMAIL_USER = process.env.Gmail_User!;
 const GMAIL_APP_PASSWORD = process.env.Gmail_APP_Password!;
@@ -88,7 +94,7 @@ export async function POST(request: NextRequest) {
     };
 
     // Save to Supabase
-    const { error: dbError } = await supabase.from('quotations').insert(trimmed);
+    const { data: quoteData, error: dbError } = await supabase.from('quotations').insert(trimmed).select('id').single();
 
     if (dbError) {
       console.error('Supabase error:', dbError);
@@ -98,11 +104,63 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Build email sections
+    // Build type label (needed for both conversation and email)
     const typeLabel =
       trimmed.request_type === 'service' ? 'Marine Services' :
       trimmed.request_type === 'parts' ? 'Spare Parts' : 'Both Services & Parts';
 
+    // Auto-create conversation for the email system
+    try {
+      const { data: adminAlias } = await supabaseAdmin
+        .from('email_aliases')
+        .select('id')
+        .eq('alias_email', 'admin@leon-international.com')
+        .single();
+
+      if (adminAlias) {
+        const { data: conv } = await supabaseAdmin
+          .from('conversations')
+          .upsert({
+            alias_id: adminAlias.id,
+            external_email: trimmed.email,
+            external_name: trimmed.name,
+            subject: `Quote: ${typeLabel} — ${trimmed.company}`,
+            status: 'open',
+            source: 'quote_form',
+            quotation_id: quoteData?.id || null,
+            unread_count: 1,
+          }, { onConflict: 'alias_id,external_email' })
+          .select('id')
+          .single();
+
+        if (conv) {
+          const msgBody = [
+            `Quotation request from ${trimmed.name} (${trimmed.company})`,
+            `Type: ${typeLabel}`,
+            `Urgency: ${trimmed.urgency}`,
+            trimmed.part_description ? `Parts: ${trimmed.part_description}` : '',
+            trimmed.service_category ? `Service: ${trimmed.service_category}` : '',
+            trimmed.additional_notes ? `Notes: ${trimmed.additional_notes}` : '',
+          ].filter(Boolean).join('\n');
+
+          await supabaseAdmin.from('messages').insert({
+            conversation_id: conv.id,
+            direction: 'inbound',
+            sender_email: trimmed.email,
+            sender_name: trimmed.name,
+            recipient_email: 'admin@leon-international.com',
+            subject: `Quote: ${typeLabel}`,
+            body_text: msgBody,
+            body_html: `<p>${msgBody.replace(/\n/g, '<br>')}</p>`,
+            is_read: false,
+          });
+        }
+      }
+    } catch (convErr) {
+      console.error('Conversation creation error (non-fatal):', convErr);
+    }
+
+    // Build email sections
     const sections = [
       { label: 'Name', value: trimmed.name },
       { label: 'Company', value: trimmed.company },

@@ -1,13 +1,16 @@
 'use client';
 
-import { Menu, Bell } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import NotificationBell from './NotificationBell';
+import { useUser } from '@/contexts/UserContext';
 
 const pageTitles: Record<string, string> = {
   '/admin': 'Dashboard',
+  '/admin/inbox': 'Inbox',
   '/admin/contacts': 'Contact Inquiries',
   '/admin/quotations': 'Quotation Requests',
+  '/admin/users': 'User Management',
   '/admin/settings': 'Settings',
 };
 
@@ -17,7 +20,12 @@ interface AdminHeaderProps {
 
 export default function AdminHeader({ onMenuClick }: AdminHeaderProps) {
   const pathname = usePathname();
+  const { user } = useUser();
   const title = pageTitles[pathname] || 'Admin';
+
+  const initial = user?.full_name?.charAt(0)?.toUpperCase() || 'A';
+  const displayName = user?.full_name || 'Admin';
+  const roleLabel = user?.role?.replace('_', ' ') || '';
 
   return (
     <header className="sticky top-0 z-30 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 shadow-sm">
@@ -35,9 +43,14 @@ export default function AdminHeader({ onMenuClick }: AdminHeaderProps) {
         <NotificationBell />
         <div className="hidden sm:flex items-center gap-2 pl-3 border-l border-gray-200">
           <div className="w-8 h-8 rounded-full bg-[#0E2F44] flex items-center justify-center text-white text-xs font-bold">
-            A
+            {initial}
           </div>
-          <span className="text-sm font-medium text-gray-700">Admin</span>
+          <div className="flex flex-col">
+            <span className="text-sm font-medium text-gray-700 leading-tight">{displayName}</span>
+            {roleLabel && (
+              <span className="text-[10px] text-gray-400 capitalize leading-tight">{roleLabel}</span>
+            )}
+          </div>
         </div>
       </div>
     </header>

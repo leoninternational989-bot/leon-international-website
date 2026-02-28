@@ -6,7 +6,7 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 const locations = [
     {
         country: 'Pakistan (Headquarters)',
-        address: 'Plot#122-C, Keamari Township, Keamari, Karachi-75260',
+        address: 'C-102 Block 4 Gulshan-E-Iqbal Karachi',
         phone: '+92 313 2277773',
         email: 'info@leon-international.com',
         flag: '🇵🇰',

@@ -41,14 +41,14 @@ export function generateEmailTemplate(options: EmailTemplateOptions): string {
         </thead>
         <tbody>
           ${sections
-            .map(
-              (s, i) => `
+      .map(
+        (s, i) => `
           <tr>
             <td style="padding: 11px 16px; font-size: 13px; font-weight: 600; color: #1A5276; background-color: ${i % 2 === 0 ? '#F7FBFE' : '#ffffff'}; border-bottom: 1px solid #EBF5FB; vertical-align: top;">${s.label}</td>
             <td style="padding: 11px 16px; font-size: 14px; color: #1a2332; line-height: 1.6; background-color: ${i % 2 === 0 ? '#F7FBFE' : '#ffffff'}; border-bottom: 1px solid #EBF5FB; vertical-align: top;">${s.value}</td>
           </tr>`
-            )
-            .join('')}
+      )
+      .join('')}
         </tbody>
       </table>`
     : '';
@@ -124,7 +124,7 @@ export function generateEmailTemplate(options: EmailTemplateOptions): string {
           <tr>
             <td style="background-color: #0E2F44; padding: 24px 36px; border-radius: 0 0 12px 12px; text-align: center;">
               <p style="margin: 0 0 4px 0; font-size: 13px; color: #AED6F1;">Leon International &mdash; Marine Engineering & Ship Spare Parts</p>
-              <p style="margin: 0 0 12px 0; font-size: 12px; color: #5D6D7E;">Plot #122-C, Keamari Township, Karachi, Pakistan</p>
+              <p style="margin: 0 0 12px 0; font-size: 12px; color: #5D6D7E;">C-102 Block 4 Gulshan-E-Iqbal Karachi, Pakistan</p>
               <div style="border-top: 1px solid #1A5276; padding-top: 12px;">
                 <a href="https://leoninternational.com" style="font-size: 12px; color: #E67E22; text-decoration: none; font-weight: 600;">leoninternational.com</a>
                 <span style="color: #1A5276; margin: 0 8px;">&bull;</span>

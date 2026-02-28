@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase-browser';
+import { useUser } from '@/contexts/UserContext';
 import {
   LayoutDashboard,
   Mail,
@@ -11,12 +12,23 @@ import {
   LogOut,
   Anchor,
   X,
+  Inbox,
+  Users,
 } from 'lucide-react';
 
-const navItems = [
+interface NavItem {
+  label: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+  superAdminOnly?: boolean;
+}
+
+const navItems: NavItem[] = [
   { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+  { label: 'Inbox', href: '/admin/inbox', icon: Inbox },
   { label: 'Contacts', href: '/admin/contacts', icon: Mail },
   { label: 'Quotations', href: '/admin/quotations', icon: FileText },
+  { label: 'Users', href: '/admin/users', icon: Users, superAdminOnly: true },
   { label: 'Settings', href: '/admin/settings', icon: Settings },
 ];
 
@@ -28,6 +40,7 @@ interface SidebarProps {
 export default function Sidebar({ open, onClose }: SidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
+  const { isSuperAdmin } = useUser();
 
   function isActive(href: string) {
     if (href === '/admin') return pathname === '/admin';
@@ -40,6 +53,10 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
     router.push('/admin/login');
     router.refresh();
   }
+
+  const visibleItems = navItems.filter(
+    (item) => !item.superAdminOnly || isSuperAdmin
+  );
 
   return (
     <>
@@ -69,7 +86,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
         {/* Navigation */}
         <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
-          {navItems.map((item) => {
+          {visibleItems.map((item) => {
             const active = isActive(item.href);
             return (
               <Link

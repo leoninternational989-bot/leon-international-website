@@ -19,10 +19,9 @@ const localBusinessSchema = [
         "telephone": "+923132277773",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Plot#122-C, Keamari Township",
+            "streetAddress": "C-102 Block 4 Gulshan-E-Iqbal",
             "addressLocality": "Karachi",
             "addressRegion": "Sindh",
-            "postalCode": "75260",
             "addressCountry": "PK"
         },
         "url": "https://leoninternational.com/contact/"
@@ -32,7 +31,7 @@ const localBusinessSchema = [
         "@type": "LocalBusiness",
         "name": "Leon International - UAE Office",
         "image": "https://leoninternational.com/og/default.jpg",
-        "email": "shahzad@leon-international.com",
+        "email": "info@leon-international.com",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Office No: CWS-1V-223879, 26th Floor, Amber Gem Tower, Sheikh Khalifa Street",
@@ -46,7 +45,7 @@ const localBusinessSchema = [
         "@type": "LocalBusiness",
         "name": "Leon International - China Office",
         "image": "https://leoninternational.com/og/default.jpg",
-        "email": "china@leon-international.com",
+        "email": "info@leon-international.com",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "No. 29-4, Xinhuaqiang District",
@@ -61,7 +60,7 @@ const localBusinessSchema = [
         "@type": "LocalBusiness",
         "name": "Leon International - Latvia Office",
         "image": "https://leoninternational.com/og/default.jpg",
-        "email": "europe@leon-international.com",
+        "email": "info@leon-international.com",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Annas Brigaderes iela 4-47",
@@ -77,28 +76,24 @@ export default function ContactPage() {
     const offices = [
         {
             country: 'Pakistan (Headquarters)',
-            address: 'Plot#122-C, Keamari Township, Keamari, Karachi-75260, Pakistan',
+            address: 'C-102 Block 4 Gulshan-E-Iqbal, Karachi, Pakistan',
             phones: ['0313 2277773'],
-            mobiles: [
-                { name: 'Owner (Ahsin)', number: '0313 2277773' }
-            ],
-            emails: ['info@leon-international.com', 'ops@leon-international.com']
+            emails: ['info@leon-international.com']
         },
         {
             country: 'UAE Office',
             address: 'Office No: CWS-1V-223879, 26th Floor, Amber Gem Tower, Sheikh Khalifa Street, Ajman, UAE',
-            contactPerson: 'Mr. Shahzad',
-            emails: ['shahzad@leon-international.com']
+            emails: ['info@leon-international.com']
         },
         {
             country: 'China Office',
             address: 'No. 29-4, Xinhuaqiang District, Shiyan City, Hubei, China',
-            emails: ['china@leon-international.com']
+            emails: ['info@leon-international.com']
         },
         {
             country: 'Latvia Office',
             address: 'Annas Brigaderes iela 4-47, LV-1082, Rīga, Latvia',
-            emails: ['europe@leon-international.com']
+            emails: ['info@leon-international.com']
         }
     ];
 
@@ -143,21 +138,6 @@ export default function ContactPage() {
                                                     <div className="flex flex-col">
                                                         {office.phones.map((p, i) => <span key={i}>{p}</span>)}
                                                     </div>
-                                                </div>
-                                            )}
-
-                                            {office.mobiles && (
-                                                <div className="flex items-start gap-3">
-                                                    <Phone className="h-4 w-4 mt-0.5 text-gray-500 shrink-0" />
-                                                    <div className="flex flex-col">
-                                                        {office.mobiles.map((m, i) => <span key={i}>{m.name}: {m.number}</span>)}
-                                                    </div>
-                                                </div>
-                                            )}
-
-                                            {office.contactPerson && (
-                                                <div className="flex items-start gap-3 pt-1">
-                                                    <span className="font-semibold text-gray-200">Contact: {office.contactPerson}</span>
                                                 </div>
                                             )}
 

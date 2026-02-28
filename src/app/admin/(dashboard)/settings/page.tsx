@@ -2,14 +2,21 @@
 
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase-browser';
+import { useUser } from '@/contexts/UserContext';
 import { toast } from 'sonner';
 import { Lock, Loader2, User, Shield } from 'lucide-react';
 
 export default function SettingsPage() {
+  const { user: crmUser } = useUser();
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [saving, setSaving] = useState(false);
+
+  const displayName = crmUser?.full_name || 'Admin';
+  const displayEmail = crmUser?.email || '';
+  const displayInitial = displayName.charAt(0).toUpperCase();
+  const roleLabel = crmUser?.role?.replace('_', ' ') || '';
 
   async function handleChangePassword() {
     if (!currentPassword || !newPassword || !confirmPassword) {
@@ -30,7 +37,7 @@ export default function SettingsPage() {
 
     // Verify current password by re-authenticating
     const { error: signInError } = await supabase.auth.signInWithPassword({
-      email: 'admin@leon-international.com',
+      email: displayEmail,
       password: currentPassword,
     });
 
@@ -67,11 +74,14 @@ export default function SettingsPage() {
         <div className="px-6 py-5">
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-full bg-[#0E2F44] flex items-center justify-center text-white text-xl font-bold">
-              A
+              {displayInitial}
             </div>
             <div>
-              <p className="font-semibold text-gray-800">Admin</p>
-              <p className="text-sm text-gray-500">admin@leon-international.com</p>
+              <p className="font-semibold text-gray-800">{displayName}</p>
+              <p className="text-sm text-gray-500">{displayEmail}</p>
+              {roleLabel && (
+                <p className="text-xs text-gray-400 capitalize mt-0.5">{roleLabel}</p>
+              )}
             </div>
           </div>
         </div>
