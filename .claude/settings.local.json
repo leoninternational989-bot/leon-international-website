@@ -22,7 +22,8 @@
       "Bash(node:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "mcp__supabase__get_logs"
     ]
   },
   "enabledMcpjsonServers": [
