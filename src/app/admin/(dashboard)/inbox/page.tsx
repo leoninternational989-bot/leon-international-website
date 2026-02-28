@@ -81,15 +81,17 @@ export default function InboxPage() {
       );
     }
 
-    // Alias filter for super admin
+    // Alias filter: super admin can filter by any alias; non-admin sees only their alias
     if (isSuperAdmin && aliasFilter !== 'all') {
       query = query.eq('alias_id', aliasFilter);
+    } else if (!isSuperAdmin && user?.email_alias_id) {
+      query = query.eq('alias_id', user.email_alias_id);
     }
 
     const { data } = await query;
     setConversations(data || []);
     setLoading(false);
-  }, [statusFilter, debouncedSearch, aliasFilter, isSuperAdmin]);
+  }, [statusFilter, debouncedSearch, aliasFilter, isSuperAdmin, user?.email_alias_id]);
 
   useEffect(() => {
     fetchAliases();
@@ -253,11 +255,15 @@ export default function InboxPage() {
         </div>
       </div>
 
-      {/* Compose modal */}
+      {/* Compose modal — non-admin sees only their assigned alias */}
       <ComposeEmailModal
         open={composeOpen}
         onClose={() => setComposeOpen(false)}
-        aliases={aliases}
+        aliases={
+          isSuperAdmin
+            ? aliases
+            : aliases.filter((a) => a.id === user?.email_alias_id)
+        }
         onSent={(conversationId) => {
           fetchConversations();
           setSelectedId(conversationId);

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, Send, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -18,7 +18,14 @@ interface ComposeEmailModalProps {
 }
 
 export default function ComposeEmailModal({ open, onClose, aliases, onSent }: ComposeEmailModalProps) {
-  const [fromAliasId, setFromAliasId] = useState(aliases[0]?.id || '');
+  const [fromAliasId, setFromAliasId] = useState('');
+
+  // Sync fromAliasId when aliases change or modal opens
+  useEffect(() => {
+    if (aliases.length > 0 && !aliases.find((a) => a.id === fromAliasId)) {
+      setFromAliasId(aliases[0].id);
+    }
+  }, [aliases, open]);
   const [to, setTo] = useState('');
   const [subject, setSubject] = useState('');
   const [body, setBody] = useState('');
@@ -88,20 +95,26 @@ export default function ComposeEmailModal({ open, onClose, aliases, onSent }: Co
 
         {/* Body */}
         <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4">
-          {/* From */}
+          {/* From — dropdown for multiple aliases, static for single alias */}
           <div>
             <label className="block text-xs font-medium text-gray-500 mb-1">From</label>
-            <select
-              value={fromAliasId}
-              onChange={(e) => setFromAliasId(e.target.value)}
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#2E86C1]/20 focus:border-[#2E86C1]"
-            >
-              {aliases.map((a) => (
-                <option key={a.id} value={a.id}>
-                  {a.display_name} &lt;{a.alias_email}&gt;
-                </option>
-              ))}
-            </select>
+            {aliases.length <= 1 ? (
+              <div className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 bg-gray-50">
+                {aliases[0]?.display_name} &lt;{aliases[0]?.alias_email}&gt;
+              </div>
+            ) : (
+              <select
+                value={fromAliasId}
+                onChange={(e) => setFromAliasId(e.target.value)}
+                className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#2E86C1]/20 focus:border-[#2E86C1]"
+              >
+                {aliases.map((a) => (
+                  <option key={a.id} value={a.id}>
+                    {a.display_name} &lt;{a.alias_email}&gt;
+                  </option>
+                ))}
+              </select>
+            )}
           </div>
 
           {/* To */}
