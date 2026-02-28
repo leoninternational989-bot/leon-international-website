@@ -23,14 +23,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Get the original message with conversation info
+    // Get the original message with conversation info AND attachments in one query
     const { data: message, error: msgError } = await supabaseAdmin
       .from('messages')
-      .select('*, conversations(*, email_aliases(alias_email, display_name))')
+      .select('*, conversations(*, email_aliases(alias_email, display_name)), attachments(*)')
       .eq('id', messageId)
       .single();
 
     if (msgError || !message) {
+      console.error('Forward: message query error:', msgError);
       return NextResponse.json({ error: 'Message not found' }, { status: 404 });
     }
 
@@ -61,21 +62,28 @@ export async function POST(request: NextRequest) {
     const fwdSubject = `Fwd: ${baseSubject}`;
 
     // Download original attachments to forward them too
-    const { data: attachmentRecords } = await supabaseAdmin
-      .from('attachments')
-      .select('*')
-      .eq('message_id', messageId);
+    const attachmentRecords = message.attachments as Array<{
+      id: string; file_name: string; file_type: string; file_size: number; storage_path: string;
+    }> | null;
 
     let attachments: Array<{ filename: string; mimeType: string; content: Buffer }> | undefined;
     if (attachmentRecords && attachmentRecords.length > 0) {
       attachments = [];
       for (const att of attachmentRecords) {
-        const { data, error } = await supabaseAdmin.storage
-          .from('email-attachments')
-          .download(att.storage_path);
-        if (!error && data) {
-          const buffer = Buffer.from(await data.arrayBuffer());
-          attachments.push({ filename: att.file_name, mimeType: att.file_type, content: buffer });
+        try {
+          const { data, error } = await supabaseAdmin.storage
+            .from('email-attachments')
+            .download(att.storage_path);
+          if (error) {
+            console.error(`Forward: storage download failed for ${att.file_name}:`, error.message);
+            continue;
+          }
+          if (data) {
+            const buffer = Buffer.from(await data.arrayBuffer());
+            attachments.push({ filename: att.file_name, mimeType: att.file_type, content: buffer });
+          }
+        } catch (dlErr: any) {
+          console.error(`Forward: exception downloading ${att.file_name}:`, dlErr.message);
         }
       }
     }

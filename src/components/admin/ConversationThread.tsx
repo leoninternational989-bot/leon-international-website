@@ -130,11 +130,13 @@ export default function ConversationThread({ conversationId, onBack, onRead, onD
           filter: `conversation_id=eq.${conversationId}`,
         },
         async (payload) => {
+          const newMsgId = payload.new.id;
+
           // Fetch the full message with attachments
           const { data } = await supabase
             .from('messages')
             .select('*, attachments(*)')
-            .eq('id', payload.new.id)
+            .eq('id', newMsgId)
             .single();
 
           if (data && !data.is_deleted) {
@@ -151,6 +153,23 @@ export default function ConversationThread({ conversationId, onBack, onRead, onD
                 body: JSON.stringify({ conversationId }),
               });
               onRead?.();
+            }
+
+            // Attachments may be saved AFTER the message insert (race condition).
+            // Re-fetch after a delay to pick up any attachments that arrived late.
+            if (!data.attachments || data.attachments.length === 0) {
+              setTimeout(async () => {
+                const { data: refreshed } = await supabase
+                  .from('messages')
+                  .select('*, attachments(*)')
+                  .eq('id', newMsgId)
+                  .single();
+                if (refreshed?.attachments && refreshed.attachments.length > 0) {
+                  setMessages((prev) =>
+                    prev.map((m) => m.id === newMsgId ? refreshed : m)
+                  );
+                }
+              }, 3000);
             }
           }
         }
