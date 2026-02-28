@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Save forwarded message record
-    await supabaseAdmin
+    const { data: newMsg } = await supabaseAdmin
       .from('messages')
       .insert({
         conversation_id: conversationId,
@@ -153,7 +153,26 @@ export async function POST(request: NextRequest) {
         message_id_header: rfc822MessageId || null,
         is_read: true,
         sent_by_user: user.id,
-      });
+      })
+      .select('id')
+      .single();
+
+    // Save attachment records so they appear in the CRM chat bubble
+    if (newMsg && attachments && attachments.length > 0) {
+      for (const att of attachments) {
+        const storagePath = `${conversationId}/${newMsg.id}/${att.filename}`;
+        await supabaseAdmin.storage
+          .from('email-attachments')
+          .upload(storagePath, att.content, { contentType: att.mimeType });
+        await supabaseAdmin.from('attachments').insert({
+          message_id: newMsg.id,
+          file_name: att.filename,
+          file_type: att.mimeType,
+          file_size: att.content.length,
+          storage_path: storagePath,
+        });
+      }
+    }
 
     return NextResponse.json({ success: true, conversationId });
   } catch (err: any) {
