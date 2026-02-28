@@ -69,9 +69,8 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
       )}
 
       <aside
-        className={`fixed top-0 left-0 z-50 h-screen w-64 bg-[#0E2F44] flex flex-col transition-transform duration-300 lg:translate-x-0 lg:static lg:z-auto ${
-          open ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className={`fixed top-0 left-0 z-50 h-screen w-64 bg-[#0E2F44] flex flex-col transition-transform duration-300 lg:translate-x-0 lg:static lg:z-auto ${open ? 'translate-x-0' : '-translate-x-full'
+          }`}
       >
         {/* Brand */}
         <div className="flex items-center justify-between px-5 h-16 border-b border-white/10">
@@ -79,11 +78,10 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
             <Image
               src="/images/logo-transparent.png"
               alt="Leon International"
-              width={36}
+              width={100}
               height={36}
               className="object-contain"
             />
-            <span className="text-white font-bold text-[15px] font-plus-jakarta-sans leading-tight">Leon CRM</span>
           </Link>
           <button onClick={onClose} className="lg:hidden text-gray-400 hover:text-white">
             <X className="h-5 w-5" />
@@ -99,11 +97,10 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
                 key={item.href}
                 href={item.href}
                 onClick={onClose}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  active
-                    ? 'bg-[#E67E22]/15 text-[#E67E22]'
-                    : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                }`}
+                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${active
+                  ? 'bg-[#E67E22]/15 text-[#E67E22]'
+                  : 'text-gray-400 hover:bg-white/5 hover:text-white'
+                  }`}
               >
                 <item.icon className="h-[18px] w-[18px]" />
                 {item.label}

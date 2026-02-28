@@ -40,8 +40,8 @@ interface AdminHeaderProps {
 export default function AdminHeader({ onMenuClick }: AdminHeaderProps) {
   const pathname = usePathname();
   const { user } = useUser();
-  const title = pageTitles[pathname] || 'Admin';
   const panelName = getPanelName(user?.role, user?.alias_email ?? undefined);
+  const title = pageTitles[pathname] || panelName;
 
   const initial = user?.full_name?.charAt(0)?.toUpperCase() || 'A';
   const displayName = user?.full_name || 'Admin';
@@ -56,12 +56,7 @@ export default function AdminHeader({ onMenuClick }: AdminHeaderProps) {
         >
           <Menu className="h-5 w-5" />
         </button>
-        <div className="flex items-center gap-2">
-          <h1 className="text-lg font-semibold text-gray-800 font-plus-jakarta-sans">{title}</h1>
-          <span className="hidden sm:inline-flex text-[10px] font-medium bg-[#0E2F44]/10 text-[#0E2F44] px-2 py-0.5 rounded-full">
-            {panelName}
-          </span>
-        </div>
+        <h1 className="text-lg font-semibold text-gray-800 font-plus-jakarta-sans">{title}</h1>
       </div>
 
       <div className="flex items-center gap-3">

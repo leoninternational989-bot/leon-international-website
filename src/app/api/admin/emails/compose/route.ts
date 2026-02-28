@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { fromAliasId, to, subject, bodyHtml, bodyText } = await request.json();
+    const { fromAliasId, to, subject, bodyHtml, bodyText, attachmentPaths } = await request.json();
 
     if (!fromAliasId || !to || !subject || !bodyHtml) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
@@ -35,6 +35,21 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Alias not found' }, { status: 404 });
     }
 
+    // Download attachments from Supabase Storage if any
+    let attachments: Array<{ filename: string; mimeType: string; content: Buffer }> | undefined;
+    if (attachmentPaths && attachmentPaths.length > 0) {
+      attachments = [];
+      for (const att of attachmentPaths as Array<{ storagePath: string; filename: string; mimeType: string }>) {
+        const { data, error } = await supabaseAdmin.storage
+          .from('email-attachments')
+          .download(att.storagePath);
+        if (!error && data) {
+          const buffer = Buffer.from(await data.arrayBuffer());
+          attachments.push({ filename: att.filename, mimeType: att.mimeType, content: buffer });
+        }
+      }
+    }
+
     // Send via Gmail API
     const { messageId, threadId, rfc822MessageId } = await sendGmailEmail({
       from: alias.alias_email,
@@ -43,6 +58,7 @@ export async function POST(request: NextRequest) {
       subject,
       bodyHtml,
       bodyText,
+      attachments,
     });
 
     // Create conversation
