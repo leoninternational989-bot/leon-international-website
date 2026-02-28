@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { createClient as createServerClient } from '@/lib/supabase-server';
-import { sendGmailEmail } from '@/lib/gmail';
+import { sendGmailEmail, gmail, extractAttachments, downloadAttachment } from '@/lib/gmail';
 
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     // Get the original message with conversation info AND attachments in one query
     const { data: message, error: msgError } = await supabaseAdmin
       .from('messages')
-      .select('*, conversations(*, email_aliases(alias_email, display_name)), attachments(*)')
+      .select('*, conversations(*, email_aliases(alias_email, display_name))')
       .eq('id', messageId)
       .single();
 
@@ -61,30 +61,29 @@ export async function POST(request: NextRequest) {
     const baseSubject = (message.subject || '').replace(/^(Fwd:\s*|Re:\s*)+/i, '');
     const fwdSubject = `Fwd: ${baseSubject}`;
 
-    // Download original attachments to forward them too
-    const attachmentRecords = message.attachments as Array<{
-      id: string; file_name: string; file_type: string; file_size: number; storage_path: string;
-    }> | null;
-
+    // Download attachments directly from Gmail API (most reliable source)
     let attachments: Array<{ filename: string; mimeType: string; content: Buffer }> | undefined;
-    if (attachmentRecords && attachmentRecords.length > 0) {
-      attachments = [];
-      for (const att of attachmentRecords) {
-        try {
-          const { data, error } = await supabaseAdmin.storage
-            .from('email-attachments')
-            .download(att.storage_path);
-          if (error) {
-            console.error(`Forward: storage download failed for ${att.file_name}:`, error.message);
-            continue;
+    if (message.gmail_message_id) {
+      try {
+        const gmailFullMsg = await gmail.users.messages.get({
+          userId: 'me',
+          id: message.gmail_message_id,
+          format: 'full',
+        });
+        const attMetas = extractAttachments(gmailFullMsg.data.payload);
+        if (attMetas.length > 0) {
+          attachments = [];
+          for (const att of attMetas) {
+            try {
+              const content = await downloadAttachment(message.gmail_message_id, att.attachmentId);
+              attachments.push({ filename: att.filename, mimeType: att.mimeType, content });
+            } catch (dlErr: any) {
+              console.error(`Forward: Gmail attachment download failed for ${att.filename}:`, dlErr.message);
+            }
           }
-          if (data) {
-            const buffer = Buffer.from(await data.arrayBuffer());
-            attachments.push({ filename: att.file_name, mimeType: att.file_type, content: buffer });
-          }
-        } catch (dlErr: any) {
-          console.error(`Forward: exception downloading ${att.file_name}:`, dlErr.message);
         }
+      } catch (gmailErr: any) {
+        console.error('Forward: Gmail message fetch failed:', gmailErr.message);
       }
     }
 
