@@ -69,6 +69,7 @@ export default function InboxPage() {
     let query = supabase
       .from('conversations')
       .select('*, email_aliases(alias_email, display_name)')
+      .eq('is_deleted', false)
       .order('last_message_at', { ascending: false });
 
     if (statusFilter !== 'all') {
@@ -243,6 +244,10 @@ export default function InboxPage() {
               conversationId={selectedId}
               onBack={() => setSelectedId(null)}
               onRead={() => fetchConversations()}
+              onDeleted={() => {
+                setSelectedId(null);
+                fetchConversations();
+              }}
             />
           ) : (
             <div className="flex-1 flex items-center justify-center text-gray-400">
