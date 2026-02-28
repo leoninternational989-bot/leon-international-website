@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { FileText, Download, Image as ImageIcon, Music, Video } from 'lucide-react';
 import { createClient } from '@/lib/supabase-browser';
 
@@ -15,14 +16,6 @@ function formatSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-}
-
-function getSignedUrl(path: string): string {
-  const supabase = createClient();
-  const { data } = supabase.storage
-    .from('email-attachments')
-    .getPublicUrl(path);
-  return data.publicUrl;
 }
 
 async function downloadFile(attachment: Attachment) {
@@ -41,20 +34,47 @@ async function downloadFile(attachment: Attachment) {
   URL.revokeObjectURL(url);
 }
 
+function useSignedUrl(storagePath: string) {
+  const [url, setUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    const supabase = createClient();
+    supabase.storage
+      .from('email-attachments')
+      .createSignedUrl(storagePath, 3600) // 1 hour expiry
+      .then(({ data }) => {
+        if (!cancelled && data?.signedUrl) {
+          setUrl(data.signedUrl);
+        }
+      });
+    return () => { cancelled = true; };
+  }, [storagePath]);
+
+  return url;
+}
+
 export default function AttachmentPreview({ attachment }: { attachment: Attachment }) {
   const isImage = attachment.file_type.startsWith('image/');
   const isAudio = attachment.file_type.startsWith('audio/');
   const isVideo = attachment.file_type.startsWith('video/');
+  const signedUrl = useSignedUrl(attachment.storage_path);
 
   if (isImage) {
     return (
       <div className="group relative inline-block">
-        <img
-          src={getSignedUrl(attachment.storage_path)}
-          alt={attachment.file_name}
-          className="max-w-[200px] max-h-[150px] rounded-lg border border-gray-200 object-cover cursor-pointer"
-          onClick={() => window.open(getSignedUrl(attachment.storage_path), '_blank')}
-        />
+        {signedUrl ? (
+          <img
+            src={signedUrl}
+            alt={attachment.file_name}
+            className="max-w-[240px] max-h-[200px] rounded-lg object-cover cursor-pointer hover:opacity-90 transition-opacity"
+            onClick={() => window.open(signedUrl, '_blank')}
+          />
+        ) : (
+          <div className="w-[200px] h-[120px] rounded-lg bg-gray-100 animate-pulse flex items-center justify-center">
+            <ImageIcon className="h-6 w-6 text-gray-300" />
+          </div>
+        )}
         <div className="mt-1 flex items-center gap-1 text-[10px] text-gray-400">
           <ImageIcon className="h-3 w-3" />
           <span className="truncate max-w-[150px]">{attachment.file_name}</span>
@@ -71,9 +91,13 @@ export default function AttachmentPreview({ attachment }: { attachment: Attachme
           <Music className="h-3.5 w-3.5" />
           <span className="truncate">{attachment.file_name}</span>
         </div>
-        <audio controls className="w-full h-8" preload="none">
-          <source src={getSignedUrl(attachment.storage_path)} type={attachment.file_type} />
-        </audio>
+        {signedUrl ? (
+          <audio controls className="w-full h-8" preload="none">
+            <source src={signedUrl} type={attachment.file_type} />
+          </audio>
+        ) : (
+          <div className="w-full h-8 bg-gray-100 rounded animate-pulse" />
+        )}
       </div>
     );
   }
@@ -81,13 +105,15 @@ export default function AttachmentPreview({ attachment }: { attachment: Attachme
   if (isVideo) {
     return (
       <div className="bg-gray-50 rounded-lg p-2 border border-gray-200 max-w-[300px]">
-        <video
-          controls
-          preload="none"
-          className="w-full rounded-md"
-        >
-          <source src={getSignedUrl(attachment.storage_path)} type={attachment.file_type} />
-        </video>
+        {signedUrl ? (
+          <video controls preload="none" className="w-full rounded-md">
+            <source src={signedUrl} type={attachment.file_type} />
+          </video>
+        ) : (
+          <div className="w-full h-[150px] bg-gray-100 rounded-md animate-pulse flex items-center justify-center">
+            <Video className="h-6 w-6 text-gray-300" />
+          </div>
+        )}
         <div className="flex items-center gap-1 mt-1 text-[10px] text-gray-400">
           <Video className="h-3 w-3" />
           <span className="truncate">{attachment.file_name}</span>

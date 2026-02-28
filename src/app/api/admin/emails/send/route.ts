@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { createClient as createServerClient } from '@/lib/supabase-server';
-import { sendGmailEmail, gmail, getHeader } from '@/lib/gmail';
+import { sendGmailEmail } from '@/lib/gmail';
 
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { conversationId, bodyHtml, bodyText, subject, attachments: attachmentData } = await request.json();
+    const { conversationId, bodyHtml, bodyText, subject, attachmentPaths } = await request.json();
 
     if (!conversationId || !bodyHtml) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Conversation not found' }, { status: 404 });
     }
 
-    // Get the last message for threading (need RFC Message-ID for proper In-Reply-To)
+    // Get the last message for threading
     const { data: lastMessage } = await supabaseAdmin
       .from('messages')
       .select('gmail_message_id, gmail_thread_id, message_id_header, subject')
@@ -49,14 +49,22 @@ export async function POST(request: NextRequest) {
     const aliasEmail = conversation.email_aliases?.alias_email || 'admin@leon-international.com';
     const aliasName = conversation.email_aliases?.display_name || 'Leon International';
 
-    // Convert base64 attachment data to Buffers
-    const attachments = attachmentData?.map((att: { filename: string; mimeType: string; base64: string }) => ({
-      filename: att.filename,
-      mimeType: att.mimeType,
-      content: Buffer.from(att.base64, 'base64'),
-    }));
+    // Download attachments from Supabase Storage if any
+    let attachments: Array<{ filename: string; mimeType: string; content: Buffer }> | undefined;
+    if (attachmentPaths && attachmentPaths.length > 0) {
+      attachments = [];
+      for (const att of attachmentPaths as Array<{ storagePath: string; filename: string; mimeType: string }>) {
+        const { data, error } = await supabaseAdmin.storage
+          .from('email-attachments')
+          .download(att.storagePath);
+        if (!error && data) {
+          const buffer = Buffer.from(await data.arrayBuffer());
+          attachments.push({ filename: att.filename, mimeType: att.mimeType, content: buffer });
+        }
+      }
+    }
 
-    // Send via Gmail API (use RFC Message-ID for proper threading)
+    // Send via Gmail API
     const { messageId, threadId } = await sendGmailEmail({
       from: aliasEmail,
       fromName: aliasName,
@@ -68,20 +76,6 @@ export async function POST(request: NextRequest) {
       threadId: lastMessage?.gmail_thread_id || undefined,
       attachments,
     });
-
-    // Fetch sent message to get its RFC Message-ID header for future threading
-    let sentMessageIdHeader: string | null = null;
-    try {
-      const sentMsg = await gmail.users.messages.get({
-        userId: 'me',
-        id: messageId,
-        format: 'metadata',
-        metadataHeaders: ['Message-ID'],
-      });
-      sentMessageIdHeader = getHeader(sentMsg.data.payload?.headers, 'Message-ID') || null;
-    } catch {
-      // Non-critical — just won't have Message-ID for this outbound message
-    }
 
     // Save message to database
     const { data: newMsg, error: msgError } = await supabaseAdmin
@@ -97,7 +91,6 @@ export async function POST(request: NextRequest) {
         body_html: bodyHtml,
         gmail_message_id: messageId,
         gmail_thread_id: threadId,
-        message_id_header: sentMessageIdHeader,
         in_reply_to: lastMessage?.message_id_header || null,
         is_read: true,
         sent_by_user: user.id,

@@ -55,56 +55,42 @@ export default function ReplyComposer({ conversationId, onSent }: ReplyComposerP
     addFiles(e.dataTransfer.files);
   }
 
-  async function uploadAttachments(messageId: string) {
-    const supabase = createClient();
-    for (const pf of files) {
-      const storagePath = `${conversationId}/${messageId}/${pf.name}`;
-      await supabase.storage
-        .from('email-attachments')
-        .upload(storagePath, pf.file, { contentType: pf.type });
-
-      // Save attachment record in DB
-      await supabase.from('attachments').insert({
-        message_id: messageId,
-        file_name: pf.name,
-        file_type: pf.type,
-        file_size: pf.file.size,
-        storage_path: storagePath,
-      });
-    }
-  }
-
   async function handleSend() {
     if (!message.trim() && files.length === 0) return;
 
     setSending(true);
     try {
+      const supabase = createClient();
+
       // Convert plain text to simple HTML
       const bodyHtml = message
         .split('\n')
         .map((line) => `<p>${line || '<br>'}</p>`)
         .join('');
 
-      // Read files as base64 for sending with the email
-      const attachments = await Promise.all(
-        files.map(
-          (pf) =>
-            new Promise<{ filename: string; mimeType: string; base64: string }>(
-              (resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = () => {
-                  const dataUrl = reader.result as string;
-                  // Strip "data:mime/type;base64," prefix
-                  const base64 = dataUrl.split(',')[1] || '';
-                  resolve({ filename: pf.name, mimeType: pf.type, base64 });
-                };
-                reader.onerror = () => reject(new Error(`Failed to read ${pf.name}`));
-                reader.readAsDataURL(pf.file);
-              }
-            )
-        )
-      );
+      // Step 1: Upload files to Supabase Storage FIRST (avoids payload size limit)
+      const tempId = Date.now().toString();
+      const attachmentPaths: Array<{ storagePath: string; filename: string; mimeType: string; fileSize: number }> = [];
 
+      for (const pf of files) {
+        const storagePath = `${conversationId}/temp-${tempId}/${pf.name}`;
+        const { error: uploadError } = await supabase.storage
+          .from('email-attachments')
+          .upload(storagePath, pf.file, { contentType: pf.type });
+
+        if (uploadError) {
+          throw new Error(`Failed to upload ${pf.name}: ${uploadError.message}`);
+        }
+
+        attachmentPaths.push({
+          storagePath,
+          filename: pf.name,
+          mimeType: pf.type,
+          fileSize: pf.file.size,
+        });
+      }
+
+      // Step 2: Send the message (API downloads files from storage, attaches to email)
       const res = await fetch('/api/admin/emails/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -112,7 +98,7 @@ export default function ReplyComposer({ conversationId, onSent }: ReplyComposerP
           conversationId,
           bodyHtml,
           bodyText: message,
-          attachments: attachments.length > 0 ? attachments : undefined,
+          attachmentPaths: attachmentPaths.length > 0 ? attachmentPaths : undefined,
         }),
       });
 
@@ -123,9 +109,36 @@ export default function ReplyComposer({ conversationId, onSent }: ReplyComposerP
 
       const data = await res.json();
 
-      // Upload attachments if any
-      if (files.length > 0 && data.messageId) {
-        await uploadAttachments(data.messageId);
+      // Step 3: Move attachments to permanent path and save DB records
+      if (attachmentPaths.length > 0 && data.messageId) {
+        for (const att of attachmentPaths) {
+          const permanentPath = `${conversationId}/${data.messageId}/${att.filename}`;
+
+          // Copy to permanent location
+          const { data: fileData } = await supabase.storage
+            .from('email-attachments')
+            .download(att.storagePath);
+
+          if (fileData) {
+            await supabase.storage
+              .from('email-attachments')
+              .upload(permanentPath, fileData, { contentType: att.mimeType });
+
+            // Save attachment record
+            await supabase.from('attachments').insert({
+              message_id: data.messageId,
+              file_name: att.filename,
+              file_type: att.mimeType,
+              file_size: att.fileSize,
+              storage_path: permanentPath,
+            });
+          }
+
+          // Clean up temp file
+          await supabase.storage
+            .from('email-attachments')
+            .remove([att.storagePath]);
+        }
       }
 
       // Clear form
