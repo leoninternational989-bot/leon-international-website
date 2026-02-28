@@ -73,20 +73,13 @@ export default function ConversationThread({ conversationId, onBack, onRead }: C
     setMessages(data || []);
     setLoading(false);
 
-    // Mark unread messages as read
+    // Mark unread messages as read (via server API to bypass RLS)
     if (data?.some((m: Message) => !m.is_read && m.direction === 'inbound')) {
-      await supabase
-        .from('messages')
-        .update({ is_read: true })
-        .eq('conversation_id', conversationId)
-        .eq('is_read', false);
-
-      await supabase
-        .from('conversations')
-        .update({ unread_count: 0 })
-        .eq('id', conversationId);
-
-      // Notify parent to refresh conversation list (clears badge)
+      await fetch('/api/admin/emails/mark-read', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ conversationId }),
+      });
       onRead?.();
     }
   }
@@ -129,18 +122,13 @@ export default function ConversationThread({ conversationId, onBack, onRead }: C
               return [...prev, data];
             });
 
-            // Auto-mark inbound as read
+            // Auto-mark inbound as read (via server API)
             if (data.direction === 'inbound') {
-              await supabase
-                .from('messages')
-                .update({ is_read: true })
-                .eq('id', data.id);
-
-              await supabase
-                .from('conversations')
-                .update({ unread_count: 0 })
-                .eq('id', conversationId);
-
+              await fetch('/api/admin/emails/mark-read', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ conversationId }),
+              });
               onRead?.();
             }
           }

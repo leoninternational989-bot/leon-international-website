@@ -87,13 +87,22 @@ export default function ReplyComposer({ conversationId, onSent }: ReplyComposerP
 
       // Read files as base64 for sending with the email
       const attachments = await Promise.all(
-        files.map(async (pf) => {
-          const buf = await pf.file.arrayBuffer();
-          const base64 = btoa(
-            new Uint8Array(buf).reduce((data, byte) => data + String.fromCharCode(byte), '')
-          );
-          return { filename: pf.name, mimeType: pf.type, base64 };
-        })
+        files.map(
+          (pf) =>
+            new Promise<{ filename: string; mimeType: string; base64: string }>(
+              (resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                  const dataUrl = reader.result as string;
+                  // Strip "data:mime/type;base64," prefix
+                  const base64 = dataUrl.split(',')[1] || '';
+                  resolve({ filename: pf.name, mimeType: pf.type, base64 });
+                };
+                reader.onerror = () => reject(new Error(`Failed to read ${pf.name}`));
+                reader.readAsDataURL(pf.file);
+              }
+            )
+        )
       );
 
       const res = await fetch('/api/admin/emails/send', {
