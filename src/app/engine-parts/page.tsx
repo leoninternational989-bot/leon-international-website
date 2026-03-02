@@ -3,6 +3,7 @@ import QuickQuote from '@/components/sections/home/QuickQuote';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import FaqAccordion from '@/components/ui/FaqAccordion';
 
 export default function Page() {
     return (
@@ -14,6 +15,7 @@ export default function Page() {
                     { label: 'Products', href: '/products/' },
                     { label: 'Marine Engine Parts', href: '/engine-parts/' }
                 ]}
+                image="/images/engine-parts/banner.webp"
             />
 
             <section className="py-20 lg:py-28 relative z-10 w-full min-w-full m-0 p-0 border-0 outline-none">
@@ -29,7 +31,7 @@ export default function Page() {
                             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                                 Our highly trained technicians and marine engineers ensure that every project meets the highest international maritime standards. Whether it's emergency response at anchorage or routine maintenance, you can rely on our expertise.
                             </p>
-                            
+
                             <h3 className="text-xl font-bold text-white mb-4">Why Choose Leon International?</h3>
                             <ul className="space-y-4 mb-8">
                                 {[
@@ -49,11 +51,10 @@ export default function Page() {
                                 Request a Quote <ArrowRight className="h-4 w-4" />
                             </Link>
                         </div>
-                        
+
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
-                            {/* Standardizing the image across all for now */}
-                            <Image 
-                                src="https://images.unsplash.com/photo-1542317148-8bdfbc8cb8c9?q=80&w=1200"
+                            <Image
+                                src="/images/engine-parts/component.webp"
                                 alt="Marine Engine Parts performed by Leon International Marine Engineers"
                                 fill
                                 className="object-cover"
@@ -61,26 +62,24 @@ export default function Page() {
                         </div>
                     </div>
 
-                    <div className="mt-24 pt-16 border-t border-white/10 w-full">
+                    <div className="mt-24 pt-16 border-t border-white/10 w-full mb-20">
                         <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
-                        <div className="max-w-4xl mx-auto space-y-6">
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">What marine engine parts does Leon International supply?</h3>
-                                <p className="text-gray-300">Leon International supplies high-quality OEM and aftermarket marine engine parts for marine engines and industrial applications, serving vessels globally.</p>
-                            </div>
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">Are the marine engine parts OEM or aftermarket?</h3>
-                                <p className="text-gray-300">We supply both Genuine/OEM parts and high-quality European/Japanese aftermarket equivalents depending on client budgets and requirements.</p>
-                            </div>
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">How quickly can you deliver marine spare parts?</h3>
-                                <p className="text-gray-300">With stock at key locations and a global logistics network, we ensure rapid dispatch of critical parts to minimize vessel downtime.</p>
-                            </div>
-                            
-                        </div>
+                        <FaqAccordion
+                            faqs={[
+                                {
+                                    question: "What marine engine parts does Leon International supply?",
+                                    answer: "Leon International supplies high-quality OEM and aftermarket marine engine parts for marine engines and industrial applications, serving vessels globally."
+                                },
+                                {
+                                    question: "Are the marine engine parts OEM or aftermarket?",
+                                    answer: "We supply both Genuine/OEM parts and high-quality European/Japanese aftermarket equivalents depending on client budgets and requirements."
+                                },
+                                {
+                                    question: "How quickly can you deliver marine spare parts?",
+                                    answer: "With stock at key locations and a global logistics network, we ensure rapid dispatch of critical parts to minimize vessel downtime."
+                                }
+                            ]}
+                        />
                     </div>
                 </div>
             </section>

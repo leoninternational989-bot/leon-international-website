@@ -1,31 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { createClient as createServerClient } from '@/lib/supabase-server';
+import { getAuthenticatedUserId } from '@/lib/auth-helper';
 
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-// Helper: verify caller is super_admin
-async function verifySuperAdmin() {
-  const supabase = await createServerClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return null;
+// Helper: verify caller is super_admin (supports both cookie and Bearer token)
+async function verifySuperAdmin(request: NextRequest) {
+  const userId = await getAuthenticatedUserId(request);
+  if (!userId) return null;
 
-  const { data: crmUser } = await supabase
+  const { data: crmUser } = await supabaseAdmin
     .from('crm_users')
     .select('role')
-    .eq('id', user.id)
+    .eq('id', userId)
     .single();
 
-  return crmUser?.role === 'super_admin' ? user : null;
+  return crmUser?.role === 'super_admin' ? { id: userId } : null;
 }
 
 // GET: List all CRM users with their aliases
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const caller = await verifySuperAdmin();
+    const caller = await verifySuperAdmin(request);
     if (!caller) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
     }
@@ -57,7 +57,7 @@ export async function GET() {
 // POST: Create a new CRM user (auth user + crm_users profile)
 export async function POST(request: NextRequest) {
   try {
-    const caller = await verifySuperAdmin();
+    const caller = await verifySuperAdmin(request);
     if (!caller) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
     }
@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
 // PATCH: Update user profile (role, alias, active status)
 export async function PATCH(request: NextRequest) {
   try {
-    const caller = await verifySuperAdmin();
+    const caller = await verifySuperAdmin(request);
     if (!caller) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
     }
@@ -136,7 +136,7 @@ export async function PATCH(request: NextRequest) {
 // DELETE: Soft-delete (deactivate) user
 export async function DELETE(request: NextRequest) {
   try {
-    const caller = await verifySuperAdmin();
+    const caller = await verifySuperAdmin(request);
     if (!caller) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
     }

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { createClient as createServerClient } from '@/lib/supabase-server';
 import { gmail } from '@/lib/gmail';
+import { getAuthenticatedUserId } from '@/lib/auth-helper';
 
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -48,10 +49,9 @@ async function cleanupAttachments(messageIds: string[]) {
 
 export async function POST(request: NextRequest) {
   try {
-    // Verify authenticated user
-    const supabase = await createServerClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
+    // Verify authenticated user (cookie or Bearer token)
+    const userId = await getAuthenticatedUserId(request);
+    if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
     const { data: crmUser } = await supabaseAdmin
       .from('crm_users')
       .select('role')
-      .eq('id', user.id)
+      .eq('id', userId)
       .single();
 
     const isSuperAdmin = crmUser?.role === 'super_admin';

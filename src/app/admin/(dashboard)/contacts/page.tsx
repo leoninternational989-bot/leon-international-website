@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase-browser';
+import { useUser } from '@/contexts/UserContext';
 import { toast } from 'sonner';
 import { Search, Eye, Trash2, Mail, ChevronLeft, ChevronRight, Send, Loader2 } from 'lucide-react';
 import { formatDateTime } from '@/lib/utils';
@@ -31,6 +32,7 @@ const REPLY_TEMPLATES = [
 ];
 
 export default function ContactsPage() {
+  const { user } = useUser();
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -134,6 +136,7 @@ export default function ContactsPage() {
         name: replyItem.name,
         subject: replySubject || `Re: ${replyItem.subject}`,
         message: replyMessage,
+        fromAliasId: user?.email_alias_id || undefined,
       }),
     });
     setSending(false);

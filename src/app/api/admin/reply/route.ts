@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { createClient } from '@supabase/supabase-js';
+import { createClient as createServerClient } from '@/lib/supabase-server';
 import { generateEmailTemplate } from '@/lib/email-template';
+import { getAuthenticatedUserId } from '@/lib/auth-helper';
 
 const GMAIL_USER = process.env.Gmail_User!;
 const GMAIL_APP_PASSWORD = process.env.Gmail_APP_Password!;
@@ -19,10 +21,70 @@ const transporter = nodemailer.createTransport({
 
 export async function POST(request: NextRequest) {
   try {
-    const { to, name, subject, message } = await request.json();
+    const { to, name, subject, message, fromAliasId } = await request.json();
 
     if (!to || !name || !subject || !message) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    }
+
+    // Determine sender alias: use provided fromAliasId, fall back to logged-in user's alias, then admin
+    let senderEmail = ADMIN_EMAIL;
+    let senderName = 'Leon International';
+    let aliasId: string | null = null;
+
+    if (fromAliasId) {
+      // Explicit alias provided by the frontend
+      const { data: alias } = await supabaseAdmin
+        .from('email_aliases')
+        .select('id, alias_email, display_name')
+        .eq('id', fromAliasId)
+        .eq('is_active', true)
+        .single();
+
+      if (alias) {
+        senderEmail = alias.alias_email;
+        senderName = alias.display_name;
+        aliasId = alias.id;
+      }
+    } else {
+      // Fall back: look up logged-in user's assigned alias
+      try {
+        const authedUserId = await getAuthenticatedUserId(request);
+        if (authedUserId) {
+          const { data: crmUser } = await supabaseAdmin
+            .from('crm_users')
+            .select('email_alias_id')
+            .eq('id', authedUserId)
+            .single();
+
+          if (crmUser?.email_alias_id) {
+            const { data: alias } = await supabaseAdmin
+              .from('email_aliases')
+              .select('id, alias_email, display_name')
+              .eq('id', crmUser.email_alias_id)
+              .eq('is_active', true)
+              .single();
+
+            if (alias) {
+              senderEmail = alias.alias_email;
+              senderName = alias.display_name;
+              aliasId = alias.id;
+            }
+          }
+        }
+      } catch {
+        // Non-fatal: fall back to admin
+      }
+    }
+
+    // If no alias found, use admin alias ID
+    if (!aliasId) {
+      const { data: adminAlias } = await supabaseAdmin
+        .from('email_aliases')
+        .select('id')
+        .eq('alias_email', ADMIN_EMAIL)
+        .single();
+      aliasId = adminAlias?.id || null;
     }
 
     const html = generateEmailTemplate({
@@ -36,26 +98,19 @@ export async function POST(request: NextRequest) {
     });
 
     await transporter.sendMail({
-      from: `"Leon International" <${ADMIN_EMAIL}>`,
+      from: `"${senderName}" <${senderEmail}>`,
       to,
       subject,
       html,
     });
 
     // Also record this reply in the conversation system
-    try {
-      const { data: adminAlias } = await supabaseAdmin
-        .from('email_aliases')
-        .select('id')
-        .eq('alias_email', 'admin@leon-international.com')
-        .single();
-
-      if (adminAlias) {
-        // Find existing conversation or skip
+    if (aliasId) {
+      try {
         const { data: conv } = await supabaseAdmin
           .from('conversations')
           .select('id')
-          .eq('alias_id', adminAlias.id)
+          .eq('alias_id', aliasId)
           .eq('external_email', to.toLowerCase())
           .single();
 
@@ -63,8 +118,8 @@ export async function POST(request: NextRequest) {
           await supabaseAdmin.from('messages').insert({
             conversation_id: conv.id,
             direction: 'outbound',
-            sender_email: ADMIN_EMAIL,
-            sender_name: 'Leon International',
+            sender_email: senderEmail,
+            sender_name: senderName,
             recipient_email: to,
             subject,
             body_text: message,
@@ -77,9 +132,9 @@ export async function POST(request: NextRequest) {
             .update({ last_message_at: new Date().toISOString() })
             .eq('id', conv.id);
         }
+      } catch (convErr) {
+        console.error('Conversation record error (non-fatal):', convErr);
       }
-    } catch (convErr) {
-      console.error('Conversation record error (non-fatal):', convErr);
     }
 
     return NextResponse.json({ success: true });

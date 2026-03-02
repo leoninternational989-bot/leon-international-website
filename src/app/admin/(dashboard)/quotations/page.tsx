@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase-browser';
+import { useUser } from '@/contexts/UserContext';
 import { toast } from 'sonner';
 import { Search, Eye, Trash2, Mail, ChevronLeft, ChevronRight, Send, Loader2 } from 'lucide-react';
 import { formatDateTime } from '@/lib/utils';
@@ -44,6 +45,7 @@ function typeLabel(t: string) {
 }
 
 export default function QuotationsPage() {
+  const { user } = useUser();
   const [quotations, setQuotations] = useState<Quotation[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -123,7 +125,7 @@ export default function QuotationsPage() {
   async function handleReply() {
     if (!replyItem || !replyMessage.trim()) return;
     setSending(true);
-    const res = await fetch('/api/admin/reply', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ to: replyItem.email, name: replyItem.name, subject: replySubject || `Re: Quotation Request`, message: replyMessage }) });
+    const res = await fetch('/api/admin/reply', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ to: replyItem.email, name: replyItem.name, subject: replySubject || `Re: Quotation Request`, message: replyMessage, fromAliasId: user?.email_alias_id || undefined }) });
     setSending(false);
     if (res.ok) { toast.success('Reply sent'); setReplyItem(null); setReplyMessage(''); setReplySubject(''); }
     else toast.error('Failed to send');

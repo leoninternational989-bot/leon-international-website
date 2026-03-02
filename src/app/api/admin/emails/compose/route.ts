@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { createClient as createServerClient } from '@/lib/supabase-server';
 import { sendGmailEmail } from '@/lib/gmail';
+import { getAuthenticatedUserId } from '@/lib/auth-helper';
 
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -10,10 +11,9 @@ const supabaseAdmin = createClient(
 
 export async function POST(request: NextRequest) {
   try {
-    // Verify authenticated user
-    const supabase = await createServerClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
+    // Verify authenticated user (cookie or Bearer token)
+    const userId = await getAuthenticatedUserId(request);
+    if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -61,30 +61,65 @@ export async function POST(request: NextRequest) {
       attachments,
     });
 
-    // Create conversation
-    const { data: conversation, error: convError } = await supabaseAdmin
+    // Find existing conversation or create new one
+    const normalizedTo = to.trim().toLowerCase();
+
+    let conversationId: string;
+
+    const { data: existingConv } = await supabaseAdmin
       .from('conversations')
-      .insert({
-        alias_id: alias.id,
-        external_email: to.trim().toLowerCase(),
-        external_name: null,
-        subject,
-        status: 'open',
-        unread_count: 0,
-        source: 'email',
-      })
       .select('id')
+      .eq('alias_id', alias.id)
+      .eq('external_email', normalizedTo)
       .single();
 
-    if (convError || !conversation) {
-      return NextResponse.json({ error: 'Failed to create conversation' }, { status: 500 });
+    if (existingConv) {
+      conversationId = existingConv.id;
+      // Update last_message_at and reopen if closed/resolved
+      const { data: convStatus } = await supabaseAdmin
+        .from('conversations')
+        .select('status')
+        .eq('id', existingConv.id)
+        .single();
+
+      const updateData: Record<string, unknown> = {
+        last_message_at: new Date().toISOString(),
+        subject,
+      };
+      if (convStatus?.status === 'closed' || convStatus?.status === 'resolved') {
+        updateData.status = 'open';
+      }
+
+      await supabaseAdmin
+        .from('conversations')
+        .update(updateData)
+        .eq('id', existingConv.id);
+    } else {
+      const { data: newConv, error: convError } = await supabaseAdmin
+        .from('conversations')
+        .insert({
+          alias_id: alias.id,
+          external_email: normalizedTo,
+          external_name: null,
+          subject,
+          status: 'open',
+          unread_count: 0,
+          source: 'email',
+        })
+        .select('id')
+        .single();
+
+      if (convError || !newConv) {
+        return NextResponse.json({ error: 'Failed to create conversation' }, { status: 500 });
+      }
+      conversationId = newConv.id;
     }
 
     // Create first outbound message
     const { data: newMsg, error: msgError } = await supabaseAdmin
       .from('messages')
       .insert({
-        conversation_id: conversation.id,
+        conversation_id: conversationId,
         direction: 'outbound',
         sender_email: alias.alias_email,
         sender_name: alias.display_name,
@@ -96,7 +131,7 @@ export async function POST(request: NextRequest) {
         gmail_thread_id: threadId,
         message_id_header: rfc822MessageId || null,
         is_read: true,
-        sent_by_user: user.id,
+        sent_by_user: userId,
       })
       .select('id')
       .single();
@@ -107,7 +142,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      conversationId: conversation.id,
+      conversationId: conversationId,
       messageId: newMsg?.id,
     });
   } catch (err: any) {

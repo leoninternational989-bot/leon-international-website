@@ -1,14 +1,14 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { createClient as createServerClient } from '@/lib/supabase-server';
 import { syncEmails } from '@/lib/email-sync';
+import { getAuthenticatedUserId } from '@/lib/auth-helper';
 
 // POST: Manual email sync trigger (authenticated users only)
-export async function POST() {
+export async function POST(request: NextRequest) {
   try {
-    const supabase = await createServerClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const userId = await getAuthenticatedUserId(request);
 
-    if (!user) {
+    if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -24,15 +24,15 @@ export async function POST() {
 }
 
 // GET: Get last sync status
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const supabase = await createServerClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const userId = await getAuthenticatedUserId(request);
 
-    if (!user) {
+    if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
+    const supabase = await createServerClient();
     const { data } = await supabase
       .from('email_sync_log')
       .select('*')

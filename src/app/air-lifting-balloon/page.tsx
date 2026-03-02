@@ -3,6 +3,7 @@ import QuickQuote from '@/components/sections/home/QuickQuote';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import FaqAccordion from '@/components/ui/FaqAccordion';
 
 export default function Page() {
     return (
@@ -14,6 +15,7 @@ export default function Page() {
                     { label: 'Services', href: '/services/' },
                     { label: 'Air Lifting Balloon Services', href: '/air-lifting-balloon/' }
                 ]}
+                image="/images/air-lifting-balloon/banner.webp"
             />
 
             <section className="py-20 lg:py-28 relative z-10 w-full min-w-full m-0 p-0 border-0 outline-none">
@@ -29,7 +31,7 @@ export default function Page() {
                             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                                 Our highly trained technicians and marine engineers ensure that every project meets the highest international maritime standards. Whether it's emergency response at anchorage or routine maintenance, you can rely on our expertise.
                             </p>
-                            
+
                             <h3 className="text-xl font-bold text-white mb-4">Why Choose Leon International?</h3>
                             <ul className="space-y-4 mb-8">
                                 {[
@@ -49,11 +51,10 @@ export default function Page() {
                                 Request a Quote <ArrowRight className="h-4 w-4" />
                             </Link>
                         </div>
-                        
+
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
-                            {/* Standardizing the image across all for now */}
-                            <Image 
-                                src="https://images.unsplash.com/photo-1542317148-8bdfbc8cb8c9?q=80&w=1200"
+                            <Image
+                                src="/images/air-lifting-balloon/component.webp"
                                 alt="Air Lifting Balloon Services performed by Leon International Marine Engineers"
                                 fill
                                 className="object-cover"
@@ -61,26 +62,24 @@ export default function Page() {
                         </div>
                     </div>
 
-                    <div className="mt-24 pt-16 border-t border-white/10 w-full">
+                    <div className="mt-24 pt-16 border-t border-white/10 w-full mb-20">
                         <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
-                        <div className="max-w-4xl mx-auto space-y-6">
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">What air lifting balloon services does Leon International offer?</h3>
-                                <p className="text-gray-300">Leon International provides comprehensive air lifting balloon services for marine vessels and industrial clients at Karachi Port, Bin Qasim anchorage, and worldwide.</p>
-                            </div>
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">Does Leon International provide emergency air lifting balloon services?</h3>
-                                <p className="text-gray-300">Yes, we offer 24/7 rapid response for emergency marine repairs and services.</p>
-                            </div>
-                            
-                            <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
-                                <h3 className="text-xl font-bold text-white mb-3">Are your technicians certified?</h3>
-                                <p className="text-gray-300">Yes, our engineers and technicians are highly experienced and hold necessary class approvals (including BV, LR) for specialized marine engineering tasks.</p>
-                            </div>
-                            
-                        </div>
+                        <FaqAccordion
+                            faqs={[
+                                {
+                                    question: "What air lifting balloon services does Leon International offer?",
+                                    answer: "Leon International provides comprehensive air lifting balloon services for marine vessels and industrial clients at Karachi Port, Bin Qasim anchorage, and worldwide."
+                                },
+                                {
+                                    question: "Does Leon International provide emergency air lifting balloon services?",
+                                    answer: "Yes, we offer 24/7 rapid response for emergency marine repairs and services."
+                                },
+                                {
+                                    question: "Are your technicians certified?",
+                                    answer: "Yes, our engineers and technicians are highly experienced and hold necessary class approvals (including BV, LR) for specialized marine engineering tasks."
+                                }
+                            ]}
+                        />
                     </div>
                 </div>
             </section>

@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leon International Company Profile</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:ital,wght@0,400;0,600;1,700&display=swap');
+
+        :root {
+            --gold: #B6861E;
+            /* Slightly more muted, premium gold */
+            --navy: #0B2233;
+            /* Deeper navy */
+            --dark-gray: #2A2A2A;
+            --light-gray: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-gray);
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            background: #e0e0e0;
+            /* Gray background for web view */
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            padding: 20mm;
+            box-sizing: border-box;
+            position: relative;
+            background-color: #fff;
+            overflow: hidden;
+            margin: 0 auto;
+            /* Center for web view */
+            margin-bottom: 5mm;
+            /* Gap between pages in web view */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Shadow for web view */
+            page-break-after: always;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 0;
+        }
+
+        .page-title {
+            font-size: 26pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+
+        .page-title .thin {
+            font-weight: 400;
+            color: var(--dark-gray);
+            display: block;
+            letter-spacing: 2px;
+        }
+
+        .page-title .thick {
+            color: var(--gold);
+            display: block;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .divider-line {
+            flex-grow: 0;
+            width: 40px;
+            height: 1px;
+            background-color: var(--gold);
+        }
+
+        .divider-star {
+            color: var(--gold);
+            font-size: 12pt;
+            margin: 0 10px;
+            line-height: 1;
+        }
+
+        .sub-title {
+            color: var(--navy);
+            font-size: 14pt;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: inline-block;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            font-size: 10.5pt;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .rounded-img {
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140%;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        /* Cover Page Exact Layout */
+        .cover-page {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            position: relative;
+        }
+
+        .cover-collage {
+            position: relative;
+            width: 100%;
+            height: 70%;
+            margin: 20mm 20mm 0 20mm;
+        }
+
+        .collage-img {
+            position: absolute;
+            object-fit: cover;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .img-tl {
+            top: 0;
+            left: 0;
+            width: 230px;
+            height: 230px;
+            border-radius: 0;
+        }
+
+        .img-tr {
+            top: 0;
+            left: 245px;
+            width: 230px;
+            height: 230px;
+            border-radius: 0 0 115px 0;
+        }
+
+        .img-bl {
+            top: 245px;
+            left: 0;
+            width: 230px;
+            height: 230px;
+            border-radius: 115px 0 115px 0;
+        }
+
+        .img-br {
+            top: 245px;
+            left: 245px;
+            width: 395px;
+            height: 350px;
+            border-radius: 80px;
+        }
+
+        .dec-square {
+            position: absolute;
+            background: #5a5a5a;
+        }
+
+        .sq-1 {
+            width: 65px;
+            height: 65px;
+            top: 15px;
+            left: 520px;
+            border-radius: 12px;
+        }
+
+        .sq-2 {
+            width: 90px;
+            height: 90px;
+            top: 90px;
+            left: 485px;
+            border-radius: 16px;
+        }
+
+        .sq-3 {
+            width: 35px;
+            height: 35px;
+            top: 105px;
+            left: 585px;
+            border-radius: 8px;
+        }
+
+        .cover-logo-container {
+            height: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 20mm;
+        }
+
+        .cover-logo {
+            width: 200px;
+            object-fit: contain;
+        }
+
+        /* Quote Page */
+        .quote-page {
+            padding: 0;
+            position: relative;
+        }
+
+        .quote-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .quote-overlay {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            right: 10%;
+            background: rgba(11, 34, 51, 0.85);
+            border-radius: 12px;
+            padding: 50px;
+            z-index: 1;
+            border-top: 2px solid var(--gold);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .quote-icon {
+            color: var(--gold);
+            font-size: 60pt;
+            font-family: serif;
+            line-height: 0.5;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .quote-text {
+            color: white;
+            font-size: 22pt;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.4;
+            letter-spacing: 0.5px;
+        }
+
+        .quote-footer {
+            position: absolute;
+            bottom: 8%;
+            left: 0;
+            width: 100%;
+            background: rgba(11, 34, 51, 0.95);
+            padding: 25px 0;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .quote-footer-text {
+            color: white;
+            font-size: 16pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 3px;
+        }
+
+        /* Content Pages */
+        .content-wrap {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wide-bottom-img {
+            width: 100%;
+            height: 35%;
+            flex-shrink: 0;
+            margin-top: auto;
+        }
+
+        /* Values Grid */
+        .value-item {
+            display: flex;
+            margin-bottom: 35px;
+            align-items: flex-start;
+        }
+
+        .value-img {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+            margin-right: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            object-fit: cover;
+        }
+
+        .value-content {
+            flex-grow: 1;
+        }
+
+        /* Products Pattern */
+        .product-item {
+            display: flex;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+
+        .product-img {
+            width: 160px;
+            height: 160px;
+            flex-shrink: 0;
+            margin-right: 35px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Grid for Locations/Certifications */
+        .bold-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .bold-grid h4 {
+            color: var(--navy);
+            margin-bottom: 5px;
+            font-size: 14pt;
+        }
+
+        .bold-grid p {
+            margin-top: 0;
+        }
+
+        /* List styles */
+        ul {
+            padding-left: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        li {
+            font-size: 11pt;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+
+        /* Contact Page */
+        .contact-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .contact-logo {
+            width: 220px;
+            margin-bottom: 50px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            width: 75%;
+            margin-bottom: 50px;
+        }
+
+        .contact-grid img {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            object-fit: cover;
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-info h2 {
+            font-size: 22pt;
+            color: var(--gold);
+            text-transform: uppercase;
+            border-bottom: none;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .contact-info p {
+            font-size: 11.5pt;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .contact-info span {
+            color: var(--gold);
+            font-size: 14pt;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PAGE 1: COVER PAGE -->
+    <div class="page cover-page">
+        <div class="cover-collage">
+            <img class="collage-img img-tl"
+                src="file:///d:/Projetcs/leon-international-website/public/images/electrical/component.webp"
+                alt="Service 1">
+            <img class="collage-img img-tr"
+                src="file:///d:/Projetcs/leon-international-website/public/images/ship-repair/service-1.webp"
+                alt="Service 2">
+            <img class="collage-img img-bl"
+                src="file:///d:/Projetcs/leon-international-website/public/images/fabrication/banner.webp"
+                alt="Service 3">
+            <img class="collage-img img-br"
+                src="file:///d:/Projetcs/leon-international-website/public/images/mechanical-repair/component.webp"
+                alt="Service 4">
+
+            <div class="dec-square sq-1"></div>
+            <div class="dec-square sq-2"></div>
+            <div class="dec-square sq-3"></div>
+        </div>
+        <div class="cover-logo-container">
+            <img class="cover-logo"
+                src="file:///d:/Projetcs/leon-international-website/public/images/logo-transparent.png"
+                alt="Leon International">
+        </div>
+    </div>
+
+    <!-- PAGE 2: QUOTE PAGE -->
+    <div class="page quote-page">
+        <img class="quote-bg"
+            src="file:///d:/Projetcs/leon-international-website/public/images/mechanical-repair/banner.webp"
+            alt="Background">
+        <div class="quote-overlay">
+            <div class="quote-icon">"</div>
+            <div class="quote-text">THE BEST VALUE COMES FROM THE INTEGRITY OF SUCCESSFUL & WORKING PERFECTLY.</div>
+        </div>
+        <div class="quote-footer">
+            <div class="quote-footer-text">SUCCESS IS A PROJECT THAT'S ALWAYS UNDER CONSTRUCTION</div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: OUR MISSION & VISION -->
+    <div class="page">
+        <div class="content-wrap">
+            <div class="page-title">
+                <span class="thin">OUR</span>
+                <span class="thick">MISSION</span>
+            </div>
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-star">★</div>
+                <div class="divider-line"></div>
+            </div>
+            <p>To deliver expedited, reliable, and high-quality marine engineering services and spare parts that keep
+                vessels operational and industries productive. We serve our clients with an unsurpassed level of
+                commitment, guided by our adherence to international standards and high moral values. We strive to
+                maintain the highest standards of quality, reliability, and professionalism in all our endeavors,
+                ensuring long-term partnerships and mutual growth.</p>
+
+            <div class="page-title" style="margin-top: 40px;">
+                <span class="thin">OUR</span>
+                <span class="thick">VISION</span>
+            </div>
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-star">★</div>
+                <div class="divider-line"></div>
+            </div>
+            <p>To be the most trusted and comprehensive marine engineering and industrial hardware provider across the
+                Indian Ocean, Middle East, and beyond — recognized for our technical excellence, global reach, and
+                customer-first approach. We aim to continuously expand our capabilities, explore new markets, and foster
+                a culture of creativity and collaboration within our organization.</p>
+
+            <img class="wide-bottom-img rounded-img"
+                src="file:///d:/Projetcs/leon-international-website/public/images/ship-repair/banner.webp"
+                alt="Ship Repair">
+        </div>
+    </div>
+
+    <!-- PAGE 4: ABOUT OUR COMPANY -->
+    <div class="page">
+        <div class="content-wrap" style="align-items: center; justify-content: space-between;">
+            <div style="width: 100%;">
+                <div class="page-title">
+                    <span class="thin">ABOUT OUR</span>
+                    <span class="thick">COMPANY</span>
+                </div>
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-star">★</div>
+                    <div class="divider-line"></div>
+                </div>
+                <p>Welcome to Leon International, a leading multi-national marine engineering powerhouse with over 50
+                    years of excellence. Our expertise spans across ship repair & dry docking, engine overhauling,
+                    electrical & electronics, fabrication & welding, NDT inspection, and global spare parts procurement
+                    — delivering comprehensive solutions from Karachi Port to ports worldwide.</p>
+                <p>Operating from Pakistan, UAE, China, and Latvia, we combine international sourcing networks with deep
+                    local expertise. Our team of certified marine engineers, Bureau Veritas-approved welders, and
+                    experienced technicians ensures every project meets internationally recognized standards from
+                    Lloyd's Register, DNV, ABS, and leading classification societies.</p>
+            </div>
+            <img src="file:///d:/Projetcs/leon-international-website/public/images/logo-transparent.png" alt="Leon Logo"
+                style="width: 180px; margin-bottom: 100px;">
+        </div>
+    </div>
+
+    <!-- PAGE 5: OUR CORE VALUES -->
+    <div class="page">
+        <div class="content-wrap">
+            <div class="page-title">
+                <span class="thin">Our</span>
+                <span class="thick">Core Values</span>
+            </div>
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-star">★</div>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="value-item">
+                <!-- Using placeholder for abstract concepts since we mostly have engineering photos -->
+                <img class="value-img rounded-img"
+                    src="file:///d:/Projetcs/leon-international-website/public/images/specialized/component-v2.webp"
+                    alt="Reliability">
+                <div class="value-content">
+                    <div class="sub-title">Reliability</div>
+                    <p>When your vessel is down, every hour counts. We respond fast with 24/7 emergency service, work
+                        efficiently, and deliver on our commitments — from emergency repairs at anchorage to scheduled
+                        dry docking.</p>
+                </div>
+            </div>
+
+            <div class="value-item">
+                <img class="value-img rounded-img"
+                    src="file:///d:/Projetcs/leon-international-website/public/images/marine-tools-calibration/component.webp"
+                    alt="Quality">
+                <div class="value-content">
+                    <div class="sub-title">Quality</div>
+                    <p>From the parts we source to the welds we lay, every output meets internationally recognized
+                        standards. Our ISO 9001:2008 certification and approvals from Lloyd's Register and Bureau
+                        Veritas guarantee excellence.</p>
+                </div>
+            </div>
+
+            <div class="value-item">
+                <img class="value-img rounded-img"
+                    src="file:///d:/Projetcs/leon-international-website/public/images/ndt-inspection/banner.webp"
+                    alt="Innovation">
+                <div class="value-content">
+                    <div class="sub-title">Innovation</div>
+                    <p>We continuously invest in modern testing equipment, advanced coating technologies, and efficient
+                        procurement systems to stay ahead of industry demands and deliver cutting-edge solutions.</p>
+                </div>
+            </div>
+
+            <div class="value-item">
+                <img class="value-img rounded-img"
+                    src="file:///d:/Projetcs/leon-international-website/public/images/vessel-repair/banner.webp"
+                    alt="Integrity">
+                <div class="value-content">
+                    <div class="sub-title">Integrity</div>
+                    <p>We provide honest assessments, transparent pricing, and never cut corners. Our reputation is
+                        built on trust earned over five decades of serving the maritime industry.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 6: CORE VALUES (CONT) + CERTIFICATIONS -->
+    <div class="page">
+        <div class="content-wrap">
+            <div class="value-item">
+                <img class="value-img rounded-img"
+                    src="file:///d:/Projetcs/leon-international-website/public/images/dry-docking/component.webp"
+                    alt="Teamwork">
+                <div class="value-content">
+                    <div class="sub-title">Teamwork</div>
+                    <p>Our team of certified marine engineers, BV-approved welders, electrical technicians, and sourcing
+                        specialists work collaboratively to deliver comprehensive solutions under one roof.</p>
+                </div>
+            </div>
+
+            <div class="sub-title" style="margin-top: 30px;">Our Certifications</div>
+            <p>Leon International holds certifications and approvals from the world's leading classification societies.
+                We are proud to be recognized by these organizations and are committed to delivering services that meet
+                their rigorous standards.</p>
+
+            <div class="bold-grid" style="margin-bottom: 40px; text-align: center;">
+                <div>
+                    <h4 style="font-size: 18pt; color: var(--navy); margin-bottom: 0;">LLOYD'S REGISTER</h4><span
+                        style="color: var(--gold);">(LR)</span>
+                </div>
+                <div>
+                    <h4 style="font-size: 18pt; color: var(--navy); margin-bottom: 0;">BUREAU VERITAS</h4><span
+                        style="color: var(--gold);">(BV)</span>
+                </div>
+                <div>
+                    <h4 style="font-size: 18pt; color: var(--navy); margin-bottom: 0;">DNV</h4><span
+                        style="color: var(--gold);">(Det Norske Veritas)</span>
+                </div>
+                <div>
+                    <h4 style="font-size: 18pt; color: var(--navy); margin-bottom: 0;">ABS</h4><span
+                        style="color: var(--gold);">(American Bureau of Shipping)</span>
+                </div>
+                <div>
+                    <h4 style="font-size: 18pt; color: var(--navy); margin-bottom: 0;">ClassNK</h4><span
+                        style="color: var(--gold);">(Nippon Kaiji Kyokai)</span>
+                </div>
+                <div>
+                    <h4 style="font-size: 18pt; color: var(--navy); margin-bottom: 0;">ISO 9001:2008</h4><span
+                        style="color: var(--gold);">Certified Company</span>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-style: italic; font-weight: 600; color: var(--navy);">At Leon
+                International, we are dedicated to excellence, innovation, and customer satisfaction. With a focus on
+                quality, integrity, and continuous improvement, we are poised to make a positive impact in the marine
+                engineering and spare parts industry, both locally and globally.</p>
+        </div>
+    </div>
+
+    <!-- PAGE 7: OUR EXPERTISE 1 -->
+    <div class="page">
+        <img class="watermark" src="file:///d:/Projetcs/leon-international-website/public/images/logo-transparent.png"
+            alt="Watermark">
+        <div class="content-wrap">
+            <div class="page-title">
+                <span class="thin">Our</span>
+                <span class="thick">Expertise</span>
+            </div>
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-star">★</div>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="sub-title">Ship Repair & Dry Docking</div>
+            <ul>
+                <li>Complete dry docking, ship lift transfer systems, and afloat repair facilities at Karachi Port and
+                    Port Bin Qasim, serving vessels of all sizes.</li>
+                <li>Emergency response at anchorage, routine maintenance, and class-approved repair solutions —
+                    available 24/7 with rapid mobilization capability.</li>
+            </ul>
+
+            <div class="sub-title" style="margin-top: 30px;">Engine & Mechanical Repair</div>
+            <ul>
+                <li>Main engine, generator, pump, and boiler overhauling with full reconditioning capabilities covering
+                    20+ major engine brands including MAN B&W, Wärtsilä, Cummins, and Caterpillar.</li>
+                <li>Hydraulic pump overhauling, windlass repair, and deck machinery servicing — our experienced
+                    mechanical team handles complete engine room solutions.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 8: OUR EXPERTISE 2 -->
+    <div class="page">
+        <img class="watermark" src="file:///d:/Projetcs/leon-international-website/public/images/logo-transparent.png"
+            alt="Watermark">
+        <div class="content-wrap" style="padding-top: 40px;">
+
+            <div class="sub-title">Electrical & Electronics</div>
+            <ul>
+                <li>Industrial motor rewinding, PCB card repair, transformer rewinding, and complete marine electrical
+                    system servicing for both onboard and onshore applications.</li>
+                <li>Gyro compass overhauling and navigation equipment servicing, ensuring your vessel's electrical and
+                    electronic systems operate at peak performance.</li>
+            </ul>
+
+            <div class="sub-title" style="margin-top: 30px;">Fabrication & Welding</div>
+            <ul>
+                <li>Steel structure fabrication, hull repair, pipe works, buoys fabrication, and all types of welding by
+                    Bureau Veritas-approved certified welders.</li>
+                <li>Custom parts fabrication for discontinued or obsolete components — manufactured to exact
+                    specifications to get your operations back online.</li>
+            </ul>
+
+            <div class="sub-title" style="margin-top: 30px;">NDT Inspection & Testing</div>
+            <ul>
+                <li>Ultrasonic thickness gauging, ultrasonic flaw detection, magnetic particle inspection, dye penetrant
+                    testing, and hardness testing — all performed to classification society standards.</li>
+                <li>Marine crane load testing, hatch cover testing, and marine tools calibration — comprehensive
+                    inspection services for vessel safety compliance.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 9: OUR EXPERTISE 3 -->
+    <div class="page">
+        <img class="watermark" src="file:///d:/Projetcs/leon-international-website/public/images/logo-transparent.png"
+            alt="Watermark">
+        <div class="content-wrap" style="padding-top: 40px;">
+
+            <div class="sub-title">Protective Coatings</div>
+            <ul>
+                <li>Industrial protective coatings, Belzona applications, sandblasting, grit blasting, and metal
+                    stitching services to protect and extend the life of marine and industrial equipment.</li>
+                <li>Our coating solutions meet international maritime standards, providing long-lasting protection
+                    against corrosion, erosion, and chemical exposure.</li>
+            </ul>
+
+            <div class="sub-title" style="margin-top: 30px;">HVAC & Refrigeration</div>
+            <ul>
+                <li>Air conditioning plant repair, compressor overhauling, cold storage system maintenance, and Freon
+                    gas servicing for marine and industrial applications.</li>
+                <li>Complete refrigeration system diagnostics and repair to keep your vessel's climate control and cold
+                    chain operations running efficiently.</li>
+            </ul>
+
+            <img class="wide-bottom-img rounded-img"
+                src="file:///d:/Projetcs/leon-international-website/public/images/fabrication/banner.webp"
+                alt="Fabrication">
+        </div>
+    </div>
+
+    <!-- PAGE 10: OUR PRODUCTS 1 -->
+    <div class="page">
+        <div class="content-wrap">
+            <div class="page-title">
+                <span class="thin">Our</span>
+                <span class="thick">Products</span>
+            </div>
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-star">★</div>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="product-item">
+                <img class="product-img rounded-img shadow-none"
+                    src="file:///d:/Projetcs/leon-international-website/public/images/main-engine-generator-repair/component.webp"
+                    alt="Engine Parts">
+                <div class="product-content">
+                    <div class="sub-title">Engine Parts & Spares</div>
+                    <p>Leon International is your trusted source for marine engine spare parts covering 20+ major
+                        brands. We offer brand-new OEM parts for critical applications, professionally reconditioned
+                        components that perform like new at a fraction of the cost, and quality-tested used parts
+                        sourced from ship demolition yards with rigorous inspections. Our inventory includes cylinder
+                        covers, liners, pistons, valves, fuel injection systems, and complete engine assemblies —
+                        ensuring your vessels stay operational with minimal downtime.</p>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img class="product-img rounded-img shadow-none"
+                    src="file:///d:/Projetcs/leon-international-website/public/images/specialized/component-v2.webp"
+                    alt="Turbocharger">
+                <div class="product-content">
+                    <div class="sub-title">Turbocharger Spares</div>
+                    <p>We supply complete turbocharger units and individual replacement parts for all major marine
+                        turbocharger brands. Each unit undergoes thorough testing and quality verification before
+                        dispatch. Our global sourcing network ensures competitive pricing and rapid delivery to keep
+                        your engine room running at peak efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 11: OUR PRODUCTS 2 -->
+    <div class="page">
+        <div class="content-wrap" style="padding-top: 40px;">
+            <div class="product-item">
+                <img class="product-img rounded-img"
+                    src="file:///d:/Projetcs/leon-international-website/public/images/gyro-compass-overhauling/component.webp"
+                    alt="Navigation">
+                <div class="product-content">
+                    <div class="sub-title">Navigation Systems</div>
+                    <p>Leon International supplies radar systems, GPS equipment, communication devices, and complete
+                        bridge electronics. We source from leading manufacturers and provide both new and professionally
+                        reconditioned units. Our technical team can assist with installation, commissioning, and system
+                        integration to ensure reliable navigation and communication at sea.</p>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img class="product-img rounded-img"
+                    src="file:///d:/Projetcs/leon-international-website/public/images/hydraulic-pump-overhauling/component.webp"
+                    alt="Hydraulics">
+                <div class="product-content">
+                    <div class="sub-title">Hydraulic Equipment</div>
+                    <p>From hydraulic pumps and tools to hoses and precision components, we provide comprehensive
+                        hydraulic solutions for marine and industrial applications. Our products are sourced from
+                        trusted suppliers worldwide, tested for performance and reliability, and backed by our technical
+                        support team for installation guidance and troubleshooting.</p>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img class="product-img rounded-img"
+                    src="file:///d:/Projetcs/leon-international-website/public/images/windlass-repair/component.webp"
+                    alt="Deck Machinery">
+                <div class="product-content">
+                    <div class="sub-title">Deck Machinery & Propulsion</div>
+                    <p>We supply windlasses, winches, cranes, propellers, gearboxes, and complete drive systems. Whether
+                        you need a replacement anchor windlass or a complete propulsion system overhaul, Leon
+                        International delivers quality components with competitive lead times and expert technical
+                        advice.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 12: OUR PRODUCTS 3 -->
+    <div class="page">
+        <div class="content-wrap" style="padding-top: 40px;">
+            <div class="product-item">
+                <img class="product-img rounded-img"
+                    src="file:///d:/Projetcs/leon-international-website/public/images/electrical-equipment-repair/component.webp"
+                    alt="Generators">
+                <div class="product-content">
+                    <div class="sub-title">Diesel Generators</div>
+                    <p>We supply overhauled generator sets for marine and power plant applications. Each unit is
+                        thoroughly tested, reconditioned by experienced technicians, and delivered with full
+                        documentation. We cover all major brands and can source specific models based on your vessel's
+                        requirements.</p>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img class="product-img rounded-img"
+                    src="file:///d:/Projetcs/leon-international-website/public/images/protective-coatings/component.webp"
+                    alt="Specialized">
+                <div class="product-content">
+                    <div class="sub-title">Specialized Equipment</div>
+                    <p>Leon International also supplies petroleum equipment for the oil & gas sector, explosion-proof
+                        (ATEX-rated) components for hazardous environments, purifiers and separators for fuel and oil
+                        treatment, and power plant equipment for industrial energy applications. Every item meets
+                        stringent safety and quality standards.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 13: GLOBAL PRESENCE -->
+    <div class="page">
+        <div class="content-wrap">
+            <div class="page-title">
+                <span class="thin">Our</span>
+                <span class="thick">Global Presence</span>
+            </div>
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-star">★</div>
+                <div class="divider-line"></div>
+            </div>
+
+            <p>With strategic offices in four countries, Leon International serves clients spanning every major ocean
+                route — from the Arabian Sea to European maritime zones.</p>
+
+            <div class="bold-grid">
+                <div>
+                    <h4>Pakistan <span style="font-weight: 400; color: #666;">(Headquarters)</span></h4>
+                    <p>C-102 Block 4 Gulshan-E-Iqbal, Karachi<br>Operating from Karachi Port & Port Bin Qasim</p>
+                </div>
+                <div>
+                    <h4>United Arab Emirates</h4>
+                    <p>Office No: CWS-1V-223879, 26th Floor<br>Amber Gem Tower, Sheikh Khalifa Street, Ajman</p>
+                </div>
+                <div>
+                    <h4>China</h4>
+                    <p>No. 29-4, Xinhuaqiang District<br>Shiyan City, Hubei</p>
+                </div>
+                <div>
+                    <h4>Latvia</h4>
+                    <p>Annas Brigaderes iela 4-47<br>LV-1082, Rīga</p>
+                </div>
+            </div>
+
+            <img class="wide-bottom-img rounded-img"
+                src="file:///d:/Projetcs/leon-international-website/public/images/marine-tools-calibration/banner.webp"
+                alt="Global Operations">
+        </div>
+    </div>
+
+    <!-- PAGE 14: OUR COMMITMENT -->
+    <div class="page">
+        <img class="watermark" src="file:///d:/Projetcs/leon-international-website/public/images/logo-transparent.png"
+            alt="Watermark" style="opacity: 0.08; width: 140%; top: 70%;">
+        <div class="content-wrap">
+            <div class="page-title">
+                <span class="thin">OUR</span>
+                <span class="thick">Commitment</span>
+            </div>
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-star">★</div>
+                <div class="divider-line"></div>
+            </div>
+
+            <p style="font-size: 13pt; line-height: 1.8;">At Leon International, we are committed to delivering
+                exceptional marine engineering services and spare parts to clients across the globe. With over 50 years
+                of experience, certifications from Lloyd's Register, Bureau Veritas, DNV, and ABS, and operations
+                spanning four countries, our dedication to quality, reliability, and customer satisfaction sets us apart
+                as a trusted partner in your maritime success.</p>
+            <p style="font-size: 13pt; line-height: 1.8; margin-top: 20px;">We stand behind every repair, every part,
+                and every project — ensuring that your vessels and operations remain safe, efficient, and productive.
+                Our 24/7 availability means we are always ready when you need us most.</p>
+        </div>
+    </div>
+
+    <!-- PAGE 15: CONTACT (BACK COVER) -->
+    <div class="page contact-page">
+        <img class="contact-logo"
+            src="file:///d:/Projetcs/leon-international-website/public/images/logo-transparent.png"
+            alt="Leon International">
+
+        <div class="contact-grid">
+            <img src="file:///d:/Projetcs/leon-international-website/public/images/ship-repair/service-1.webp"
+                alt="Ship">
+            <img src="file:///d:/Projetcs/leon-international-website/public/images/ac-plant-repair/component.webp"
+                alt="Parts">
+            <img src="file:///d:/Projetcs/leon-international-website/public/images/electrical/component.webp"
+                alt="Workshop">
+            <img src="file:///d:/Projetcs/leon-international-website/public/images/vessel-repair/component.webp"
+                alt="Port">
+        </div>
+
+        <div class="contact-info">
+            <h2>GET IN <span style="color: var(--dark-gray); font-weight: 800;">TOUCH NOW!</span></h2>
+            <p><span>📞</span> 0313 2277773</p>
+            <p><span>✉️</span> info@leon-international.com</p>
+            <p><span>🌐</span> www.leoninternational.com</p>
+            <p><span>📍</span> C-102 Block 4 Gulshan-E-Iqbal, Karachi</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

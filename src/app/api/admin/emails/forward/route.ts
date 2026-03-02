@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { createClient as createServerClient } from '@/lib/supabase-server';
 import { sendGmailEmail, gmail, extractAttachments, downloadAttachment } from '@/lib/gmail';
+import { getAuthenticatedUserId } from '@/lib/auth-helper';
 
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -10,10 +11,9 @@ const supabaseAdmin = createClient(
 
 export async function POST(request: NextRequest) {
   try {
-    // Verify authenticated user
-    const supabase = await createServerClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
+    // Verify authenticated user (cookie or Bearer token)
+    const userId = await getAuthenticatedUserId(request);
+    if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -152,7 +152,7 @@ export async function POST(request: NextRequest) {
         gmail_thread_id: threadId,
         message_id_header: rfc822MessageId || null,
         is_read: true,
-        sent_by_user: user.id,
+        sent_by_user: userId,
       })
       .select('id')
       .single();

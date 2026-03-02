@@ -53,7 +53,7 @@ export default function Page() {
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             {/* Standardizing the image across all for now */}
                             <Image 
-                                src="https://images.unsplash.com/photo-1542317148-8bdfbc8cb8c9?q=80&w=1200"
+                                src="/images/ship-repair/service-1.webp"
                                 alt="Explosion-Proof (Ex) Equipment performed by Leon International Marine Engineers"
                                 fill
                                 className="object-cover"
