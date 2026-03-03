@@ -1,30 +1,30 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
-import { createClient as createServerClient } from '@/lib/supabase-server';
+import { getAuthenticatedUserId } from '@/lib/auth-helper';
 
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-async function verifySuperAdmin() {
-  const supabase = await createServerClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return null;
+// Helper: verify caller is super_admin (supports both cookie and Bearer token)
+async function verifySuperAdmin(request: NextRequest) {
+  const userId = await getAuthenticatedUserId(request);
+  if (!userId) return null;
 
-  const { data: crmUser } = await supabase
+  const { data: crmUser } = await supabaseAdmin
     .from('crm_users')
     .select('role')
-    .eq('id', user.id)
+    .eq('id', userId)
     .single();
 
-  return crmUser?.role === 'super_admin' ? user : null;
+  return crmUser?.role === 'super_admin' ? { id: userId } : null;
 }
 
 // GET: List all aliases
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const caller = await verifySuperAdmin();
+    const caller = await verifySuperAdmin(request);
     if (!caller) return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
 
     const { data, error } = await supabaseAdmin
@@ -42,7 +42,7 @@ export async function GET() {
 // POST: Create new alias
 export async function POST(request: NextRequest) {
   try {
-    const caller = await verifySuperAdmin();
+    const caller = await verifySuperAdmin(request);
     if (!caller) return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
 
     const { alias_email, display_name } = await request.json();
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
 // PATCH: Update alias
 export async function PATCH(request: NextRequest) {
   try {
-    const caller = await verifySuperAdmin();
+    const caller = await verifySuperAdmin(request);
     if (!caller) return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
 
     const { id, display_name, is_active } = await request.json();
@@ -103,7 +103,7 @@ export async function PATCH(request: NextRequest) {
 // DELETE: Delete alias (only if not assigned to any user)
 export async function DELETE(request: NextRequest) {
   try {
-    const caller = await verifySuperAdmin();
+    const caller = await verifySuperAdmin(request);
     if (!caller) return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
 
     const { id } = await request.json();

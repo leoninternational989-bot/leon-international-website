@@ -19,7 +19,7 @@ const values = [
     },
     {
         name: 'Integrity',
-        description: 'We provide honest assessments, transparent pricing, and never cut corners. Our reputation is built on trust earned over five decades.',
+        description: 'We provide honest assessments, transparent pricing, and never cut corners. Our reputation is built on trust earned over decades.',
         icon: CheckCircle2,
     },
     {
@@ -46,7 +46,7 @@ export default function About() {
         <>
             <PageHero
                 title="About Leon International"
-                subtitle="Five Decades of Marine Engineering Excellence Under One Roof"
+                subtitle="Decades of Marine Engineering Excellence Under One Roof"
                 bgClass="bg-gradient-to-tr from-primary-950 via-primary-800 to-ocean"
                 breadcrumbs={[
                     { label: 'About Us', href: '/about/' }
@@ -66,10 +66,10 @@ export default function About() {
                             <h2 className="text-3xl font-bold tracking-tight text-primary-950 sm:text-4xl font-plus-jakarta-sans mb-6">Our Story</h2>
                             <div className="space-y-6 text-base leading-7 text-gray-600 font-inter">
                                 <p>
-                                    Leon International was born from the convergence of decades of marine engineering expertise, global sourcing networks, and an unwavering commitment to quality. Our roots trace back to 1974, when our founding operations began serving the growing maritime needs of Karachi Port — one of the busiest ports along the Arabian Sea trade routes.
+                                    Leon International was born from the convergence of decades of marine engineering expertise, global sourcing networks, and an unwavering commitment to quality. Our roots trace back decades, when our founding operations began serving the growing maritime needs of Karachi Port — one of the busiest ports along the Arabian Sea trade routes.
                                 </p>
                                 <p>
-                                    Over the years, we have grown from a local ship repair workshop into a multi-national marine engineering powerhouse with operations spanning Pakistan, the United Arab Emirates, China, and Latvia. Today, Leon International stands as one of the most comprehensive marine and industrial service providers in the region, offering everything from engine overhauling and steel fabrication to global spare parts procurement and advanced non-destructive testing.
+                                    Over the years, we have grown from a local ship repair workshop into a multi-national marine engineering powerhouse with operations spanning across the globe from our headquarters in Pakistan. Today, Leon International stands as one of the most comprehensive marine and industrial service providers in the region, offering everything from engine overhauling and steel fabrication to global spare parts procurement and advanced non-destructive testing.
                                 </p>
                                 <p>
                                     What sets us apart is not just the breadth of our capabilities, but the depth of our expertise. Our team includes certified marine engineers, Bureau Veritas-approved welders, experienced electrical technicians, and sourcing specialists who maintain direct relationships with manufacturers and ship recycling yards across three continents. This combination allows us to deliver solutions that are not only technically superior but also cost-effective and time-efficient.

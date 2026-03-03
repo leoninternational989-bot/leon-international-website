@@ -13,7 +13,7 @@ import QuickQuote from '@/components/sections/home/QuickQuote';
 
 export const metadata: Metadata = {
   title: "Leon International | Marine Engineering, Ship Repair & Spare Parts Supplier",
-  description: "Leon International delivers comprehensive marine engineering services — ship repair, dry docking, NDT inspection, fabrication, HVAC, protective coatings & OEM spare parts. 50+ years experience. Offices in Pakistan, UAE, China & Latvia.",
+  description: "Leon International delivers comprehensive marine engineering services — ship repair, dry docking, NDT inspection, fabrication, HVAC, protective coatings & OEM spare parts. decades of experience. global operations headquartered in Pakistan.",
   alternates: {
     canonical: 'https://leoninternational.com/',
   },

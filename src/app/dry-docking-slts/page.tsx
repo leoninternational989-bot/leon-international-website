@@ -27,7 +27,7 @@ export default function Page() {
                             Precision Engineering for Optimal Performance
                         </h2>
                         <p className="text-lg text-gray-300 leading-relaxed">
-                            Leon International operates state-of-the-art dry dock and Ship Lift Transfer Systems (SLTS) in Karachi, delivering class-approved repair and rebuilding solutions. With over 50 years of technical expertise, our certified marine engineers handle everything from routine maintenance to major structural steel renewals, ensuring your vessel returns to service efficiently and safely.
+                            Leon International operates state-of-the-art dry dock and Ship Lift Transfer Systems (SLTS) in Karachi, delivering class-approved repair and rebuilding solutions. With decades of technical expertise, our certified marine engineers handle everything from routine maintenance to major structural steel renewals, ensuring your vessel returns to service efficiently and safely.
                         </p>
                     </div>
 

@@ -1,0 +1,657 @@
+[
+  {
+    "file": "src/app/about/layout.tsx",
+    "line": 4,
+    "text": "title: \"About Leon International — 50+ Years in Marine Engineering\","
+  },
+  {
+    "file": "src/app/about/page.tsx",
+    "line": 22,
+    "text": "description: 'We provide honest assessments, transparent pricing, and never cut corners. Our reputation is built on trust earned over five decades.',"
+  },
+  {
+    "file": "src/app/about/page.tsx",
+    "line": 49,
+    "text": "subtitle=\"Five Decades of Marine Engineering Excellence Under One Roof\""
+  },
+  {
+    "file": "src/app/about/page.tsx",
+    "line": 69,
+    "text": "Leon International was born from the convergence of decades of marine engineering expertise, global sourcing networks, and an unwavering commitment to quality. Our roots trace back to 1974, when our founding operations began serving the growing maritime needs of Karachi Port — one of the busiest ports along the Arabian Sea trade routes."
+  },
+  {
+    "file": "src/app/ac-plant-repair/page.tsx",
+    "line": 29,
+    "text": "Compressor overhaul and refrigerant management for central AC plants. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/ac-plant-repair/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/air-compressors/page.tsx",
+    "line": 27,
+    "text": "Starting air, working air compressor blocks, and overhaul kits. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/air-compressors/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/air-lifting-balloon/page.tsx",
+    "line": 29,
+    "text": "Underwater salvage and buoyancy support using heavy-duty lifting balloons. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/air-lifting-balloon/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/auxiliary-engines/page.tsx",
+    "line": 27,
+    "text": "Parts for marine generator sets covering all leading brands. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/auxiliary-engines/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/blog/[slug]/page.tsx",
+    "line": 210,
+    "text": "Our technical team brings over 50 years of combined marine engineering experience. Contact us directly to discuss your vessel's specific requirements."
+  },
+  {
+    "file": "src/app/boiler-repair/page.tsx",
+    "line": 29,
+    "text": "Retubing, casing repairs, and complete overhauls for marine boiler systems. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/boiler-repair/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/caterpillar-parts/page.tsx",
+    "line": 27,
+    "text": "Fast delivery of parts for CAT 3400, 3500, and C-series engines. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/caterpillar-parts/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/cold-storage-repair/page.tsx",
+    "line": 29,
+    "text": "Ensuring reliable operation of provision room cooling systems. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/cold-storage-repair/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/crane-inspection/page.tsx",
+    "line": 29,
+    "text": "Visual and mechanical inspection of marine hoisting equipment. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/crane-inspection/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/crane-load-test/page.tsx",
+    "line": 29,
+    "text": "Water bag load testing for cargo cranes, davits, and lifting equipment. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/crane-load-test/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/cummins-parts/page.tsx",
+    "line": 27,
+    "text": "Reliable parts supply for Cummins KTA, NTA, and QSK series engines. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/cummins-parts/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/custom-parts-fabrication/page.tsx",
+    "line": 29,
+    "text": "Reverse engineering and machining of obsolete mechanical components. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/custom-parts-fabrication/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/deck-machinery/page.tsx",
+    "line": 27,
+    "text": "Motors, brakes, and control blocks for winches and windlasses. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/deck-machinery/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/deck-machinery-overhauling/page.tsx",
+    "line": 29,
+    "text": "Complete mechanical services for diverse deck machinery systems. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/deck-machinery-overhauling/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/deutz-parts/page.tsx",
+    "line": 27,
+    "text": "Specialized parts distributor for DEUTZ legacy and modern engines. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/deutz-parts/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/diesel-generators/page.tsx",
+    "line": 27,
+    "text": "Complete gensets and replacement parts for reliable onboard power. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/diesel-generators/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/dry-docking-slts/page.tsx",
+    "line": 30,
+    "text": "Leon International operates state-of-the-art dry dock and Ship Lift Transfer Systems (SLTS) in Karachi, delivering class-approved repair and rebuilding solutions. With over 50 years of technical expertise, our certified marine engineers handle everything from routine maintenance to major structural steel renewals, ensuring your vessel returns to service efficiently and safely."
+  },
+  {
+    "file": "src/app/dye-penetrant-testing/page.tsx",
+    "line": 29,
+    "text": "Non-destructive testing for surface-breaking defects in non-porous materials. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/dye-penetrant-testing/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/electrical/page.tsx",
+    "line": 29,
+    "text": "Specialized motor rewinding, PCB card repair, and transformer services for maritime vessels. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/electrical/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/electrical-equipment/page.tsx",
+    "line": 27,
+    "text": "Switches, breakers, sensors, and full automation system components. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/electrical-equipment/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/electrical-equipment-repair/page.tsx",
+    "line": 29,
+    "text": "Troubleshooting and fixing various marine electrical panels and equipment. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/electrical-equipment-repair/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/engine-parts/page.tsx",
+    "line": 29,
+    "text": "Pistons, liners, rings, bearings, and valves for all major 2-stroke and 4-stroke engines. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/engine-parts/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/explosion-proof/page.tsx",
+    "line": 27,
+    "text": "ATEX-certified lighting and electrical fittings for hazardous areas. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/explosion-proof/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/fabrication/page.tsx",
+    "line": 30,
+    "text": "Leon International operates a world-class steel and pipe fabrication facility in Karachi, backed by over 50 years of marine engineering expertise. From routine structural patches to massive custom buoy fabrications, our BV-approved technicians utilize state-of-the-art welding technology to deliver robust, class-compliant solutions for the global maritime industry."
+  },
+  {
+    "file": "src/app/gyro-compass-overhauling/page.tsx",
+    "line": 29,
+    "text": "Overhauling and calibration of marine gyro compass systems. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/gyro-compass-overhauling/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/hardness-testing/page.tsx",
+    "line": 29,
+    "text": "Vickers, Brinell, and Rockwell hardness testing for marine components. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/hardness-testing/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/hatch-cover-testing/page.tsx",
+    "line": 29,
+    "text": "Verifying cargo hold weather-tightness using advanced ultrasonic tools. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/hatch-cover-testing/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/hvac/page.tsx",
+    "line": 29,
+    "text": "Installation and repair of marine AC plants and cold storage refrigeration systems. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/hvac/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/hydraulic-equipment/page.tsx",
+    "line": 27,
+    "text": "Motors, pumps, valves, and seal kits for heavy-duty marine hydraulics. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/hydraulic-equipment/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/hydraulic-pump-overhauling/page.tsx",
+    "line": 29,
+    "text": "Testing, repair, and parts replacement for complex marine hydraulic systems. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/hydraulic-pump-overhauling/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/industrial-coatings/page.tsx",
+    "line": 29,
+    "text": "Application of high-performance epoxy and protective Belzona compounds. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/industrial-coatings/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/layout.tsx",
+    "line": 92,
+    "text": "\"foundingDate\": \"1974\","
+  },
+  {
+    "file": "src/app/magnetic-particle-inspection/page.tsx",
+    "line": 29,
+    "text": "Surface defect detection using magnetic particle testing methods. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/magnetic-particle-inspection/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/main-engine-generator-repair/page.tsx",
+    "line": 29,
+    "text": "Complete teardown and repair of marine two-stroke and four-stroke engines. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/main-engine-generator-repair/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/main-engine-spares/page.tsx",
+    "line": 27,
+    "text": "Critical spares for heavy propulsion marine diesel engines. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/main-engine-spares/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/man-parts/page.tsx",
+    "line": 27,
+    "text": "High-quality spares for MAN two-stroke and four-stroke marine engines. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/man-parts/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/marine-tools-calibration/page.tsx",
+    "line": 29,
+    "text": "Certified calibration for pressure, temperature, and electrical measuring instruments. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/marine-tools-calibration/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/mechanical-repair/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/metal-stitching/page.tsx",
+    "line": 29,
+    "text": "Repairing cracked or broken cast iron engine blocks without heat. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/metal-stitching/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/motor-rewinding/page.tsx",
+    "line": 29,
+    "text": "Precision AC/DC motor rewinding and testing services. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/motor-rewinding/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/mtu-parts/page.tsx",
+    "line": 27,
+    "text": "Genuine and OEM replacement parts for MTU marine diesel engines. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/mtu-parts/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/mwm-parts/page.tsx",
+    "line": 27,
+    "text": "Sourcing OEM-quality parts for MWM gas and diesel engines. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/mwm-parts/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/navigation-systems/page.tsx",
+    "line": 27,
+    "text": "Radars, ECDIS, VHF, and GMDSS equipment for safe vessel operation. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/navigation-systems/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/ndt-inspection/page.tsx",
+    "line": 29,
+    "text": "Advanced non-destructive testing including ultrasonic gauging, MPI, and crane load testing. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/ndt-inspection/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/page.tsx",
+    "line": 16,
+    "text": "description: \"Leon International delivers comprehensive marine engineering services — ship repair, dry docking, NDT inspection, fabrication, HVAC, protective coatings & OEM spare parts. 50+ years experience. Offices in Pakistan, UAE, China & Latvia.\","
+  },
+  {
+    "file": "src/app/pcb-card-repair/page.tsx",
+    "line": 29,
+    "text": "Component-level diagnosis and repair of marine printed circuit boards. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/pcb-card-repair/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/perkins-parts/page.tsx",
+    "line": 27,
+    "text": "Complete range of spares for Perkins auxiliary marine engines. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/perkins-parts/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/petroleum-equipment/page.tsx",
+    "line": 27,
+    "text": "Specialized fittings, hoses, and measurement tools for oil handling. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/petroleum-equipment/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/power-plant/page.tsx",
+    "line": 27,
+    "text": "Industrial-grade generators and heavy mechanical components for land-based power. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/power-plant/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/propulsion-systems/page.tsx",
+    "line": 27,
+    "text": "Propellers, stern tubes, and bow thruster components. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/propulsion-systems/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/protective-coatings/page.tsx",
+    "line": 29,
+    "text": "Industrial coatings, sandblasting, and Belzona applications to protect vessel structures from corrosion. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/protective-coatings/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/purifiers/page.tsx",
+    "line": 27,
+    "text": "Bowls, discs, and service kits for Alfa Laval and Westfalia separators. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/purifiers/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/sandblasting/page.tsx",
+    "line": 29,
+    "text": "Grit and hydro blasting to prepare hull surfaces for painting. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/sandblasting/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/ship-repair/page.tsx",
+    "line": 29,
+    "text": "Expert ship repair, dry docking, and anchorage repair services globally by Leon International. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/ship-repair/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/spare-parts-supply/page.tsx",
+    "line": 29,
+    "text": "Global sourcing and delivery of critical OEM and aftermarket marine spares. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/spare-parts-supply/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/specialized/page.tsx",
+    "line": 29,
+    "text": "Unique maritime solutions including air lifting balloon services and urgent spare parts supply. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/specialized/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/transformer-rewinding/page.tsx",
+    "line": 29,
+    "text": "Specialized repair and rewinding of marine high-voltage transformers. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/transformer-rewinding/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/turbocharger-spares/page.tsx",
+    "line": 27,
+    "text": "Cartridges, bearings, and rotors for ABB, MET, and Napier turbochargers. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/turbocharger-spares/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/ultrasonic-flaw-detection/page.tsx",
+    "line": 29,
+    "text": "Detecting sub-surface cracks and welding defects using advanced UFD equipment. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/ultrasonic-flaw-detection/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/ultrasonic-gauging/page.tsx",
+    "line": 29,
+    "text": "Class-approved ultrasonic thickness measurements for vessel hulls and tanks. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/ultrasonic-gauging/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/volvo-penta-parts/page.tsx",
+    "line": 27,
+    "text": "Filters, belts, and major overhaul components for Volvo Penta. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/volvo-penta-parts/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/waukesha-parts/page.tsx",
+    "line": 27,
+    "text": "Heavy-duty parts supply for Waukesha industrial and marine applications. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/waukesha-parts/page.tsx",
+    "line": 36,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/app/windlass-repair/page.tsx",
+    "line": 29,
+    "text": "Maintenance and overhaul of deck windlass and heavy mooring equipment. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia."
+  },
+  {
+    "file": "src/app/windlass-repair/page.tsx",
+    "line": 38,
+    "text": "'50+ Years Maritime Experience',"
+  },
+  {
+    "file": "src/components/sections/home/AboutSnapshot.tsx",
+    "line": 8,
+    "text": "{ label: 'Years of Experience', value: '50+' },"
+  },
+  {
+    "file": "src/components/sections/home/AboutSnapshot.tsx",
+    "line": 39,
+    "text": "<h3 className=\"text-white font-bold text-2xl font-plus-jakarta-sans drop-shadow-lg\">Engineering Excellence Since 1974</h3>"
+  },
+  {
+    "file": "src/components/sections/home/AboutSnapshot.tsx",
+    "line": 62,
+    "text": "Leon International is a premier marine engineering and industrial hardware company with roots stretching back over five decades. Operating from strategic locations across Pakistan, the UAE, China, and Latvia, we deliver comprehensive ship repair services, marine spare parts, and industrial equipment to clients spanning every major ocean route."
+  },
+  {
+    "file": "src/components/sections/home/HeroBanner.tsx",
+    "line": 20,
+    "text": "heading: '50+ Years of Marine Technical Excellence',"
+  },
+  {
+    "file": "src/components/sections/home/WhyChooseUs.tsx",
+    "line": 56,
+    "text": "For five decades, we have set the standard in maritime engineering and supply, delivering unmatched reliability across the Indian Ocean, Middle East, and beyond."
+  },
+  {
+    "file": "COMPANY-PROFILE.html",
+    "line": 619,
+    "text": "built on trust earned over five decades of serving the maritime industry.</p>"
+  },
+  {
+    "file": "COMPANY-PROFILE.html",
+    "line": 946,
+    "text": "exceptional marine engineering services and spare parts to clients across the globe. With over 50 years"
+  }
+]

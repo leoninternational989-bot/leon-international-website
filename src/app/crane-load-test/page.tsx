@@ -26,7 +26,7 @@ export default function Page() {
                                 About Our Marine Crane Load Testing
                             </h2>
                             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                                Water bag load testing for cargo cranes, davits, and lifting equipment. Leon International is a leading marine engineering company with over 50 years of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi, and offices in UAE, China, and Latvia.
+                                Water bag load testing for cargo cranes, davits, and lifting equipment. Leon International is a leading marine engineering company with decades of experience. We provide class-approved solutions to ship owners, managers, and offshore industrial operators worldwide from our headquarters in Karachi.
                             </p>
                             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                                 Our highly trained technicians and marine engineers ensure that every project meets the highest international maritime standards. Whether it's emergency response at anchorage or routine maintenance, you can rely on our expertise.
@@ -35,7 +35,7 @@ export default function Page() {
                             <h3 className="text-xl font-bold text-white mb-4">Why Choose Leon International?</h3>
                             <ul className="space-y-4 mb-8">
                                 {[
-                                    '50+ Years Maritime Experience',
+                                    'Decades of Maritime Experience',
                                     '24/7 Fast Response Teams',
                                     'ISO 9001:2008 & BV Certified',
                                     'Global Supply Chain & Logistics'

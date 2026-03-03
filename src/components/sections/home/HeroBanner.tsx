@@ -17,7 +17,7 @@ const slides = [
     },
     {
         id: 2,
-        heading: '50+ Years of Marine Technical Excellence',
+        heading: 'Decades of Marine Technical Excellence',
         subheading: 'Certified by Lloyd\'s Register, Bureau Veritas, DNV, ABS & Leading Classification Societies',
         primaryCta: { text: 'View Our Certifications', href: '/about/#certifications' },
         secondaryCta: { text: 'Our Projects', href: '/projects/' },

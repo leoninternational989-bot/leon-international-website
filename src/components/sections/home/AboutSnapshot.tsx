@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const stats = [
-    { label: 'Years of Experience', value: '50+' },
-    { label: 'Countries of Operation', value: '4' },
+    { label: 'Years of Experience', value: 'Decades' },
+    { label: 'Global Reach', value: 'Worldwide' },
     { label: 'Projects Completed', value: '500+' },
     { label: 'Round-the-Clock Service', value: '24/7' },
 ];
@@ -36,7 +36,7 @@ export default function AboutSnapshot() {
                             {/* Premium overlay effect */}
                             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay z-10"></div>
                             <div className="absolute inset-0 bg-gradient-to-t from-primary-950/90 via-transparent to-transparent flex items-end p-8 z-10">
-                                <h3 className="text-white font-bold text-2xl font-plus-jakarta-sans drop-shadow-lg">Engineering Excellence Since 1974</h3>
+                                <h3 className="text-white font-bold text-2xl font-plus-jakarta-sans drop-shadow-lg">Long-Standing Engineering Excellence</h3>
                             </div>
                             <div className="absolute top-4 left-4 w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg z-10">
                                 L
@@ -59,7 +59,7 @@ export default function AboutSnapshot() {
                             Comprehensive Marine Engineering & Spare Parts
                         </h2>
                         <p className="mt-6 text-lg leading-8 text-gray-600 font-inter">
-                            Leon International is a premier marine engineering and industrial hardware company with roots stretching back over five decades. Operating from strategic locations across Pakistan, the UAE, China, and Latvia, we deliver comprehensive ship repair services, marine spare parts, and industrial equipment to clients spanning every major ocean route.
+                            Leon International is a premier marine engineering and industrial hardware company with roots stretching back decades. Operating from strategic locations across Pakistan, the UAE, China, and Latvia, we deliver comprehensive ship repair services, marine spare parts, and industrial equipment to clients spanning every major ocean route.
                         </p>
                         <p className="mt-4 text-base leading-7 text-gray-600 font-inter">
                             Our team of certified marine engineers, skilled fabricators, and sourcing specialists works around the clock to keep your vessels operational, your equipment performing at peak efficiency, and your projects delivered on time and within budget. We hold certifications from Lloyd's Register, Bureau Veritas, DNV, ABS, and other leading classification societies.

@@ -27,7 +27,7 @@ export default function TermsConditionsPage() {
                             These Terms & Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Leon International ("we," "us" or "our"), concerning your access to and use of the leoninternational.com website as well as any related marine engineering, ship repair, or spare parts supply services.
                         </p>
                         <p className="mt-4">
-                            You agree that by accessing the Site or engaging our services across our global offices (Pakistan, UAE, China, Latvia), you have read, understood, and agree to be bound by all of these Terms & Conditions.
+                            You agree that by accessing the Site or engaging our services across our global offices (Pakistan and worldwide), you have read, understood, and agree to be bound by all of these Terms & Conditions.
                         </p>
                     </section>
 

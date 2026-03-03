@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     default: 'Leon International | Marine Engineering, Ship Repair & Spare Parts',
     template: '%s | Leon International'
   },
-  description: 'Leading marine engineering company offering ship repair, dry docking, NDT inspection, fabrication, protective coatings, HVAC services & OEM spare parts. Offices in Pakistan, UAE, China & Latvia.',
+  description: 'Leading marine engineering company offering ship repair, dry docking, NDT inspection, fabrication, protective coatings, HVAC services & OEM spare parts. global operations headquartered in Pakistan.',
   keywords: ['marine engineering', 'ship repair', 'marine spare parts', 'dry docking', 'NDT inspection', 'marine fabrication', 'protective coatings', 'Karachi ship repair', 'UAE marine services'],
   authors: [{ name: 'Leon International' }],
   creator: 'Leon International',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Leon International | Marine Engineering & Ship Repair',
-    description: 'Ship repair, NDT inspection, fabrication, spare parts supply. Pakistan, UAE, China, Latvia.',
+    description: 'Ship repair, NDT inspection, fabrication, spare parts supply. Pakistan and worldwide.',
     images: ['/og/default.jpg'],
   },
   robots: {
@@ -89,7 +89,6 @@ const organizationSchema = {
   "url": "https://leoninternational.com",
   "logo": "https://leoninternational.com/images/logo.png",
   "description": "Marine engineering company specializing in ship repair, NDT inspection, fabrication, protective coatings, HVAC, and marine spare parts supply.",
-  "foundingDate": "1974",
   "numberOfEmployees": {
     "@type": "QuantitativeValue",
     "minValue": 100,

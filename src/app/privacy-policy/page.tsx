@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
                             <li>Process and manage quote requests, RFQs, and marine service orders.</li>
                             <li>Communicate regarding ship repair schedules, spare parts delivery, and project milestones.</li>
                             <li>Send administrative information, such as updates to our terms, conditions, and policies.</li>
-                            <li>Respond to customer service inquiries and provide support across our Pakistan, UAE, China, and Latvia operations.</li>
+                            <li>Respond to customer service inquiries and provide support across our Pakistan and globally operations.</li>
                             <li>Improve our website performance and optimize our service offerings.</li>
                         </ul>
                     </section>
@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
                         <p>We may share information we have collected about you in certain situations. Your information may be disclosed as follows:</p>
                         <ul className="list-disc pl-6 space-y-2 mt-4">
                             <li><strong>By Law or to Protect Rights:</strong> If we believe the release of information about you is necessary to respond to legal process, to investigate or remedy potential violations of our policies, or to protect the rights, property, and safety of others (including maritime classification societies such as Lloyd's Register or Bureau Veritas).</li>
-                            <li><strong>Global Operations:</strong> Between our internal network of offices (Pakistan, UAE, China, Latvia) to ensure seamless delivery of offshore services and spare parts.</li>
+                            <li><strong>Global Operations:</strong> Between our internal network of offices (Pakistan and worldwide) to ensure seamless delivery of offshore services and spare parts.</li>
                             <li><strong>Third-Party Service Providers:</strong> We may share your information with trusted third parties that perform services for us or on our behalf, including logistics partners, port authorities, and specialized maritime sub-contractors.</li>
                         </ul>
                     </section>

@@ -35,7 +35,7 @@ export default function Page() {
                             <h3 className="text-xl font-bold text-white mb-4">Why Choose Leon International?</h3>
                             <ul className="space-y-4 mb-8">
                                 {[
-                                    '50+ Years Maritime Experience',
+                                    'Decades of Maritime Experience',
                                     '24/7 Fast Response Teams',
                                     'ISO 9001:2008 & BV Certified',
                                     'Global Supply Chain & Logistics'

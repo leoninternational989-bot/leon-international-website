@@ -207,7 +207,7 @@ export default async function BlogPostPage({ params }: Props) {
                         <div className="flex-1 text-center md:text-left z-10">
                             <h3 className="text-2xl font-bold text-white mb-3 font-plus-jakarta-sans">Expert Insights from Leon International</h3>
                             <p className="text-gray-400 mb-6 max-w-xl">
-                                Our technical team brings over 50 years of combined marine engineering experience. Contact us directly to discuss your vessel's specific requirements.
+                                Our technical team brings decades of combined marine engineering experience. Contact us directly to discuss your vessel's specific requirements.
                             </p>
                             <Link href="/contact/" className="inline-flex items-center gap-2 bg-white text-primary-950 font-bold px-6 py-3 rounded-full hover:bg-gray-200 transition-colors">
                                 Talk to an Expert

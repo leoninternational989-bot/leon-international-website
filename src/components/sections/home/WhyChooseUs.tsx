@@ -6,7 +6,7 @@ import { Globe, ShieldCheck, Factory, Box, Clock, Wrench } from 'lucide-react';
 const features = [
     {
         name: 'Global Reach, Local Expertise',
-        description: 'Operating from Pakistan, UAE, China, and Latvia, we combine international sourcing with deep local knowledge of Karachi Port and Port Bin Qasim.',
+        description: 'Operating from Pakistan and globally, we combine international sourcing with deep local knowledge of Karachi Port and Port Bin Qasim.',
         icon: Globe,
     },
     {
@@ -53,7 +53,7 @@ export default function WhyChooseUs() {
                         Why Shipowners & Operators Trust Leon International
                     </p>
                     <p className="mt-6 text-lg leading-8 text-primary-200 font-inter">
-                        For five decades, we have set the standard in maritime engineering and supply, delivering unmatched reliability across the Indian Ocean, Middle East, and beyond.
+                        For decades, we have set the standard in maritime engineering and supply, delivering unmatched reliability across the Indian Ocean, Middle East, and beyond.
                     </p>
                 </div>
 

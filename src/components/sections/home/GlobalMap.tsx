@@ -5,33 +5,13 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 
 const locations = [
     {
-        country: 'Pakistan (Headquarters)',
+        title: 'Global Headquarters',
+        country: 'Pakistan',
         address: 'C-102 Block 4 Gulshan-E-Iqbal Karachi',
         phone: '+92 313 2277773',
         email: 'info@leon-international.com',
         flag: '🇵🇰',
-    },
-    {
-        country: 'UAE Office',
-        address: 'Office No: CWS-1V-223879, 26th Floor, Amber Gem Tower, Sheikh Khalifa Street, Ajman, UAE',
-        phone: '+92 313 2277773',
-        email: 'info@leon-international.com',
-        flag: '🇦🇪',
-    },
-    {
-        country: 'China Office',
-        address: 'No. 29-4, Xinhuaqiang District, Shiyan City, Hubei, China',
-        phone: '+92 313 2277773',
-        email: 'info@leon-international.com',
-        flag: '🇨🇳',
-    },
-    {
-        country: 'Latvia Office',
-        address: 'Annas Brigaderes iela 4-47, LV-1082, Rīga, Latvia',
-        phone: '+92 313 2277773',
-        email: 'info@leon-international.com',
-        flag: '🇱🇻',
-    },
+    }
 ];
 
 export default function GlobalMap() {
@@ -55,14 +35,14 @@ export default function GlobalMap() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
                 <div className="mx-auto max-w-2xl text-center mb-16">
                     <h2 className="text-3xl font-bold tracking-tight text-primary-950 sm:text-4xl font-plus-jakarta-sans">
-                        Strategically Positioned Across 4 Countries
+                        Strategically Positioned for Global Operations
                     </h2>
                     <p className="mt-4 text-lg leading-8 text-gray-600 font-inter">
-                        Ensuring rapid response and robust global sourcing capabilities from the Middle East to Europe and East Asia.
+                        Operating from our global headquarters in Pakistan to ensure rapid response and robust worldwide sourcing capabilities.
                     </p>
                 </div>
 
-                <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+                <div className="mx-auto max-w-xl">
                     {locations.map((loc, idx) => (
                         <motion.div
                             key={loc.country}
@@ -79,7 +59,7 @@ export default function GlobalMap() {
                                     {loc.flag}
                                 </div>
                                 <h3 className="text-lg font-bold text-primary-950 font-plus-jakarta-sans leading-tight">
-                                    {loc.country}
+                                    {loc.title} <span className="text-gray-500 font-normal ml-2">({loc.country})</span>
                                 </h3>
                             </div>
 
