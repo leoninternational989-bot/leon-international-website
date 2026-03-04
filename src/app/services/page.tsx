@@ -11,6 +11,7 @@ export default function Services() {
                 title="Our Services"
                 subtitle="Comprehensive Marine & Industrial Solutions"
                 bgClass="bg-gradient-to-tr from-navy via-primary-900 to-accent-800"
+                image="/services-banner.webp"
                 breadcrumbs={[
                     { label: 'Services', href: '/services/' }
                 ]}

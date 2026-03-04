@@ -109,7 +109,7 @@ export async function PATCH(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
     }
 
-    const { id, full_name, role, email_alias_id, is_active } = await request.json();
+    const { id, full_name, email, role, email_alias_id, is_active } = await request.json();
 
     if (!id) {
       return NextResponse.json({ error: 'User ID required' }, { status: 400 });
@@ -127,6 +127,15 @@ export async function PATCH(request: NextRequest) {
       .eq('id', id);
 
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+    // Update auth email if provided
+    if (email) {
+      const { error: emailError } = await supabaseAdmin.auth.admin.updateUserById(id, { email });
+      if (emailError) {
+        return NextResponse.json({ error: emailError.message }, { status: 500 });
+      }
+    }
+
     return NextResponse.json({ success: true });
   } catch {
     return NextResponse.json({ error: 'Failed to update user' }, { status: 500 });

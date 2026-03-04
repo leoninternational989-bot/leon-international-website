@@ -109,6 +109,16 @@ const servicesMenu: SubItem[] = [
             { name: 'Custom Parts Fab.', href: '/custom-parts-fabrication/' },
         ]
     },
+    {
+        name: 'Food & Chemical Supplies',
+        href: '#',
+        icon: Factory,
+        subItems: [
+            { name: 'Food Supply Chain Support', href: '/food-supply-chain-support/' },
+            { name: 'Installation Services', href: '/installation-services/' },
+            { name: 'Chemical Supplies', href: '/chemical-supplies/' },
+        ]
+    },
 ];
 
 const productsMenu: SubItem[] = [
@@ -243,7 +253,7 @@ export default function Header() {
                                     ) : item.name === 'Services' ? (
                                         /* Mega Menu for Services */
                                         <div className="absolute left-1/2 -translate-x-[60%] top-10 pt-2 hidden group-hover/main:block z-50">
-                                            <div className="w-[1000px] p-6 bg-primary-950/95 backdrop-blur-lg border border-white/10 shadow-2xl rounded-xl">
+                                            <div className="w-[1100px] p-6 bg-primary-950/95 backdrop-blur-lg border border-white/10 shadow-2xl rounded-xl">
                                                 <div className="flex justify-between items-center mb-6 pb-4 border-b border-white/10">
                                                     <h3 className="text-white font-bold font-plus-jakarta-sans text-xl">Our Services</h3>
                                                     <Link href="/services/" className="text-accent-500 hover:text-accent-400 text-sm font-medium flex items-center gap-1 transition-colors">
@@ -251,7 +261,7 @@ export default function Header() {
                                                     </Link>
                                                 </div>
 
-                                                <div className="grid grid-cols-3 gap-x-8 gap-y-0">
+                                                <div className="grid grid-cols-4 gap-x-8 gap-y-0">
                                                     {/* Column 1 */}
                                                     <div className="flex flex-col gap-6">
                                                         {/* Ship Repair & Dry Docking */}
@@ -359,6 +369,19 @@ export default function Header() {
                                                                 <Link href="/air-lifting-balloon/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Air Lifting Balloon</Link>
                                                                 <Link href="/spare-parts-supply/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Spare Parts Supply</Link>
                                                                 <Link href="/custom-parts-fabrication/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Custom Parts Fab.</Link>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Column 4 */}
+                                                    <div className="flex flex-col gap-6">
+                                                        <div>
+                                                            <Link href="#" className="flex items-center gap-2 text-ocean hover:text-accent-400 font-bold mb-3 transition-colors">
+                                                                <Factory className="h-4 w-4" /> Food & Chemical
+                                                            </Link>
+                                                            <div className="flex flex-col gap-2">
+                                                                <Link href="/food-supply-chain-support/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Food Supply Chain Support</Link>
+                                                                <Link href="/chemical-supplies/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all text-sm font-medium flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent-500 before:rounded-full">Chemical Supplies</Link>
                                                             </div>
                                                         </div>
                                                     </div>

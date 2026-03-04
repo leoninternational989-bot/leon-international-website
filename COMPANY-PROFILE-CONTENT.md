@@ -109,53 +109,53 @@ Operating from Pakistan, UAE, China, and Latvia, we combine international sourci
 **Heading**: Our **Core Values** (gold bold)
 **Divider**: ── ★ ──
 
-### Value 1: Reliability
-**Image**: Handshake / team working on vessel
-**Title**: Reliability (gold, with gold underline)
-**Text**: When your vessel is down, every hour counts. We respond fast with 24/7 emergency service, work efficiently, and deliver on our commitments — from emergency repairs at anchorage to scheduled dry docking.
+### Value 1: Integrity
+**Image**: Hand showing transparency / business
+**Title**: Integrity (gold, with gold underline)
+**Text**: We conduct our business with honesty, transparency, and ethical practices, building trust and credibility with our clients, partners, and stakeholders.
 
 ### Value 2: Quality
-**Image**: Quality inspection / measurement tools
+**Image**: Quality assurance seal / hands
 **Title**: Quality (gold, with gold underline)
-**Text**: From the parts we source to the welds we lay, every output meets internationally recognized standards. Our ISO 9001:2008 certification and approvals from Lloyd's Register and Bureau Veritas guarantee excellence.
+**Text**: We are dedicated to delivering superior quality products and services that meet the highest standards of excellence and reliability.
 
 ### Value 3: Innovation
-**Image**: Modern equipment / testing technology
+**Image**: Modern equipment / tablet / analytics
 **Title**: Innovation (gold, with gold underline)
-**Text**: We continuously invest in modern testing equipment, advanced coating technologies, and efficient procurement systems to stay ahead of industry demands and deliver cutting-edge solutions.
+**Text**: We embrace innovation and technology to drive continuous improvement and stay ahead of industry trends, offering cutting-edge solutions to our clients.
 
-### Value 4: Integrity
-**Image**: Business meeting / transparent discussion
-**Title**: Integrity (gold, with gold underline)
-**Text**: We provide honest assessments, transparent pricing, and never cut corners. Our reputation is built on trust earned over five decades of serving the maritime industry.
+### Value 4: Customer Focus
+**Image**: Meeting / professional discussion
+**Title**: Customer Focus (gold, with gold underline)
+**Text**: Our clients are at the heart of everything we do. We prioritize their needs, listen to their feedback, and strive to exceed their expectations at every step.
 
 ---
 
-## PAGE 6 — CORE VALUES (continued) + CERTIFICATIONS
+## PAGE 6 — CORE VALUES (continued) & PRIME CUSTOMERS
 
-**Layout**: Top section continues values, bottom has certification logos.
+**Layout**: Top section continues values, bottom has prime customer logos.
 
 ### Value 5: Teamwork
-**Image**: Team of engineers collaborating
+**Image**: Team's hands in a circle
 **Title**: Teamwork (gold, with gold underline)
-**Text**: Our team of certified marine engineers, BV-approved welders, electrical technicians, and sourcing specialists work collaboratively to deliver comprehensive solutions under one roof.
+**Text**: We foster a collaborative and inclusive work environment where teamwork, mutual respect, and diversity are valued, enabling us to achieve our goals collectively.
 
-### Certifications Section
-**Title**: Our Certifications (gold, with gold underline)
+### Prime Customers Section
+**Title**: Prime Customers: (gold, with gold underline)
 
 **Body Text**:
-Leon International holds certifications and approvals from the world's leading classification societies. We are proud to be recognized by these organizations and are committed to delivering services that meet their rigorous standards.
+Our prime customers include renowned organizations such as Hilal Food and Dipitt Food, among others. We are proud to serve these esteemed clients and are committed to delivering exceptional value and service to meet their specific requirements.
 
-**Certification Logos** (arrange in a grid, similar to client logos in example):
-- Lloyd's Register (LR)
-- Bureau Veritas (BV)
-- DNV (Det Norske Veritas)
-- ABS (American Bureau of Shipping)
-- ClassNK (Nippon Kaiji Kyokai)
-- ISO 9001:2008
+**Customer Logos** (arrange in a grid, similar to example):
+- Hilal Food
+- Ahmed Foods
+- Dipitt
+- Hamdard
+- Candyland
+- Habib
 
 **Closing Text**:
-At Leon International, we are dedicated to excellence, innovation, and customer satisfaction. With a focus on quality, integrity, and continuous improvement, we are poised to make a positive impact in the marine engineering and spare parts industry, both locally and globally.
+At Leon International, we are dedicated to excellence, innovation, and customer satisfaction. With a focus on quality, integrity, and continuous improvement, we are poised to make a positive impact in the engineering and general order supply industry, both locally and globally.
 
 ---
 
@@ -294,7 +294,54 @@ Leon International also supplies petroleum equipment for the oil & gas sector, e
 
 ---
 
-## PAGE 13 — GLOBAL PRESENCE
+## PAGE 13 — FOOD & INDUSTRIAL EXPERTISE
+
+**Layout**: White background with lion watermark. Text sections with gold titles and underlines.
+
+**Heading**: Our **Expertise** (gold bold)
+**Divider**: ── ★ ──
+
+### High-Quality Machinery
+**Title**: High-Quality Machinery (gold, with gold underline)
+
+• We specialize in supplying state-of-the-art machines imported from renowned manufacturers, ensuring that our clients have access to the latest and most advanced technology.
+• Our machines are meticulously designed to meet the highest standards of quality and efficiency, providing robust and reliable performance that enhances productivity in the food industry.
+
+### Machine Parts
+**Title**: Machine Parts (gold, with gold underline)
+
+• We source top-tier electrical and mechanical parts from trusted suppliers, guaranteeing the best quality for your equipment. Our parts are selected for their superior performance and reliability.
+• In addition to sourcing, we also manufacture our own machine parts. These parts are crafted with precision and care, known for their exceptional durability and excellent performance. They are specifically designed to meet the rigorous demands of the food industry, ensuring long-lasting and efficient operation.
+
+### Maintenance Services
+**Title**: Maintenance Services (gold, with gold underline)
+
+• Our team of skilled engineers offers comprehensive maintenance services, ensuring that your machinery and equipment operate at peak efficiency.
+• We provide both mechanical and electrical engineering support, addressing all aspects of machine performance and upkeep.
+• Our maintenance services include regular check-ups, troubleshooting, and repair services, ensuring that any issues are promptly and effectively resolved to minimize downtime and maximize productivity.
+
+---
+
+## PAGE 14 — FOOD & INDUSTRIAL EXPERTISE (continued)
+
+**Layout**: Same style with lion watermark.
+
+### Food Supply Chain Support
+**Title**: Food Supply Chain Support (gold, with gold underline)
+
+• We play a crucial role in the food supply chain by providing a comprehensive range of products and services. Our offerings support the entire food production process, from raw material handling to final product packaging.
+• By supplying essential machinery, parts, and chemicals, we help ensure that your food production operations run smoothly and efficiently, contributing to the overall success of your business.
+
+
+### Chemical Supplies
+**Title**: Chemical Supplies (gold, with gold underline)
+
+• We supply high-quality chemicals that are essential for various processes within the food industry. Our chemicals are carefully selected to meet the specific needs of food production and processing.
+• All our chemicals meet industry standards, ensuring safety and efficacy. They are designed to enhance your production processes, improving efficiency and product quality.
+
+---
+
+## PAGE 15 — GLOBAL PRESENCE
 
 **Layout**: White background. World map graphic or 4-column layout showing offices.
 
