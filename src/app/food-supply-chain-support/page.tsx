@@ -24,7 +24,7 @@ export default function Page() {
                     { label: 'Services', href: '/services/' },
                     { label: 'Food Supply Chain Support', href: '/food-supply-chain-support/' }
                 ]}
-                image="/images/ship-repair/banner.webp"
+                image="/images/food-supply-chain-support/banner.webp"
             />
 
             <section className="py-20 lg:py-28 relative z-10 w-full min-w-full m-0 p-0 border-0 outline-none">
@@ -63,7 +63,7 @@ export default function Page() {
 
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             <Image
-                                src="/images/mechanical-repair/component.webp"
+                                src="/images/food-supply-chain-support/component.webp"
                                 alt="Food Supply Chain Support operations"
                                 fill
                                 className="object-cover"
