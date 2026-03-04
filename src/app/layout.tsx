@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     canonical: 'https://leoninternational.com',
   },
   verification: {
-    google: 'GOOGLE_VERIFICATION_CODE_HERE',
+    google: 'N1aQd723r-b5p-9-MKwGypBt5nHW1tgtUZHXUrTdrJI',
   },
 };
 
@@ -123,33 +123,6 @@ const organizationSchema = {
         "@type": "PostalAddress",
         "addressLocality": "Karachi",
         "addressCountry": "PK"
-      }
-    },
-    {
-      "@type": "Place",
-      "name": "Leon International — UAE Office",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dubai",
-        "addressCountry": "AE"
-      }
-    },
-    {
-      "@type": "Place",
-      "name": "Leon International — China Office",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Shanghai",
-        "addressCountry": "CN"
-      }
-    },
-    {
-      "@type": "Place",
-      "name": "Leon International — Latvia Office",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Riga",
-        "addressCountry": "LV"
       }
     }
   ]
