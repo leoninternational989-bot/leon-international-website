@@ -22,19 +22,31 @@ export default function Footer() {
                             Your global partner in marine engineering, ship repair, and industrial spare parts supply.
                         </p>
                         <div className="flex space-x-6">
-                            <a href="#" className="text-gray-400 hover:text-accent-200 transition-colors">
+                            <a href="https://www.facebook.com/profile.php?id=61586251654169" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-accent-200 transition-colors">
                                 <span className="sr-only">Facebook</span>
                                 <Facebook className="h-6 w-6" aria-hidden="true" />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-accent-200 transition-colors">
+                            <a href="https://www.instagram.com/leoninternational4/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-accent-200 transition-colors">
                                 <span className="sr-only">Instagram</span>
                                 <Instagram className="h-6 w-6" aria-hidden="true" />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-accent-200 transition-colors">
+                            <a href="https://www.linkedin.com/company/112222068/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-accent-200 transition-colors">
                                 <span className="sr-only">LinkedIn</span>
                                 <Linkedin className="h-6 w-6" aria-hidden="true" />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-accent-200 transition-colors">
+                            <a href="https://www.reddit.com/user/Comfortable-Pool2720/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-accent-200 transition-colors">
+                                <span className="sr-only">Reddit</span>
+                                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-2.467 4.19a4.808 4.808 0 0 1-2.904-.976l-.423.424A5.4 5.4 0 0 0 12 16.518a5.4 5.4 0 0 0 3.094-.88l-.424-.424a4.808 4.808 0 0 1-2.904.975z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.quora.com/profile/Leon-International-1" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-accent-200 transition-colors">
+                                <span className="sr-only">Quora</span>
+                                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm2.08 15.65c-1.35.79-3.26.75-4.57-.15-.69-.47-.94-1.29-.68-2.07l2.14-5.91a.48.48 0 0 0-.44-.65h-1a.47.47 0 0 0-.44.33l-2.08 5.76A4.52 4.52 0 0 1 5.25 12c0-3.73 3.03-6.75 6.75-6.75s6.75 3.02 6.75 6.75c0 2.45-1.32 4.6-3.32 5.75l.41.41a.88.88 0 0 1-1.24 1.24l-.52-.52zM12 6.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5z" />
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/923132277773" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-accent-200 transition-colors">
                                 <span className="sr-only">WhatsApp</span>
                                 <MessageCircle className="h-6 w-6" aria-hidden="true" />
                             </a>

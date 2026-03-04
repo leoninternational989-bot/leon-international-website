@@ -96,8 +96,11 @@ const organizationSchema = {
     "maxValue": 500
   },
   "sameAs": [
-    "https://www.linkedin.com/company/leon-international",
-    "https://www.facebook.com/leoninternational"
+    "https://www.facebook.com/profile.php?id=61586251654169",
+    "https://www.linkedin.com/company/112222068/",
+    "https://www.instagram.com/leoninternational4/",
+    "https://www.reddit.com/user/Comfortable-Pool2720/",
+    "https://www.quora.com/profile/Leon-International-1"
   ],
   "contactPoint": [
     {
