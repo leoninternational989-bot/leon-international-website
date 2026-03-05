@@ -3,7 +3,11 @@ import QuickQuote from '@/components/sections/home/QuickQuote';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import FaqAccordion from '@/components/ui/FaqAccordion';
+import FAQSchema from '@/components/seo/FAQSchema';
+import FAQSection from '@/components/ui/FAQSection';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
+
 
 export default function Page() {
     return (
@@ -63,30 +67,42 @@ export default function Page() {
                         </div>
                     </div>
 
-                    <div className="mt-24 pt-16 border-t border-white/10 w-full">
-                        <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
-                        <div className="max-w-4xl mx-auto">
-                            <FaqAccordion
-                                faqs={[
-                                    {
-                                        question: "What ndt inspection & calibration services does Leon International offer?",
-                                        answer: "Leon International provides comprehensive ndt inspection & calibration services for marine vessels and industrial clients at Karachi Port, Bin Qasim anchorage, and worldwide."
-                                    },
-                                    {
-                                        question: "Does Leon International provide emergency ndt inspection & calibration services?",
-                                        answer: "Yes, we offer 24/7 rapid response for emergency marine repairs and services."
-                                    },
-                                    {
-                                        question: "Are your technicians certified?",
-                                        answer: "Yes, our engineers and technicians are highly experienced and hold necessary class approvals (including BV, LR) for specialized marine engineering tasks."
-                                    }
-                                ]}
-                            />
-                        </div>
-                    </div>
-                </div>
+                                    </div>
             </section>
 
+            <FAQSchema faqs={[
+    {
+        "question": "What NDT methods do you offer for marine inspection?",
+        "answer": "We perform ultrasonic thickness gauging, ultrasonic flaw detection, magnetic particle inspection (MPI), dye penetrant testing (DPT), and hardness testing."
+    },
+    {
+        "question": "Do you provide crane load testing and certification?",
+        "answer": "Yes, we perform marine crane load testing, proof load testing, and provide certification in compliance with classification society requirements."
+    },
+    {
+        "question": "Can you perform hatch cover testing on vessels?",
+        "answer": "Yes, we conduct ultrasonic hatch cover testing to check weathertightness and structural integrity, meeting international maritime safety standards."
+    }
+]} />
+            <FAQSection faqs={[
+    {
+        "question": "What NDT methods do you offer for marine inspection?",
+        "answer": "We perform ultrasonic thickness gauging, ultrasonic flaw detection, magnetic particle inspection (MPI), dye penetrant testing (DPT), and hardness testing."
+    },
+    {
+        "question": "Do you provide crane load testing and certification?",
+        "answer": "Yes, we perform marine crane load testing, proof load testing, and provide certification in compliance with classification society requirements."
+    },
+    {
+        "question": "Can you perform hatch cover testing on vessels?",
+        "answer": "Yes, we conduct ultrasonic hatch cover testing to check weathertightness and structural integrity, meeting international maritime safety standards."
+    }
+]} />
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services/" },
+                { name: "NDT Inspection", url: "/ndt-inspection/" }
+            ]} />
             <QuickQuote />
         </main>
     );

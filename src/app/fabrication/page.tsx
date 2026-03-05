@@ -3,7 +3,9 @@ import QuickQuote from '@/components/sections/home/QuickQuote';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Flame, Layers, Award } from 'lucide-react';
-import FaqAccordion from '@/components/ui/FaqAccordion';
+import FAQSchema from '@/components/seo/FAQSchema';
+import FAQSection from '@/components/ui/FAQSection';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export default function Page() {
     return (
@@ -92,31 +94,24 @@ export default function Page() {
                         </div>
                     </div>
 
-                    {/* FAQ */}
-                    <div className="mt-24 pt-16 border-t border-white/10 w-full relative">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-950 px-4 text-white/20">
-                            <Flame className="h-8 w-8" />
-                        </div>
-                        <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
-                        <div className="max-w-4xl mx-auto">
-                            <FaqAccordion faqs={[
-                                {
-                                    question: "What types of metals do your fabricators work with?",
-                                    answer: "We specialize in heavy marine steel, stainless steel, aluminum, and various specialized alloys. Our fabrication workshops are fully equipped to cut, bend, thread, and weld these materials into precise ship structural components and heavy-duty piping."
-                                },
-                                {
-                                    question: "Are your welding services certified by international classification societies?",
-                                    answer: "Yes, absolute quality and safety compliance are our top priorities. All of our marine welders are highly experienced and hold necessary class approvals (including BV and LR) for specialized structural and pressure-grade welding."
-                                },
-                                {
-                                    question: "Do you offer emergency mobile welding for vessels at anchorage?",
-                                    answer: "Yes, we deploy 24/7 rapid response teams fully equipped with mobile welding generators and technical gear to perform critical steel and pipe repairs on vessels anchored at Bin Qasim, Karachi Port, or offshore."
-                                }
-                            ]} />
-                        </div>
-                    </div>
                 </div>
             </section>
+
+            <FAQSchema faqs={[
+                { question: "Are your welders certified by classification societies?", answer: "Yes, our welders are Bureau Veritas (BV) approved and certified for all types of marine welding including structural steel, pipe works, and hull repairs." },
+                { question: "Can you fabricate custom replacement parts for obsolete equipment?", answer: "Yes, we specialize in custom fabrication of discontinued and obsolete parts, manufactured to exact OEM specifications to get your operations back online." },
+                { question: "What types of steel fabrication do you offer?", answer: "We handle steel structures, hull repair, pipe fabrication, buoys, pontoons, and all types of custom marine and industrial steel work." }
+            ]} />
+            <FAQSection faqs={[
+                { question: "Are your welders certified by classification societies?", answer: "Yes, our welders are Bureau Veritas (BV) approved and certified for all types of marine welding including structural steel, pipe works, and hull repairs." },
+                { question: "Can you fabricate custom replacement parts for obsolete equipment?", answer: "Yes, we specialize in custom fabrication of discontinued and obsolete parts, manufactured to exact OEM specifications to get your operations back online." },
+                { question: "What types of steel fabrication do you offer?", answer: "We handle steel structures, hull repair, pipe fabrication, buoys, pontoons, and all types of custom marine and industrial steel work." }
+            ]} />
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services/" },
+                { name: "Fabrication & Welding", url: "/fabrication/" }
+            ]} />
 
             <QuickQuote />
         </main>

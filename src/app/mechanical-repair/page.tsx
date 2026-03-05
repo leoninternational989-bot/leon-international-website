@@ -3,7 +3,11 @@ import QuickQuote from '@/components/sections/home/QuickQuote';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import FaqAccordion from '@/components/ui/FaqAccordion';
+import FAQSchema from '@/components/seo/FAQSchema';
+import FAQSection from '@/components/ui/FAQSection';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
+
 
 export default function Page() {
     return (
@@ -62,28 +66,42 @@ export default function Page() {
                         </div>
                     </div>
 
-                    <div className="mt-24 pt-16 border-t border-white/10 w-full">
-                        <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
-                        <div className="max-w-4xl mx-auto">
-                            <FaqAccordion faqs={[
-                                {
-                                    question: "What mechanical repair & reconditioning does Leon International offer?",
-                                    answer: "Leon International provides comprehensive mechanical repair and reconditioning for marine vessels and industrial clients at Karachi Port, Bin Qasim anchorage, and worldwide."
-                                },
-                                {
-                                    question: "Does Leon International provide emergency mechanical repair?",
-                                    answer: "Yes, we offer 24/7 rapid response for emergency marine mechanical repairs and component reconditioning services."
-                                },
-                                {
-                                    question: "Are your technicians certified?",
-                                    answer: "Yes, our engineers and technicians are highly experienced and hold necessary class approvals (including BV, LR) for specialized marine engineering tasks."
-                                }
-                            ]} />
-                        </div>
-                    </div>
-                </div>
+                                    </div>
             </section>
 
+            <FAQSchema faqs={[
+    {
+        "question": "Which engine brands do you service?",
+        "answer": "We cover 20+ brands including MAN B&W, Wartsila, Cummins, Caterpillar, MTU, Volvo Penta, Yanmar, Daihatsu, DEUTZ, Perkins, and more."
+    },
+    {
+        "question": "Can you overhaul a complete main engine?",
+        "answer": "Yes, we perform complete main engine overhauling including crankshaft grinding, cylinder liner replacement, piston reconditioning, and full reassembly with testing."
+    },
+    {
+        "question": "Do you provide hydraulic pump repair services?",
+        "answer": "Yes, we offer comprehensive hydraulic pump overhauling, testing, and reconditioning for all major marine hydraulic systems and deck machinery."
+    }
+]} />
+            <FAQSection faqs={[
+    {
+        "question": "Which engine brands do you service?",
+        "answer": "We cover 20+ brands including MAN B&W, Wartsila, Cummins, Caterpillar, MTU, Volvo Penta, Yanmar, Daihatsu, DEUTZ, Perkins, and more."
+    },
+    {
+        "question": "Can you overhaul a complete main engine?",
+        "answer": "Yes, we perform complete main engine overhauling including crankshaft grinding, cylinder liner replacement, piston reconditioning, and full reassembly with testing."
+    },
+    {
+        "question": "Do you provide hydraulic pump repair services?",
+        "answer": "Yes, we offer comprehensive hydraulic pump overhauling, testing, and reconditioning for all major marine hydraulic systems and deck machinery."
+    }
+]} />
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services/" },
+                { name: "Mechanical Repair", url: "/mechanical-repair/" }
+            ]} />
             <QuickQuote />
         </main>
     );

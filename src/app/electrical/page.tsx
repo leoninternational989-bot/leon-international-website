@@ -3,7 +3,11 @@ import QuickQuote from '@/components/sections/home/QuickQuote';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import FaqAccordion from '@/components/ui/FaqAccordion';
+import FAQSchema from '@/components/seo/FAQSchema';
+import FAQSection from '@/components/ui/FAQSection';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
+
 
 export default function Page() {
     return (
@@ -62,28 +66,42 @@ export default function Page() {
                         </div>
                     </div>
 
-                    <div className="mt-24 pt-16 border-t border-white/10 w-full">
-                        <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
-                        <div className="max-w-4xl mx-auto">
-                            <FaqAccordion faqs={[
-                                {
-                                    question: "What marine electrical & electronics services does Leon International offer?",
-                                    answer: "Leon International provides comprehensive marine electrical & electronics services for marine vessels and industrial clients at Karachi Port, Bin Qasim anchorage, and worldwide."
-                                },
-                                {
-                                    question: "Does Leon International provide emergency marine electrical & electronics services?",
-                                    answer: "Yes, we offer 24/7 rapid response for emergency marine repairs and services."
-                                },
-                                {
-                                    question: "Are your technicians certified?",
-                                    answer: "Yes, our engineers and technicians are highly experienced and hold necessary class approvals (including BV, LR) for specialized marine engineering tasks."
-                                }
-                            ]} />
-                        </div>
-                    </div>
-                </div>
+                                    </div>
             </section>
 
+            <FAQSchema faqs={[
+    {
+        "question": "What types of marine motors can you rewind?",
+        "answer": "We rewind AC and DC motors of all sizes for marine and industrial applications, including main propulsion motors, pump motors, and auxiliary motors."
+    },
+    {
+        "question": "Do you repair PCB cards and electronic boards?",
+        "answer": "Yes, our electronics team specializes in PCB card repair, component-level troubleshooting, and replacement for marine navigation and control systems."
+    },
+    {
+        "question": "Can you overhaul gyro compass systems?",
+        "answer": "Yes, we provide complete gyro compass overhauling, calibration, and servicing for all major manufacturers."
+    }
+]} />
+            <FAQSection faqs={[
+    {
+        "question": "What types of marine motors can you rewind?",
+        "answer": "We rewind AC and DC motors of all sizes for marine and industrial applications, including main propulsion motors, pump motors, and auxiliary motors."
+    },
+    {
+        "question": "Do you repair PCB cards and electronic boards?",
+        "answer": "Yes, our electronics team specializes in PCB card repair, component-level troubleshooting, and replacement for marine navigation and control systems."
+    },
+    {
+        "question": "Can you overhaul gyro compass systems?",
+        "answer": "Yes, we provide complete gyro compass overhauling, calibration, and servicing for all major manufacturers."
+    }
+]} />
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services/" },
+                { name: "Electrical & Automation", url: "/electrical/" }
+            ]} />
             <QuickQuote />
         </main>
     );

@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { CheckCircle2, ShieldCheck, Clock, Lightbulb } from 'lucide-react';
 import GlobalMap from '@/components/sections/home/GlobalMap';
 import Testimonials from '@/components/sections/home/Testimonials';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
 
 const values = [
     {
@@ -190,6 +192,11 @@ export default function About() {
 
             {/* Reuse Testimonials section which includes Client Logos */}
             <Testimonials />
+        
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "About Us", url: "/about/" }
+            ]} />
         </>
     );
 }

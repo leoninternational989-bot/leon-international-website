@@ -12,10 +12,10 @@ import GlobalMap from '@/components/sections/home/GlobalMap';
 import QuickQuote from '@/components/sections/home/QuickQuote';
 
 export const metadata: Metadata = {
-  title: "Leon International | Marine Engineering, Ship Repair & Spare Parts Supplier",
-  description: "Leon International delivers comprehensive marine engineering services — ship repair, dry docking, NDT inspection, fabrication, HVAC, protective coatings & OEM spare parts. decades of experience. global operations headquartered in Pakistan.",
+  title: 'Leon International | Marine Engineering & Ship Repair',
+  description: 'Leading marine engineering company: ship repair, dry docking, NDT inspection, fabrication & OEM spare parts. 50+ years of excellence across Pakistan, UAE, China & Latvia.',
   alternates: {
-    canonical: 'https://leoninternational.com/',
+    canonical: 'https://leon-international.com/',
   },
 };
 

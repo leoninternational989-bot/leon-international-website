@@ -22,6 +22,14 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+# CCBot
+User-agent: CCBot
+Allow: /
+
+# Bytespider
+User-agent: Bytespider
+Allow: /
+
 # Host
 Host: https://leon-international.com
 

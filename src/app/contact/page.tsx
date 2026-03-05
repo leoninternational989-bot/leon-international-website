@@ -3,6 +3,8 @@ import PageHero from '@/components/ui/PageHero';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import JsonLd from '@/components/JsonLd';
 import ContactForm from '@/components/forms/ContactForm';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
 
 export const metadata: Metadata = {
     title: 'Contact Us | Leon International',
@@ -112,6 +114,12 @@ export default function ContactPage() {
                     </div>
                 </div>
             </section>
+        
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "Contact", url: "/contact/" }
+            ]} />
         </main>
+
     );
 }

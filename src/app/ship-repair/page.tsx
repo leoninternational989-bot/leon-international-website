@@ -3,7 +3,11 @@ import QuickQuote from '@/components/sections/home/QuickQuote';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import FaqAccordion from '@/components/ui/FaqAccordion';
+import FAQSchema from '@/components/seo/FAQSchema';
+import FAQSection from '@/components/ui/FAQSection';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
+
 
 export default function Page() {
     return (
@@ -63,29 +67,42 @@ export default function Page() {
                         </div>
                     </div>
 
-                    <div className="mt-24 pt-16 border-t border-white/10 w-full">
-                        <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
-                        <div className="max-w-4xl mx-auto">
-                            <FaqAccordion faqs={[
-                                {
-                                    question: "What ship repair & dry docking services does Leon International offer?",
-                                    answer: "Leon International provides comprehensive ship repair & dry docking services for marine vessels and industrial clients at Karachi Port, Bin Qasim anchorage, and worldwide."
-                                },
-                                {
-                                    question: "Does Leon International provide emergency ship repair & dry docking services?",
-                                    answer: "Yes, we offer 24/7 rapid response for emergency marine repairs and services."
-                                },
-                                {
-                                    question: "Are your technicians certified?",
-                                    answer: "Yes, our engineers and technicians are highly experienced and hold necessary class approvals (including BV, LR) for specialized marine engineering tasks."
-                                }
-                            ]} />
-
-                        </div>
-                    </div>
-                </div>
+                                    </div>
             </section>
 
+            <FAQSchema faqs={[
+    {
+        "question": "What types of vessels can Leon International repair at Karachi Port?",
+        "answer": "We service vessels of all sizes including bulk carriers, tankers, container ships, tugboats, barges, and offshore vessels at Karachi Port and Port Bin Qasim."
+    },
+    {
+        "question": "Do you offer emergency ship repair at anchorage?",
+        "answer": "Yes, we provide 24/7 emergency repair services at anchorage with rapid mobilization capability. Our teams can be deployed within hours for urgent repairs."
+    },
+    {
+        "question": "What classification societies approve your ship repair work?",
+        "answer": "Our work is approved by Lloyd's Register, Bureau Veritas, DNV, ABS, and ClassNK. All repairs meet internationally recognized classification standards."
+    }
+]} />
+            <FAQSection faqs={[
+    {
+        "question": "What types of vessels can Leon International repair at Karachi Port?",
+        "answer": "We service vessels of all sizes including bulk carriers, tankers, container ships, tugboats, barges, and offshore vessels at Karachi Port and Port Bin Qasim."
+    },
+    {
+        "question": "Do you offer emergency ship repair at anchorage?",
+        "answer": "Yes, we provide 24/7 emergency repair services at anchorage with rapid mobilization capability. Our teams can be deployed within hours for urgent repairs."
+    },
+    {
+        "question": "What classification societies approve your ship repair work?",
+        "answer": "Our work is approved by Lloyd's Register, Bureau Veritas, DNV, ABS, and ClassNK. All repairs meet internationally recognized classification standards."
+    }
+]} />
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services/" },
+                { name: "Ship Repair & Dry Docking", url: "/ship-repair/" }
+            ]} />
             <QuickQuote />
         </main>
     );

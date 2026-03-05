@@ -3,7 +3,11 @@ import QuickQuote from '@/components/sections/home/QuickQuote';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import FaqAccordion from '@/components/ui/FaqAccordion';
+import FAQSchema from '@/components/seo/FAQSchema';
+import FAQSection from '@/components/ui/FAQSection';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
+
 
 export default function Page() {
     return (
@@ -63,30 +67,42 @@ export default function Page() {
                         </div>
                     </div>
 
-                    <div className="mt-24 pt-16 border-t border-white/10 w-full">
-                        <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
-                        <div className="max-w-4xl mx-auto">
-                            <FaqAccordion
-                                faqs={[
-                                    {
-                                        question: "What specialized marine services does Leon International offer?",
-                                        answer: "Leon International provides comprehensive specialized marine services for marine vessels and industrial clients at Karachi Port, Bin Qasim anchorage, and worldwide."
-                                    },
-                                    {
-                                        question: "Does Leon International provide emergency specialized marine services?",
-                                        answer: "Yes, we offer 24/7 rapid response for emergency marine repairs and services."
-                                    },
-                                    {
-                                        question: "Are your technicians certified?",
-                                        answer: "Yes, our engineers and technicians are highly experienced and hold necessary class approvals (including BV, LR) for specialized marine engineering tasks."
-                                    }
-                                ]}
-                            />
-                        </div>
-                    </div>
-                </div>
+                                    </div>
             </section>
 
+            <FAQSchema faqs={[
+    {
+        "question": "What specialized marine services does Leon International offer?",
+        "answer": "We provide tools calibration, gyro compass servicing, marine instruments testing, load testing, and comprehensive vessel inspection services."
+    },
+    {
+        "question": "Do you calibrate marine measurement tools and instruments?",
+        "answer": "Yes, we offer professional calibration services for marine tools, gauges, and measurement instruments to ensure accuracy and compliance with standards."
+    },
+    {
+        "question": "Can you service navigation equipment onboard vessels?",
+        "answer": "Yes, our technicians service radar systems, GPS equipment, echo sounders, and other navigation electronics from major manufacturers."
+    }
+]} />
+            <FAQSection faqs={[
+    {
+        "question": "What specialized marine services does Leon International offer?",
+        "answer": "We provide tools calibration, gyro compass servicing, marine instruments testing, load testing, and comprehensive vessel inspection services."
+    },
+    {
+        "question": "Do you calibrate marine measurement tools and instruments?",
+        "answer": "Yes, we offer professional calibration services for marine tools, gauges, and measurement instruments to ensure accuracy and compliance with standards."
+    },
+    {
+        "question": "Can you service navigation equipment onboard vessels?",
+        "answer": "Yes, our technicians service radar systems, GPS equipment, echo sounders, and other navigation electronics from major manufacturers."
+    }
+]} />
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services/" },
+                { name: "Specialized Services", url: "/specialized/" }
+            ]} />
             <QuickQuote />
         </main>
     );

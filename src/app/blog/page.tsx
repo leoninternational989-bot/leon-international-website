@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import PageHero from '@/components/ui/PageHero';
 import { initialPosts } from './postData';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export const metadata: Metadata = {
     title: 'Marine Insights & News Blog | Leon International',
@@ -24,6 +25,15 @@ export default function BlogIndexPage() {
             <section className="py-24 relative">
                 <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-ocean/5 rounded-full blur-[120px] -z-10" />
                 <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-accent-500/5 rounded-full blur-[100px] -z-10" />
+
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-16 text-center">
+                    <p className="text-lg leading-8 text-gray-300 font-inter mb-6">
+                        Welcome to the Leon International Marine Engineering & Industry Insights Blog. With over five decades of deep-rooted experience in the maritime and industrial sectors, our technical specialists and management team have curated a wealth of knowledge that we are proud to share with our clients and the broader maritime community. Here you will find in-depth technical guides, the latest industry news, maintenance best practices, and expert advice to help you optimize the efficiency and lifespan of your vessels and industrial equipment.
+                    </p>
+                    <p className="text-lg leading-8 text-gray-300 font-inter">
+                        Our articles cover a broad spectrum of critical topics including cutting-edge NDT inspection methodologies, breakthroughs in marine HVAC and refrigeration, complex mechanical and prime-mover engine overhauling, advanced protective coating applications, and Class-approved welding standards. Stay informed with our deep dives into maritime safety, compliance with international marine regulations, and the operational strategies necessary for successful ship repair and global supply chain logistics.
+                    </p>
+                </div>
 
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -72,6 +82,10 @@ export default function BlogIndexPage() {
                     </div>
                 </div>
             </section>
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "Blog", url: "/blog/" }
+            ]} />
         </main>
     );
 }

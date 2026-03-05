@@ -4,6 +4,8 @@ import { useState } from 'react';
 import PageHero from '@/components/ui/PageHero';
 import { Send, CheckCircle2, AlertCircle, ArrowRight, ArrowLeft, Loader2, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
 
 interface FormData {
   name: string;
@@ -611,6 +613,12 @@ export default function QuotePage() {
           </AnimatePresence>
         </div>
       </section>
-    </main>
+    
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "Request a Quote", url: "/quote/" }
+            ]} />
+        </main>
+
   );
 }

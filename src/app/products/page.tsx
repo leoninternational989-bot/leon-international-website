@@ -5,6 +5,8 @@ import QuickQuote from '@/components/sections/home/QuickQuote';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Anchor, BatteryCharging, Compass, Database, Drill, Droplets, Factory, Filter, Flame, Gauge, Navigation, PaintBucket, Plug, PlusCircle, Search, Settings, ShieldAlert, Snowflake, Wind, Zap } from 'lucide-react';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
 
 const products = [
     { name: 'Engine Parts', href: '/engine-parts/', desc: 'Components for over 20 engine brands.', icon: Settings },
@@ -78,6 +80,11 @@ export default function ProductsOverview() {
             </section>
 
             <QuickQuote />
+        
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "Products", url: "/products/" }
+            ]} />
         </>
     );
 }

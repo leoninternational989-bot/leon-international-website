@@ -3,7 +3,11 @@ import QuickQuote from '@/components/sections/home/QuickQuote';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import FaqAccordion from '@/components/ui/FaqAccordion';
+import FAQSchema from '@/components/seo/FAQSchema';
+import FAQSection from '@/components/ui/FAQSection';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+
+
 
 export default function Page() {
     return (
@@ -63,30 +67,42 @@ export default function Page() {
                         </div>
                     </div>
 
-                    <div className="mt-24 pt-16 border-t border-white/10 w-full">
-                        <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
-                        <div className="max-w-4xl mx-auto">
-                            <FaqAccordion
-                                faqs={[
-                                    {
-                                        question: "What marine hvac & refrigeration solutions does Leon International offer?",
-                                        answer: "Leon International provides comprehensive marine hvac & refrigeration solutions for marine vessels and industrial clients at Karachi Port, Bin Qasim anchorage, and worldwide."
-                                    },
-                                    {
-                                        question: "Does Leon International provide emergency marine hvac & refrigeration solutions?",
-                                        answer: "Yes, we offer 24/7 rapid response for emergency marine repairs and services."
-                                    },
-                                    {
-                                        question: "Are your technicians certified?",
-                                        answer: "Yes, our engineers and technicians are highly experienced and hold necessary class approvals (including BV, LR) for specialized marine engineering tasks."
-                                    }
-                                ]}
-                            />
-                        </div>
-                    </div>
-                </div>
+                                    </div>
             </section>
 
+            <FAQSchema faqs={[
+    {
+        "question": "Can you repair marine air conditioning plant systems?",
+        "answer": "Yes, we service and repair complete marine AC plants including compressors, condensers, evaporators, and control systems for vessels of all sizes."
+    },
+    {
+        "question": "Do you handle cold storage and refrigeration on ships?",
+        "answer": "Yes, we provide complete cold storage system maintenance, refrigerant gas servicing, and compressor overhauling for marine refrigeration systems."
+    },
+    {
+        "question": "Do you service Freon-based systems?",
+        "answer": "Yes, we handle Freon gas charging, leak detection, and system servicing in compliance with current environmental regulations."
+    }
+]} />
+            <FAQSection faqs={[
+    {
+        "question": "Can you repair marine air conditioning plant systems?",
+        "answer": "Yes, we service and repair complete marine AC plants including compressors, condensers, evaporators, and control systems for vessels of all sizes."
+    },
+    {
+        "question": "Do you handle cold storage and refrigeration on ships?",
+        "answer": "Yes, we provide complete cold storage system maintenance, refrigerant gas servicing, and compressor overhauling for marine refrigeration systems."
+    },
+    {
+        "question": "Do you service Freon-based systems?",
+        "answer": "Yes, we handle Freon gas charging, leak detection, and system servicing in compliance with current environmental regulations."
+    }
+]} />
+            <BreadcrumbSchema items={[
+                { name: "Home", url: "/" },
+                { name: "Services", url: "/services/" },
+                { name: "HVAC & Refrigeration", url: "/hvac/" }
+            ]} />
             <QuickQuote />
         </main>
     );
