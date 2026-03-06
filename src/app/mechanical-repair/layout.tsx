@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Mechanical Repair & Engine Overhaul | Leon International",
   description: "Comprehensive mechanical repairs including main engine overhauls, boiler repairs, and hydraulic systems.",
   alternates: {
-    canonical: 'https://leoninternational.com/mechanical-repair/',
+    canonical: 'https://leon-international.com/mechanical-repair/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

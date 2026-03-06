@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Oil Purifiers & Separators | Leon International",
   description: "Bowls, discs, and service kits for Alfa Laval and Westfalia separators.",
   alternates: {
-    canonical: 'https://leoninternational.com/purifiers/',
+    canonical: 'https://leon-international.com/purifiers/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/purifiers/"
+    "url": "https://leon-international.com/purifiers/"
   }
 };
 const faqSchema = {

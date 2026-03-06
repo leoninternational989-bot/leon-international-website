@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Major Ship Repair Projects | Leon International",
   description: "Extensive structural and mechanical ship repair projects undertaken globally.",
   alternates: {
-    canonical: 'https://leoninternational.com/major-ship-repair/',
+    canonical: 'https://leon-international.com/major-ship-repair/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

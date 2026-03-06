@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine Protective Coatings & Sandblasting | Leon International",
   description: "Industrial coatings, sandblasting, and Belzona applications to protect vessel structures from corrosion.",
   alternates: {
-    canonical: 'https://leoninternational.com/protective-coatings/',
+    canonical: 'https://leon-international.com/protective-coatings/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

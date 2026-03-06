@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "NDT Inspection & Calibration Services | Leon International",
   description: "Advanced non-destructive testing including ultrasonic gauging, MPI, and crane load testing.",
   alternates: {
-    canonical: 'https://leoninternational.com/ndt-inspection/',
+    canonical: 'https://leon-international.com/ndt-inspection/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

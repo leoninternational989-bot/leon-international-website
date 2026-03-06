@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Perkins Marine Engines & Spares | Leon International",
   description: "Complete range of spares for Perkins auxiliary marine engines.",
   alternates: {
-    canonical: 'https://leoninternational.com/perkins-parts/',
+    canonical: 'https://leon-international.com/perkins-parts/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/perkins-parts/"
+    "url": "https://leon-international.com/perkins-parts/"
   }
 };
 const faqSchema = {

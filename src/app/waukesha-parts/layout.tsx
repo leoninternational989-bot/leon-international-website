@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Waukesha Engine Components | Leon International",
   description: "Heavy-duty parts supply for Waukesha industrial and marine applications.",
   alternates: {
-    canonical: 'https://leoninternational.com/waukesha-parts/',
+    canonical: 'https://leon-international.com/waukesha-parts/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/waukesha-parts/"
+    "url": "https://leon-international.com/waukesha-parts/"
   }
 };
 const faqSchema = {

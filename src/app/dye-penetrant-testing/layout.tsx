@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Dye Penetrant / Liquid Penetrant Testing | Leon International",
   description: "Non-destructive testing for surface-breaking defects in non-porous materials.",
   alternates: {
-    canonical: 'https://leoninternational.com/dye-penetrant-testing/',
+    canonical: 'https://leon-international.com/dye-penetrant-testing/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

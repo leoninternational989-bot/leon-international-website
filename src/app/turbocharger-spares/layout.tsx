@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Turbocharger Repair & Spares | Leon International",
   description: "Cartridges, bearings, and rotors for ABB, MET, and Napier turbochargers.",
   alternates: {
-    canonical: 'https://leoninternational.com/turbocharger-spares/',
+    canonical: 'https://leon-international.com/turbocharger-spares/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/turbocharger-spares/"
+    "url": "https://leon-international.com/turbocharger-spares/"
   }
 };
 const faqSchema = {

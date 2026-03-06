@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine Boiler Repair Services | Leon International",
   description: "Retubing, casing repairs, and complete overhauls for marine boiler systems.",
   alternates: {
-    canonical: 'https://leoninternational.com/boiler-repair/',
+    canonical: 'https://leon-international.com/boiler-repair/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

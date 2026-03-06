@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "MAN B&W Engine Spare Parts | Leon International",
   description: "High-quality spares for MAN two-stroke and four-stroke marine engines.",
   alternates: {
-    canonical: 'https://leoninternational.com/man-parts/',
+    canonical: 'https://leon-international.com/man-parts/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/man-parts/"
+    "url": "https://leon-international.com/man-parts/"
   }
 };
 const faqSchema = {

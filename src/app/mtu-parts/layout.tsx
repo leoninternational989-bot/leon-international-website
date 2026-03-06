@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "MTU Engine Parts & Spares | Leon International",
   description: "Genuine and OEM replacement parts for MTU marine diesel engines.",
   alternates: {
-    canonical: 'https://leoninternational.com/mtu-parts/',
+    canonical: 'https://leon-international.com/mtu-parts/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/mtu-parts/"
+    "url": "https://leon-international.com/mtu-parts/"
   }
 };
 const faqSchema = {

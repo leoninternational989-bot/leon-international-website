@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Main Engine Spare Parts | Leon International",
   description: "Critical spares for heavy propulsion marine diesel engines.",
   alternates: {
-    canonical: 'https://leoninternational.com/main-engine-spares/',
+    canonical: 'https://leon-international.com/main-engine-spares/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/main-engine-spares/"
+    "url": "https://leon-international.com/main-engine-spares/"
   }
 };
 const faqSchema = {

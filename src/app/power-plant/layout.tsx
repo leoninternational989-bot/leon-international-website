@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Power Plant Equipment Supply | Leon International",
   description: "Industrial-grade generators and heavy mechanical components for land-based power.",
   alternates: {
-    canonical: 'https://leoninternational.com/power-plant/',
+    canonical: 'https://leon-international.com/power-plant/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/power-plant/"
+    "url": "https://leon-international.com/power-plant/"
   }
 };
 const faqSchema = {

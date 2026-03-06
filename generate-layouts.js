@@ -99,7 +99,7 @@ pages.forEach(page => {
         "provider": {
           "@type": "Organization",
           "name": "Leon International",
-          "url": "https://leoninternational.com"
+          "url": "https://leon-international.com"
         },
         "areaServed": [
           { "@type": "Country", "name": "Pakistan" },
@@ -152,7 +152,7 @@ pages.forEach(page => {
           "@type": "Offer",
           "availability": "https://schema.org/InStock",
           "priceCurrency": "USD",
-          "url": `https://leoninternational.com/${page.slug}/`
+          "url": `https://leon-international.com/${page.slug}/`
         }
       };
 
@@ -191,7 +191,7 @@ export const metadata: Metadata = {
   title: "${page.title} | Leon International",
   description: "${page.desc}",
   alternates: {
-    canonical: 'https://leoninternational.com/${page.slug}/',
+    canonical: 'https://leon-international.com/${page.slug}/',
   },
 };
 

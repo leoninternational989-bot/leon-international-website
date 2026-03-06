@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Petroleum & Oilfield Equipment | Leon International",
   description: "Specialized fittings, hoses, and measurement tools for oil handling.",
   alternates: {
-    canonical: 'https://leoninternational.com/petroleum-equipment/',
+    canonical: 'https://leon-international.com/petroleum-equipment/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/petroleum-equipment/"
+    "url": "https://leon-international.com/petroleum-equipment/"
   }
 };
 const faqSchema = {

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine Diesel Generators | Leon International",
   description: "Complete gensets and replacement parts for reliable onboard power.",
   alternates: {
-    canonical: 'https://leoninternational.com/diesel-generators/',
+    canonical: 'https://leon-international.com/diesel-generators/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/diesel-generators/"
+    "url": "https://leon-international.com/diesel-generators/"
   }
 };
 const faqSchema = {

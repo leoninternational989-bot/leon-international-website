@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "DEUTZ Marine Engine Parts | Leon International",
   description: "Specialized parts distributor for DEUTZ legacy and modern engines.",
   alternates: {
-    canonical: 'https://leoninternational.com/deutz-parts/',
+    canonical: 'https://leon-international.com/deutz-parts/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/deutz-parts/"
+    "url": "https://leon-international.com/deutz-parts/"
   }
 };
 const faqSchema = {

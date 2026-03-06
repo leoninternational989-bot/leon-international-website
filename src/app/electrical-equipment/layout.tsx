@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine Electrical Equipment | Leon International",
   description: "Switches, breakers, sensors, and full automation system components.",
   alternates: {
-    canonical: 'https://leoninternational.com/electrical-equipment/',
+    canonical: 'https://leon-international.com/electrical-equipment/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/electrical-equipment/"
+    "url": "https://leon-international.com/electrical-equipment/"
   }
 };
 const faqSchema = {

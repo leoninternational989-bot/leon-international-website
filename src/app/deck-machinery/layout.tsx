@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Deck Machinery & Winch Spares | Leon International",
   description: "Motors, brakes, and control blocks for winches and windlasses.",
   alternates: {
-    canonical: 'https://leoninternational.com/deck-machinery/',
+    canonical: 'https://leon-international.com/deck-machinery/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/deck-machinery/"
+    "url": "https://leon-international.com/deck-machinery/"
   }
 };
 const faqSchema = {

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Ship Repair & Dry Docking Services | Leon International",
   description: "Expert ship repair, dry docking, and anchorage repair services globally by Leon International.",
   alternates: {
-    canonical: 'https://leoninternational.com/ship-repair/',
+    canonical: 'https://leon-international.com/ship-repair/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

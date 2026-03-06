@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Steel Fabrication & Welding | Leon International",
   description: "BV-approved welding, steel structure fabrication, and custom buoy building by certified professionals.",
   alternates: {
-    canonical: 'https://leoninternational.com/fabrication/',
+    canonical: 'https://leon-international.com/fabrication/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

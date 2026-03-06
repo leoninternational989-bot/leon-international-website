@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Ultrasonic Flaw Detection (UFD) | Leon International",
   description: "Detecting sub-surface cracks and welding defects using advanced UFD equipment.",
   alternates: {
-    canonical: 'https://leoninternational.com/ultrasonic-flaw-detection/',
+    canonical: 'https://leon-international.com/ultrasonic-flaw-detection/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

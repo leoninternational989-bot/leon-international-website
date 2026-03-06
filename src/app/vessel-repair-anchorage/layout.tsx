@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Vessel Repair at Anchorage | Leon International",
   description: "Fast-response afloat repair services performed at anchorage.",
   alternates: {
-    canonical: 'https://leoninternational.com/vessel-repair-anchorage/',
+    canonical: 'https://leon-international.com/vessel-repair-anchorage/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

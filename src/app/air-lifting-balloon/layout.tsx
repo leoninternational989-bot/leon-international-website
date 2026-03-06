@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Air Lifting Balloon Services | Leon International",
   description: "Underwater salvage and buoyancy support using heavy-duty lifting balloons.",
   alternates: {
-    canonical: 'https://leoninternational.com/air-lifting-balloon/',
+    canonical: 'https://leon-international.com/air-lifting-balloon/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

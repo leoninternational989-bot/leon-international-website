@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Windlass & Mooring Winch Repair | Leon International",
   description: "Maintenance and overhaul of deck windlass and heavy mooring equipment.",
   alternates: {
-    canonical: 'https://leoninternational.com/windlass-repair/',
+    canonical: 'https://leon-international.com/windlass-repair/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

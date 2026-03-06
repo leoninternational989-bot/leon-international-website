@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Transformer Rewinding Services | Leon International",
   description: "Specialized repair and rewinding of marine high-voltage transformers.",
   alternates: {
-    canonical: 'https://leoninternational.com/transformer-rewinding/',
+    canonical: 'https://leon-international.com/transformer-rewinding/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

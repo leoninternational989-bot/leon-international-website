@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Navigation & Communication Systems | Leon International",
   description: "Radars, ECDIS, VHF, and GMDSS equipment for safe vessel operation.",
   alternates: {
-    canonical: 'https://leoninternational.com/navigation-systems/',
+    canonical: 'https://leon-international.com/navigation-systems/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/navigation-systems/"
+    "url": "https://leon-international.com/navigation-systems/"
   }
 };
 const faqSchema = {

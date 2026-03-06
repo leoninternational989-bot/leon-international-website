@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Comprehensive Crane Inspection | Leon International",
   description: "Visual and mechanical inspection of marine hoisting equipment.",
   alternates: {
-    canonical: 'https://leoninternational.com/crane-inspection/',
+    canonical: 'https://leon-international.com/crane-inspection/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

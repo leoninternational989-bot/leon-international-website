@@ -6,7 +6,7 @@ export const metadata = {
     title: 'Terms & Conditions | Leon International',
     description: 'Terms and Conditions regarding the use of Leon International website and services, including marine engineering, ship repair, and spare parts supply.',
     alternates: {
-        canonical: 'https://leoninternational.com/terms-conditions/',
+        canonical: 'https://leon-international.com/terms-conditions/',
     }
 };
 
@@ -24,7 +24,7 @@ export default function TermsConditionsPage() {
                     <section>
                         <h2 className="text-2xl font-bold text-primary-900 mb-4">1. Agreement to Terms</h2>
                         <p>
-                            These Terms & Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Leon International ("we," "us" or "our"), concerning your access to and use of the leoninternational.com website as well as any related marine engineering, ship repair, or spare parts supply services.
+                            These Terms & Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Leon International ("we," "us" or "our"), concerning your access to and use of the leon-international.com website as well as any related marine engineering, ship repair, or spare parts supply services.
                         </p>
                         <p className="mt-4">
                             You agree that by accessing the Site or engaging our services across our global offices (Pakistan and worldwide), you have read, understood, and agree to be bound by all of these Terms & Conditions.

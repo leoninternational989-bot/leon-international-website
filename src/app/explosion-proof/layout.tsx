@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Explosion-Proof (Ex) Equipment | Leon International",
   description: "ATEX-certified lighting and electrical fittings for hazardous areas.",
   alternates: {
-    canonical: 'https://leoninternational.com/explosion-proof/',
+    canonical: 'https://leon-international.com/explosion-proof/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/explosion-proof/"
+    "url": "https://leon-international.com/explosion-proof/"
   }
 };
 const faqSchema = {

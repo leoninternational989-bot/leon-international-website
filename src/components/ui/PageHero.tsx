@@ -28,13 +28,13 @@ export default function PageHero({
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://leoninternational.com/"
+                "item": "https://leon-international.com/"
             },
             ...breadcrumbs.map((crumb, idx) => ({
                 "@type": "ListItem",
                 "position": idx + 2,
                 "name": crumb.label,
-                "item": `https://leoninternational.com${crumb.href}`
+                "item": `https://leon-international.com${crumb.href}`
             }))
         ]
     } : null;

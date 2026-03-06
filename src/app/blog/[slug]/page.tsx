@@ -58,12 +58,12 @@ export default async function BlogPostPage({ params }: Props) {
         "publisher": {
             "@type": "Organization",
             "name": "Leon International",
-            "logo": { "@type": "ImageObject", "url": "https://leoninternational.com/images/logo.png" }
+            "logo": { "@type": "ImageObject", "url": "https://leon-international.com/images/logo.png" }
         },
         "datePublished": new Date(post.date).toISOString().split('T')[0],
         "dateModified": new Date(post.date).toISOString().split('T')[0],
-        "image": `https://leoninternational.com${post.image}`,
-        "mainEntityOfPage": `https://leoninternational.com/blog/${post.slug}/`
+        "image": `https://leon-international.com${post.image}`,
+        "mainEntityOfPage": `https://leon-international.com/blog/${post.slug}/`
     };
 
     return (

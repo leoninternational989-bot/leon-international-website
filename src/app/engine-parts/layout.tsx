@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine Engine Parts — OEM & Aftermarket | Leon International",
   description: "Pistons, liners, rings, bearings, and valves for all major 2-stroke and 4-stroke engines.",
   alternates: {
-    canonical: 'https://leoninternational.com/engine-parts/',
+    canonical: 'https://leon-international.com/engine-parts/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/engine-parts/"
+    "url": "https://leon-international.com/engine-parts/"
   }
 };
 const faqSchema = {

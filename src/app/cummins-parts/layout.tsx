@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Cummins Marine Engine Parts | Leon International",
   description: "Reliable parts supply for Cummins KTA, NTA, and QSK series engines.",
   alternates: {
-    canonical: 'https://leoninternational.com/cummins-parts/',
+    canonical: 'https://leon-international.com/cummins-parts/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/cummins-parts/"
+    "url": "https://leon-international.com/cummins-parts/"
   }
 };
 const faqSchema = {

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Hydraulic Pump & System Overhaul | Leon International",
   description: "Testing, repair, and parts replacement for complex marine hydraulic systems.",
   alternates: {
-    canonical: 'https://leoninternational.com/hydraulic-pump-overhauling/',
+    canonical: 'https://leon-international.com/hydraulic-pump-overhauling/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

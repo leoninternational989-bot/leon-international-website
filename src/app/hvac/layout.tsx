@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine HVAC & Refrigeration Solutions | Leon International",
   description: "Installation and repair of marine AC plants and cold storage refrigeration systems.",
   alternates: {
-    canonical: 'https://leoninternational.com/hvac/',
+    canonical: 'https://leon-international.com/hvac/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

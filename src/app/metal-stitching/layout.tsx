@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Cold Metal Stitching | Leon International",
   description: "Repairing cracked or broken cast iron engine blocks without heat.",
   alternates: {
-    canonical: 'https://leoninternational.com/metal-stitching/',
+    canonical: 'https://leon-international.com/metal-stitching/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

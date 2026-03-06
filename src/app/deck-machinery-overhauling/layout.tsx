@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Deck Machinery Overhauling | Leon International",
   description: "Complete mechanical services for diverse deck machinery systems.",
   alternates: {
-    canonical: 'https://leoninternational.com/deck-machinery-overhauling/',
+    canonical: 'https://leon-international.com/deck-machinery-overhauling/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

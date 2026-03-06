@@ -410,7 +410,7 @@ COSCO, CMA CGM, Apollonia Lines, Argosy Shipmanagement, Ethiopian Shipping Lines
 📍 **Pakistan (Headquarters)**
 Plot#122-C, Keamari Township, Keamari, Karachi-75260
 Phone: +92-21-32850282
-Email: info@leoninternational.com
+Email: info@leon-international.com
 
 📍 **UAE Office**
 Office No: CWS-1V-223879, 26th Floor, Amber Gem Tower, Sheikh Khalifa Street, Ajman, UAE
@@ -466,8 +466,8 @@ Social media icons: Facebook, LinkedIn, Instagram, WhatsApp
 
 **Column 4 — Contact Info:**
 - Karachi HQ address & phone
-- Email: info@leoninternational.com
-- 24/7 Operations: ops@leoninternational.com
+- Email: info@leon-international.com
+- 24/7 Operations: ops@leon-international.com
 
 **Bottom Bar:** © 2026 Leon International. All Rights Reserved. | Privacy Policy | Terms of Service
 
@@ -944,20 +944,20 @@ Address: Plot#122-C, Keamari Township, Keamari, Karachi-75260, Pakistan
 Landlines: +92-21-32850282, +92-21-32850507, +92-21-32851421, +92-21-32857358
 Admin: Mr. Danish (+92-300-950-9573), Mr. Shahmir (+92-336-211-4496)
 Operations: Mr. Saqib (+92-321-922-9872), Mr. Mahmood (+92-333-214-8142), Mr. Shehryar (+92-331-294-6844)
-Email: info@leoninternational.com, ops@leoninternational.com, supplies@leoninternational.com
+Email: info@leon-international.com, ops@leon-international.com, supplies@leon-international.com
 
 **UAE Office**
 Address: Office No: CWS-1V-223879, 26th Floor, Amber Gem Tower, Sheikh Khalifa Street, Ajman, UAE
 Contact: Mr. Shahzad
-Email: shahzad@leoninternational.com
+Email: shahzad@leon-international.com
 
 **China Office**
 Address: No. 29-4, Xinhuaqiang District, Shiyan City, Hubei, China
-Email: china@leoninternational.com
+Email: china@leon-international.com
 
 **Latvia Office**
 Address: Annas Brigaderes iela 4-47, LV-1082, Rīga, Latvia
-Email: europe@leoninternational.com
+Email: europe@leon-international.com
 
 ### Contact Form
 Fields: Full Name, Email, Phone, Company Name, Subject (dropdown: General Inquiry, Service Request, Parts Inquiry, Quote Request, Other), Message

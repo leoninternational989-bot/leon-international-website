@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Steel Structure Fabrication | Leon International",
   description: "Heavy steel renewal, pipe replacement, and custom marine structural fabrication.",
   alternates: {
-    canonical: 'https://leoninternational.com/steel-structure-fabrication/',
+    canonical: 'https://leon-international.com/steel-structure-fabrication/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

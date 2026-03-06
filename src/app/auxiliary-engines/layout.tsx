@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Auxiliary Engine Spares | Leon International",
   description: "Parts for marine generator sets covering all leading brands.",
   alternates: {
-    canonical: 'https://leoninternational.com/auxiliary-engines/',
+    canonical: 'https://leon-international.com/auxiliary-engines/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/auxiliary-engines/"
+    "url": "https://leon-international.com/auxiliary-engines/"
   }
 };
 const faqSchema = {

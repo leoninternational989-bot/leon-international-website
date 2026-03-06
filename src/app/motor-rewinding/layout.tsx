@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Electric Motor Rewinding | Leon International",
   description: "Precision AC/DC motor rewinding and testing services.",
   alternates: {
-    canonical: 'https://leoninternational.com/motor-rewinding/',
+    canonical: 'https://leon-international.com/motor-rewinding/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

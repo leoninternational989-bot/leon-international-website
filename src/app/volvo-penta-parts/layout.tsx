@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Volvo Penta Engine Spares | Leon International",
   description: "Filters, belts, and major overhaul components for Volvo Penta.",
   alternates: {
-    canonical: 'https://leoninternational.com/volvo-penta-parts/',
+    canonical: 'https://leon-international.com/volvo-penta-parts/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/volvo-penta-parts/"
+    "url": "https://leon-international.com/volvo-penta-parts/"
   }
 };
 const faqSchema = {

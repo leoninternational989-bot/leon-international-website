@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Hatch Cover Ultrasonic Testing | Leon International",
   description: "Verifying cargo hold weather-tightness using advanced ultrasonic tools.",
   alternates: {
-    canonical: 'https://leoninternational.com/hatch-cover-testing/',
+    canonical: 'https://leon-international.com/hatch-cover-testing/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

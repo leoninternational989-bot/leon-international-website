@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine PCB Card Repair | Leon International",
   description: "Component-level diagnosis and repair of marine printed circuit boards.",
   alternates: {
-    canonical: 'https://leoninternational.com/pcb-card-repair/',
+    canonical: 'https://leon-international.com/pcb-card-repair/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

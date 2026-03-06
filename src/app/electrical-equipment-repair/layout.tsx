@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Electrical Equipment Repair | Leon International",
   description: "Troubleshooting and fixing various marine electrical panels and equipment.",
   alternates: {
-    canonical: 'https://leoninternational.com/electrical-equipment-repair/',
+    canonical: 'https://leon-international.com/electrical-equipment-repair/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

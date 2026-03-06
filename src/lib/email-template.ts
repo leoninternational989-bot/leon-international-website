@@ -126,7 +126,7 @@ export function generateEmailTemplate(options: EmailTemplateOptions): string {
               <p style="margin: 0 0 4px 0; font-size: 13px; color: #AED6F1;">Leon International &mdash; Marine Engineering & Ship Spare Parts</p>
               <p style="margin: 0 0 12px 0; font-size: 12px; color: #5D6D7E;">C-102 Block 4 Gulshan-E-Iqbal Karachi, Pakistan</p>
               <div style="border-top: 1px solid #1A5276; padding-top: 12px;">
-                <a href="https://leoninternational.com" style="font-size: 12px; color: #E67E22; text-decoration: none; font-weight: 600;">leoninternational.com</a>
+                <a href="https://leon-international.com" style="font-size: 12px; color: #E67E22; text-decoration: none; font-weight: 600;">leon-international.com</a>
                 <span style="color: #1A5276; margin: 0 8px;">&bull;</span>
                 <a href="mailto:info@leon-international.com" style="font-size: 12px; color: #AED6F1; text-decoration: none;">info@leon-international.com</a>
               </div>

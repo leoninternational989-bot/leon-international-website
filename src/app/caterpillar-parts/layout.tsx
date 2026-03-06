@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Caterpillar (CAT) Marine Parts | Leon International",
   description: "Fast delivery of parts for CAT 3400, 3500, and C-series engines.",
   alternates: {
-    canonical: 'https://leoninternational.com/caterpillar-parts/',
+    canonical: 'https://leon-international.com/caterpillar-parts/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/caterpillar-parts/"
+    "url": "https://leon-international.com/caterpillar-parts/"
   }
 };
 const faqSchema = {

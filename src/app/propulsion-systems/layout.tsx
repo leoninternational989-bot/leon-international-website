@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Propulsion Systems & Shafts | Leon International",
   description: "Propellers, stern tubes, and bow thruster components.",
   alternates: {
-    canonical: 'https://leoninternational.com/propulsion-systems/',
+    canonical: 'https://leon-international.com/propulsion-systems/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/propulsion-systems/"
+    "url": "https://leon-international.com/propulsion-systems/"
   }
 };
 const faqSchema = {

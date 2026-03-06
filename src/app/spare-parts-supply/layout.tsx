@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Urgent Marine Spare Parts Supply | Leon International",
   description: "Global sourcing and delivery of critical OEM and aftermarket marine spares.",
   alternates: {
-    canonical: 'https://leoninternational.com/spare-parts-supply/',
+    canonical: 'https://leon-international.com/spare-parts-supply/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

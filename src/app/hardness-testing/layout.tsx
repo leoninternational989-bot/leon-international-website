@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Metal Hardness Testing | Leon International",
   description: "Vickers, Brinell, and Rockwell hardness testing for marine components.",
   alternates: {
-    canonical: 'https://leoninternational.com/hardness-testing/',
+    canonical: 'https://leon-international.com/hardness-testing/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

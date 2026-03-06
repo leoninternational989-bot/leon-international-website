@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Dry Docking & SLTS Services | Leon International",
   description: "Professional dry docking management and SLTS execution for all vessel types.",
   alternates: {
-    canonical: 'https://leoninternational.com/dry-docking-slts/',
+    canonical: 'https://leon-international.com/dry-docking-slts/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine AC Plant Repair | Leon International",
   description: "Compressor overhaul and refrigerant management for central AC plants.",
   alternates: {
-    canonical: 'https://leoninternational.com/ac-plant-repair/',
+    canonical: 'https://leon-international.com/ac-plant-repair/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine Sandblasting & Surface Prep | Leon International",
   description: "Grit and hydro blasting to prepare hull surfaces for painting.",
   alternates: {
-    canonical: 'https://leoninternational.com/sandblasting/',
+    canonical: 'https://leon-international.com/sandblasting/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Gyro Compass Maintenance | Leon International",
   description: "Overhauling and calibration of marine gyro compass systems.",
   alternates: {
-    canonical: 'https://leoninternational.com/gyro-compass-overhauling/',
+    canonical: 'https://leon-international.com/gyro-compass-overhauling/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

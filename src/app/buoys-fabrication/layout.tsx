@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Custom Buoys Fabrication | Leon International",
   description: "Design and construction of heavy-duty mooring and navigation buoys.",
   alternates: {
-    canonical: 'https://leoninternational.com/buoys-fabrication/',
+    canonical: 'https://leon-international.com/buoys-fabrication/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

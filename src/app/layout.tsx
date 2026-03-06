@@ -27,7 +27,7 @@ const outfit = Outfit({
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://leoninternational.com'),
+  metadataBase: new URL('https://leon-international.com'),
   title: {
     default: 'Leon International | Marine Engineering, Ship Repair & Spare Parts',
     template: '%s | Leon International'
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://leoninternational.com',
+    url: 'https://leon-international.com',
     siteName: 'Leon International',
     title: 'Leon International | Marine Engineering, Ship Repair & Spare Parts',
     description: 'Leading marine engineering company offering ship repair, dry docking, NDT inspection, fabrication, protective coatings, HVAC services & OEM spare parts worldwide.',
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://leoninternational.com',
+    canonical: 'https://leon-international.com',
   },
   verification: {
     google: 'N1aQd723r-b5p-9-MKwGypBt5nHW1tgtUZHXUrTdrJI',
@@ -87,8 +87,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Leon International",
-  "url": "https://leoninternational.com",
-  "logo": "https://leoninternational.com/images/logo.png",
+  "url": "https://leon-international.com",
+  "logo": "https://leon-international.com/images/logo.png",
   "description": "Marine engineering company specializing in ship repair, NDT inspection, fabrication, protective coatings, HVAC, and marine spare parts supply.",
   "numberOfEmployees": {
     "@type": "QuantitativeValue",
@@ -142,6 +142,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${plusJakartaSans.variable} ${dmSans.variable} ${outfit.variable} antialiased min-h-screen flex flex-col`}
       >
+        <Script
+          strategy="afterInteractive"
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="DoFZYuNOOxurW3YFTV/XvA"
+        />
         <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-0Y2XLDSGBX" />
         <Script
           id="google-analytics"

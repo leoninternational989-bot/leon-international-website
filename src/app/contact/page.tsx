@@ -16,7 +16,7 @@ const localBusinessSchema = [
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Leon International - Pakistan Headquarters",
-        "image": "https://leoninternational.com/og/default.jpg",
+        "image": "https://leon-international.com/og/default.jpg",
         "email": "info@leon-international.com",
         "telephone": "+923132277773",
         "address": {
@@ -26,7 +26,7 @@ const localBusinessSchema = [
             "addressRegion": "Sindh",
             "addressCountry": "PK"
         },
-        "url": "https://leoninternational.com/contact/"
+        "url": "https://leon-international.com/contact/"
     }
 ];
 

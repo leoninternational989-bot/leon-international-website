@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Belzona & Industrial Coatings | Leon International",
   description: "Application of high-performance epoxy and protective Belzona compounds.",
   alternates: {
-    canonical: 'https://leoninternational.com/industrial-coatings/',
+    canonical: 'https://leon-international.com/industrial-coatings/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

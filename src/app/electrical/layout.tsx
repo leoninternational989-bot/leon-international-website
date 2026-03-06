@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine Electrical & Electronics Services | Leon International",
   description: "Specialized motor rewinding, PCB card repair, and transformer services for maritime vessels.",
   alternates: {
-    canonical: 'https://leoninternational.com/electrical/',
+    canonical: 'https://leon-international.com/electrical/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Specialized Marine Services | Leon International",
   description: "Unique maritime solutions including air lifting balloon services and urgent spare parts supply.",
   alternates: {
-    canonical: 'https://leoninternational.com/specialized/',
+    canonical: 'https://leon-international.com/specialized/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

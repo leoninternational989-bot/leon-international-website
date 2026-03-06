@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Approved Marine Welding Services | Leon International",
   description: "Class-approved welding solutions by certified technicians.",
   alternates: {
-    canonical: 'https://leoninternational.com/welding-services/',
+    canonical: 'https://leon-international.com/welding-services/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

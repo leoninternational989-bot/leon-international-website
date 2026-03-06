@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Custom Spare Parts Fabrication | Leon International",
   description: "Reverse engineering and machining of obsolete mechanical components.",
   alternates: {
-    canonical: 'https://leoninternational.com/custom-parts-fabrication/',
+    canonical: 'https://leon-international.com/custom-parts-fabrication/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

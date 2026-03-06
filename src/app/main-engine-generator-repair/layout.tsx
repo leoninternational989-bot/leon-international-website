@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Main Engine & Generator Overhaul | Leon International",
   description: "Complete teardown and repair of marine two-stroke and four-stroke engines.",
   alternates: {
-    canonical: 'https://leoninternational.com/main-engine-generator-repair/',
+    canonical: 'https://leon-international.com/main-engine-generator-repair/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

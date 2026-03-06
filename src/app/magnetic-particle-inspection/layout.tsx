@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Magnetic Particle Inspection (MPI) | Leon International",
   description: "Surface defect detection using magnetic particle testing methods.",
   alternates: {
-    canonical: 'https://leoninternational.com/magnetic-particle-inspection/',
+    canonical: 'https://leon-international.com/magnetic-particle-inspection/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

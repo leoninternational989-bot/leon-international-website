@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine Hydraulic Parts | Leon International",
   description: "Motors, pumps, valves, and seal kits for heavy-duty marine hydraulics.",
   alternates: {
-    canonical: 'https://leoninternational.com/hydraulic-equipment/',
+    canonical: 'https://leon-international.com/hydraulic-equipment/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/hydraulic-equipment/"
+    "url": "https://leon-international.com/hydraulic-equipment/"
   }
 };
 const faqSchema = {

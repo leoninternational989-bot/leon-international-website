@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Ultrasonic Thickness Gauging (UTG) | Leon International",
   description: "Class-approved ultrasonic thickness measurements for vessel hulls and tanks.",
   alternates: {
-    canonical: 'https://leoninternational.com/ultrasonic-gauging/',
+    canonical: 'https://leon-international.com/ultrasonic-gauging/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

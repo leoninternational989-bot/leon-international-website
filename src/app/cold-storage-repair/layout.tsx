@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Cold Storage Refrigeration Service | Leon International",
   description: "Ensuring reliable operation of provision room cooling systems.",
   alternates: {
-    canonical: 'https://leoninternational.com/cold-storage-repair/',
+    canonical: 'https://leon-international.com/cold-storage-repair/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

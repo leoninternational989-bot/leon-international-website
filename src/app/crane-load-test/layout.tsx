@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine Crane Load Testing | Leon International",
   description: "Water bag load testing for cargo cranes, davits, and lifting equipment.",
   alternates: {
-    canonical: 'https://leoninternational.com/crane-load-test/',
+    canonical: 'https://leon-international.com/crane-load-test/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

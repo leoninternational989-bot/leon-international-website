@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine Tools & Equipment Calibration | Leon International",
   description: "Certified calibration for pressure, temperature, and electrical measuring instruments.",
   alternates: {
-    canonical: 'https://leoninternational.com/marine-tools-calibration/',
+    canonical: 'https://leon-international.com/marine-tools-calibration/',
   },
 };
 
@@ -17,7 +17,7 @@ const mainSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Leon International",
-    "url": "https://leoninternational.com"
+    "url": "https://leon-international.com"
   },
   "areaServed": [
     {

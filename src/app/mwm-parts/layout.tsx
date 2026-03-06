@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "MWM Engine Replacement Parts | Leon International",
   description: "Sourcing OEM-quality parts for MWM gas and diesel engines.",
   alternates: {
-    canonical: 'https://leoninternational.com/mwm-parts/',
+    canonical: 'https://leon-international.com/mwm-parts/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/mwm-parts/"
+    "url": "https://leon-international.com/mwm-parts/"
   }
 };
 const faqSchema = {

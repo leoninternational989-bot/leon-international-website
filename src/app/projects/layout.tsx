@@ -4,7 +4,7 @@ export const metadata: Metadata = {
     title: "Marine Projects Portfolio — Ship Repair, Fabrication & Engineering",
     description: "View our portfolio of marine engineering projects including major ship repairs, dry docking, structural fabrication, engine overhauls, and specialized offshore solutions.",
     alternates: {
-        canonical: 'https://leoninternational.com/projects/',
+        canonical: 'https://leon-international.com/projects/',
     },
 };
 

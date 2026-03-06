@@ -6,7 +6,7 @@ export const metadata = {
     title: 'Privacy Policy | Leon International',
     description: 'Privacy Policy for Leon International. Read about how we collect, use, and protect your data across our marine engineering services.',
     alternates: {
-        canonical: 'https://leoninternational.com/privacy-policy/',
+        canonical: 'https://leon-international.com/privacy-policy/',
     }
 };
 
@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
                     <section>
                         <h2 className="text-2xl font-bold text-primary-900 mb-4">1. Introduction</h2>
                         <p>
-                            At Leon International, we are committed to protecting the privacy and security of our clients, partners, and website visitors. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website (leoninternational.com) or engage with our marine engineering, ship repair, and spare parts supply services across our global offices.
+                            At Leon International, we are committed to protecting the privacy and security of our clients, partners, and website visitors. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website (leon-international.com) or engage with our marine engineering, ship repair, and spare parts supply services across our global offices.
                         </p>
                     </section>
 

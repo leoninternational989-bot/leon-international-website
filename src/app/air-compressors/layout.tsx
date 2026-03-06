@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Marine Air Compressors & Spares | Leon International",
   description: "Starting air, working air compressor blocks, and overhaul kits.",
   alternates: {
-    canonical: 'https://leoninternational.com/air-compressors/',
+    canonical: 'https://leon-international.com/air-compressors/',
   },
 };
 
@@ -23,7 +23,7 @@ const mainSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "url": "https://leoninternational.com/air-compressors/"
+    "url": "https://leon-international.com/air-compressors/"
   }
 };
 const faqSchema = {
