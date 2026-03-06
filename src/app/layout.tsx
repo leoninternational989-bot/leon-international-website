@@ -100,7 +100,9 @@ const organizationSchema = {
     "https://www.linkedin.com/company/112222068/",
     "https://www.instagram.com/leoninternational4/",
     "https://www.reddit.com/user/Comfortable-Pool2720/",
-    "https://www.quora.com/profile/Leon-International-1"
+    "https://www.quora.com/profile/Leon-International-1",
+    "https://www.youtube.com/@Leon_International",
+    "https://pin.it/3nvrmRtCp"
   ],
   "contactPoint": [
     {
