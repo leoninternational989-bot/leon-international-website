@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, Anchor, Settings, Zap, Drill, Search, PaintBucket, Snowflake, PlusCircle, Database, BatteryCharging, Wind, Gauge, Compass, Plug, Droplets, Flame, ShieldAlert, Navigation, Filter, Factory, Lightbulb, Microscope, PaintRoller, Thermometer, Wrench } from 'lucide-react';
+import { Menu, X, ChevronDown, Anchor, Settings, Zap, Drill, Search, PaintBucket, Snowflake, PlusCircle, Database, BatteryCharging, Wind, Gauge, Compass, Plug, Droplets, Flame, ShieldAlert, Navigation, Filter, Factory, Lightbulb, Microscope, PaintRoller, Thermometer, Wrench, Facebook, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 
 type SubItem = {
     name: string;
@@ -410,7 +410,21 @@ export default function Header() {
                         ))}
                     </div>
 
-                    <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-6">
+                        <div className="flex items-center gap-4 border-r border-white/20 pr-6 mr-2">
+                            <a href="https://www.facebook.com/profile.php?id=61586251654169" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-accent-400 transition-colors" aria-label="Facebook">
+                                <Facebook className="h-5 w-5" />
+                            </a>
+                            <a href="https://www.instagram.com/leoninternational4/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-accent-400 transition-colors" aria-label="Instagram">
+                                <Instagram className="h-5 w-5" />
+                            </a>
+                            <a href="https://www.linkedin.com/company/112222068/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-accent-400 transition-colors" aria-label="LinkedIn">
+                                <Linkedin className="h-5 w-5" />
+                            </a>
+                            <a href="https://wa.me/923132277773" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-accent-400 transition-colors" aria-label="WhatsApp">
+                                <MessageCircle className="h-5 w-5" />
+                            </a>
+                        </div>
                         <Link
                             href="/quote/"
                             className="text-sm font-semibold leading-6 bg-accent-500 hover:bg-accent-400 text-white px-6 py-2.5 rounded-md transition-colors shadow-lg"
@@ -513,7 +527,7 @@ export default function Header() {
                                     )
                                 ))}
                             </div>
-                            <div className="py-6">
+                            <div className="py-6 space-y-6">
                                 <Link
                                     href="/quote/"
                                     className="-mx-3 block rounded-lg px-3 py-3 text-base font-semibold leading-7 text-white bg-accent-500 hover:bg-accent-400 text-center transition-colors shadow-lg"
@@ -521,6 +535,25 @@ export default function Header() {
                                 >
                                     Request a Quote
                                 </Link>
+
+                                <div className="pt-6 border-t border-white/10 flex items-center justify-center gap-6">
+                                    <a href="https://www.facebook.com/profile.php?id=61586251654169" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                                        <span className="sr-only">Facebook</span>
+                                        <Facebook className="h-6 w-6" />
+                                    </a>
+                                    <a href="https://www.instagram.com/leoninternational4/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                                        <span className="sr-only">Instagram</span>
+                                        <Instagram className="h-6 w-6" />
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/112222068/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                                        <span className="sr-only">LinkedIn</span>
+                                        <Linkedin className="h-6 w-6" />
+                                    </a>
+                                    <a href="https://wa.me/923132277773" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                                        <span className="sr-only">WhatsApp</span>
+                                        <MessageCircle className="h-6 w-6" />
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
