@@ -61,7 +61,7 @@ export default async function BlogPostPage({ params }: Props) {
             "logo": { "@type": "ImageObject", "url": "https://leon-international.com/images/logo.png" }
         },
         "datePublished": new Date(post.date).toISOString().split('T')[0],
-        "dateModified": new Date(post.date).toISOString().split('T')[0],
+        "dateModified": new Date(post.lastUpdated || post.date).toISOString().split('T')[0],
         "image": `https://leon-international.com${post.image}`,
         "mainEntityOfPage": `https://leon-international.com/blog/${post.slug}/`
     };
@@ -106,6 +106,12 @@ export default async function BlogPostPage({ params }: Props) {
                             <div className="flex items-center gap-2 text-gray-400 text-sm font-medium">
                                 <Calendar className="h-4 w-4" />
                                 <time dateTime={post.date}>{post.formattedDate}</time>
+                                {post.formattedLastUpdated && (
+                                    <>
+                                        <span className="w-1 h-1 rounded-full bg-gray-500 mx-1" />
+                                        <span className="text-accent-400">Updated: {post.formattedLastUpdated}</span>
+                                    </>
+                                )}
                             </div>
                         </div>
 
