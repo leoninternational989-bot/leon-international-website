@@ -3,8 +3,16 @@
 Based on the latest industry insights (Ethan Smith, Graphite), AEO is about getting your brand mentioned and cited inside LLM answers (ChatGPT, Claude, Gemini, Perplexity).
 
 ## 1. The Power of AEO/GEO
-- **High Intent:** LLM traffic can have a **6x higher conversion rate** than traditional search traffic because users are primed by a detailed conversation.
-- **Immediate Impact:** Unlike traditional SEO which requires months of domain authority builds, AEO impact can happen "tomorrow" via a cited Reddit thread, YouTube video, or blog mention.
+- **High Intent:** LLM traffic can have a **6x higher conversion rate** than traditional search traffic.
+- **Immediate Impact:** AEO impact can happen "tomorrow" via third-party mentions.
+- **Freshness Delta (Ahrefs Data):** AI-cited content is **25.7% fresher** than standard Google results. Modern LLMs use RAG (Retrieval-Augmented Generation) to fetch the newest info for evolving topics.
+
+## 2. Branded Mentions (The Strongest Correlation)
+Ahrefs' study of 75k brands found branded mentions have a higher correlation with AI visibility than backlinks or domain rating.
+- **Training Examples:** Every credible mention is a "training example" for the LLM.
+- **Targeting:** 
+    - **Google AI overviews:** Aim for mentions on **highly linked-to** pages (Wikipedia, Reddit, Large Blogs).
+    - **ChatGPT/Perplexity:** Aim for mentions on **high traffic** pages (News publishers, Niche blogs).
 
 ## 2. Core Principles
 ### Information Gain (The #1 Factor)
@@ -13,9 +21,8 @@ Based on the latest industry insights (Ethan Smith, Graphite), AEO is about gett
 
 ### Help Center Optimization (The Long-tail Goldmine)
 - LLMs frequently cite support documentation to answer "Does this product do X?" or "How do I fix Y?".
-- **Structure:** Always use a **subdirectory** (e.g., `leon-international.com/support`) rather than a subdomain (`support.leon-international.com`).
-- **Internal Linking:** Cross-link between help articles to help the LLM understand the relationship between technical concepts.
-- **Community Answers:** If you solve a specific problem on a forum or Reddit, link it back to your support page so it becomes the authoritative citation.
+- **Structure (Semantic Chunking):** LLMs use a "Tree Walking" algorithm. Information should be "chunkable"—related thoughts grouped together with clear headers so the AI doesn't "bury" the most useful points.
+- **Longtail Query Fan-out:** AI takes a broad query (e.g., "Plan a 5-day engine repair") and fans it into niche subqueries. Ranking for these specifics is the key to being the final source.
 
 ## 3. Off-Site Citation Strategy
 - **Reddit/Quora:** Be an authentic user. State who you are, where you work, and provide a *useful* answer to a specific technical problem.
@@ -23,7 +30,7 @@ Based on the latest industry insights (Ethan Smith, Graphite), AEO is about gett
 - **Tier 1/2 Affiliates:** Getting mentioned on industry-leading blogs/publications is a direct signal to the LLM's citation engine.
 
 ## 4. Implementation Checklist for Leon International
-- [/] **Support Hub:** Create a `/support` or Knowledge Base section (Implemented as Next.js Subdirectory).
-- [ ] **Technical "Long-tail" Articles:** Create 5-10 articles addressing specific engineering challenges (e.g., "Troubleshooting MAN B&W Fuel Injectors").
-- [ ] **Cross-Linking:** Implement a technical glossary or "Related Articles" section in the Knowledge Base.
-- [ ] **Tracking Voice Share:** Periodically check how often "Leon International" appears in responses for marine engineering queries.
+- [x] **Support Hub:** Create a `/support` section (Implemented).
+- [ ] **Content Refresh Cycle:** Implement a quarterly update schedule for technical guides (LLMs prefer the newest data).
+- [ ] **Semantic HTML Audit:** Ensure H1-H4 structure is logical and bulleted lists are used for all technical specs.
+- [x] **Crawlability Verification:** Ensure `robots.txt` is not blocking `GPTBot` or `CCBot`.

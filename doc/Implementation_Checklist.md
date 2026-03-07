@@ -4,8 +4,10 @@ Follow this checklist for every new service page, blog post, or project added to
 
 ## 1. Contextual Content Creation
 - [ ] **Conversational Headlines:** Use "How to...", "What is...", or "The Best way to..." in your headings to match conversational user prompts.
-- [ ] **Expert Insights:** Include unique, technical details that only an engineer or specialist would know. AI rewards "information gain" over generic content.
-- [ ] **Entity-Rich Descriptions:** Mention specific engine brands (MAN, Wartsila), tools, and industry standards (NDT, ASME) to help AI categorize the page.
+- [ ] **Expert Insights:** Include unique, technical details. AI rewards "information gain" over generic content.
+- [ ] **Semantic Chunking:** Keep paragraphs focused on a single takeaway. AI models use "Tree Walking" algorithms and prefer clear outlines.
+- [ ] **Bulleted Lists:** Present technical specs in lists rather than paragraphs for easier extraction.
+- [ ] **Entity-Rich Descriptions:** Mention specific engine brands (MAN, Wartsila), tools, and industry standards.
 
 ## 2. Technical SEO for AI
 - [ ] **Raw HTML Compatibility:** Ensure the main content is rendered on the server (Next.js SSR/SSG). Avoid hiding critical text behind "See More" buttons controlled by client-side JS.
@@ -17,9 +19,10 @@ Follow this checklist for every new service page, blog post, or project added to
 - [ ] **Dynamic Modified Date in JSON-LD:** Ensure the `dateModified` in your schema matches the "Last Updated" date on the page.
 
 ## 4. Off-Page Reinforcement (Search Everywhere)
-- [ ] **YouTube Sync:** When publishing a major service page, consider a short "Explainer" video on YouTube. Link the video to the page and embed the video on the page.
+- [ ] **YouTube Sync:** Create short technical explainer videos. Transcripts are heavily indexed by Google AI overviews.
+- [ ] **Reddit/Quora Presence:** Naturally mention the brand when solving technical problems on these platforms.
+- [ ] **Diversification:** 86% of sources are unique across ChatGPT (Publishers), Perplexity (Niche Blogs), and Google AI (Social).
 - [ ] **Social Citations:** Share new content on LinkedIn and Pinterest with relevant technical hashtags.
-- [ ] **Community Engagement:** If you solve a specific engineering problem, document it and share a summary on Reddit (r/marineengineering) or Quora.
 
 ## 5. Ongoing Audits
 - [ ] **Quarterly Review:** Once a quarter, check `robots.txt` and `llms.txt` to ensure they accurately reflect your current services.
