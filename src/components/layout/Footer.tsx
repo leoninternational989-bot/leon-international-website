@@ -69,9 +69,9 @@ export default function Footer() {
                             <div>
                                 <h3 className="text-sm font-semibold leading-6 text-white uppercase tracking-wider">Quick Links</h3>
                                 <ul role="list" className="mt-6 space-y-4">
-                                    {['About Us', 'Services', 'Products', 'Projects', 'Blog', 'Contact Us'].map((item) => (
+                                    {['About Us', 'Services', 'Products', 'Projects', 'Blog', 'Contact Us', 'Support Hub'].map((item) => (
                                         <li key={item}>
-                                            <Link href={`/${item.toLowerCase().replace(' ', '-')}/`} className="text-sm leading-6 hover:text-accent-200 transition-colors">
+                                            <Link href={item === 'Support Hub' ? '/support/' : `/${item.toLowerCase().replace(' ', '-')}/`} className="text-sm leading-6 hover:text-accent-200 transition-colors">
                                                 {item}
                                             </Link>
                                         </li>
@@ -90,6 +90,7 @@ export default function Footer() {
                                         { name: 'Fabrication & Welding', href: '/fabrication/' },
                                         { name: 'NDT & Inspection', href: '/ndt-inspection/' },
                                         { name: 'Spare Parts Supply', href: '/products/' },
+                                        { name: 'Technical Guides', href: '/support/technical-guides/' },
                                     ].map((item) => (
                                         <li key={item.name}>
                                             <Link href={item.href} className="text-sm leading-6 hover:text-accent-200 transition-colors">
