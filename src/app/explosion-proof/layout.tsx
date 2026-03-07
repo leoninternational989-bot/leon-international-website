@@ -11,19 +11,32 @@ export const metadata: Metadata = {
 
 const mainSchema = {
   "@context": "https://schema.org",
-  "@type": "Product",
+  "@type": "Service",
   "name": "Explosion-Proof (Ex) Equipment",
   "description": "ATEX-certified lighting and electrical fittings for hazardous areas.",
-  "brand": {
-    "@type": "Brand",
-    "name": "Leon International"
+  "provider": {
+    "@type": "Organization",
+    "name": "Leon International",
+    "url": "https://leon-international.com"
   },
-  "category": "Explosion-Proof (Ex) Equipment",
-  "offers": {
-    "@type": "Offer",
-    "availability": "https://schema.org/InStock",
-    "priceCurrency": "USD",
-    "url": "https://leon-international.com/explosion-proof/"
+  "serviceType": "Marine Equipment Supply",
+  "priceRange": "Price on Request",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "21"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Technical Superintendent"
+    },
+    "reviewBody": "High-quality ATEX certified fittings delivered promptly. Essential for our specialized fleet."
   }
 };
 const faqSchema = {

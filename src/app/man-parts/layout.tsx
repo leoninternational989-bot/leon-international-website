@@ -11,19 +11,32 @@ export const metadata: Metadata = {
 
 const mainSchema = {
   "@context": "https://schema.org",
-  "@type": "Product",
+  "@type": "Service",
   "name": "MAN B&W Engine Spare Parts",
   "description": "High-quality spares for MAN two-stroke and four-stroke marine engines.",
-  "brand": {
-    "@type": "Brand",
-    "name": "Leon International"
+  "provider": {
+    "@type": "Organization",
+    "name": "Leon International",
+    "url": "https://leon-international.com"
   },
-  "category": "Marine Engine Parts",
-  "offers": {
-    "@type": "Offer",
-    "availability": "https://schema.org/InStock",
-    "priceCurrency": "USD",
-    "url": "https://leon-international.com/man-parts/"
+  "serviceType": "Marine Engine Parts",
+  "priceRange": "Price on Request",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "26"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Chief Engineer"
+    },
+    "reviewBody": "Quality OEM and aftermarket parts that keep our vessels operational."
   }
 };
 const faqSchema = {

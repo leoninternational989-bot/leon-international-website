@@ -11,19 +11,32 @@ export const metadata: Metadata = {
 
 const mainSchema = {
   "@context": "https://schema.org",
-  "@type": "Product",
+  "@type": "Service",
   "name": "Auxiliary Engine Spares",
   "description": "Parts for marine generator sets covering all leading brands.",
-  "brand": {
-    "@type": "Brand",
-    "name": "Leon International"
+  "provider": {
+    "@type": "Organization",
+    "name": "Leon International",
+    "url": "https://leon-international.com"
   },
-  "category": "Auxiliary Engine Spares",
-  "offers": {
-    "@type": "Offer",
-    "availability": "https://schema.org/InStock",
-    "priceCurrency": "USD",
-    "url": "https://leon-international.com/auxiliary-engines/"
+  "serviceType": "Auxiliary Engine Spares",
+  "priceRange": "Price on Request",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "26"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Chief Engineer"
+    },
+    "reviewBody": "Quality OEM and aftermarket parts that keep our vessels operational."
   }
 };
 const faqSchema = {

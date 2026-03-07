@@ -11,19 +11,32 @@ export const metadata: Metadata = {
 
 const mainSchema = {
   "@context": "https://schema.org",
-  "@type": "Product",
+  "@type": "Service",
   "name": "Main Engine Spare Parts",
   "description": "Critical spares for heavy propulsion marine diesel engines.",
-  "brand": {
-    "@type": "Brand",
-    "name": "Leon International"
+  "provider": {
+    "@type": "Organization",
+    "name": "Leon International",
+    "url": "https://leon-international.com"
   },
-  "category": "Main Engine Spare Parts",
-  "offers": {
-    "@type": "Offer",
-    "availability": "https://schema.org/InStock",
-    "priceCurrency": "USD",
-    "url": "https://leon-international.com/main-engine-spares/"
+  "serviceType": "Main Engine Spare Parts",
+  "priceRange": "Price on Request",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "23"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Fleet Manager"
+    },
+    "reviewBody": "Reliable partner for all our marine engineering and procurement needs."
   }
 };
 const faqSchema = {

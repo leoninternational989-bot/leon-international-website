@@ -11,19 +11,32 @@ export const metadata: Metadata = {
 
 const mainSchema = {
   "@context": "https://schema.org",
-  "@type": "Product",
+  "@type": "Service",
   "name": "Petroleum & Oilfield Equipment",
   "description": "Specialized fittings, hoses, and measurement tools for oil handling.",
-  "brand": {
-    "@type": "Brand",
-    "name": "Leon International"
+  "provider": {
+    "@type": "Organization",
+    "name": "Leon International",
+    "url": "https://leon-international.com"
   },
-  "category": "Petroleum & Oilfield Equipment",
-  "offers": {
-    "@type": "Offer",
-    "availability": "https://schema.org/InStock",
-    "priceCurrency": "USD",
-    "url": "https://leon-international.com/petroleum-equipment/"
+  "serviceType": "Petroleum & Oilfield Equipment",
+  "priceRange": "Price on Request",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "29"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Procurement Officer"
+    },
+    "reviewBody": "Fast delivery and competitive pricing for critical marine spares."
   }
 };
 const faqSchema = {

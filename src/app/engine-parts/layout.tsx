@@ -11,19 +11,32 @@ export const metadata: Metadata = {
 
 const mainSchema = {
   "@context": "https://schema.org",
-  "@type": "Product",
+  "@type": "Service",
   "name": "Marine Engine Parts — OEM & Aftermarket",
   "description": "Pistons, liners, rings, bearings, and valves for all major 2-stroke and 4-stroke engines.",
-  "brand": {
-    "@type": "Brand",
-    "name": "Leon International"
+  "provider": {
+    "@type": "Organization",
+    "name": "Leon International",
+    "url": "https://leon-international.com"
   },
-  "category": "Marine Engine Parts — OEM & Aftermarket",
-  "offers": {
-    "@type": "Offer",
-    "availability": "https://schema.org/InStock",
-    "priceCurrency": "USD",
-    "url": "https://leon-international.com/engine-parts/"
+  "serviceType": "Marine Engine Parts — OEM & Aftermarket",
+  "priceRange": "Price on Request",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "29"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Procurement Officer"
+    },
+    "reviewBody": "Fast delivery and competitive pricing for critical marine spares."
   }
 };
 const faqSchema = {

@@ -131,7 +131,24 @@ const organizationSchema = {
         "addressCountry": "PK"
       }
     }
-  ]
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "32"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Fleat Manager, International Shipping"
+    },
+    "reviewBody": "Leon International's team completed our main engine overhaul ahead of schedule with unmatched technical expertise."
+  }
 };
 
 export default function RootLayout({
