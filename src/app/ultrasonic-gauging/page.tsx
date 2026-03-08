@@ -59,6 +59,7 @@ export default function Page() {
                                 alt="Ultrasonic Thickness Gauging (UTG) performed by Leon International Marine Engineers"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>

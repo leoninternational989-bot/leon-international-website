@@ -55,10 +55,11 @@ export default function Page() {
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             {/* Standardizing the image across all for now */}
                             <Image
-                                src="/images/gyro-compass-overhauling/component.webp"
-                                alt="Gyro Compass Maintenance performed by Leon International Marine Engineers"
+                                src="/images/gyro-compass/service-1.webp"
+                                alt="Marine technician performing precision overhauling of a gyro compass unit"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>

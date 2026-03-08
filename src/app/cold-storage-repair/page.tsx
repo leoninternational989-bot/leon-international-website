@@ -55,10 +55,11 @@ export default function Page() {
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             {/* Standardizing the image across all for now */}
                             <Image
-                                src="/images/cold-storage-repair/component.webp"
-                                alt="Cold Storage Refrigeration Service performed by Leon International Marine Engineers"
+                                src="/images/cold-storage/service-1.webp"
+                                alt="Marine crew repairing industrial cold storage systems"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>

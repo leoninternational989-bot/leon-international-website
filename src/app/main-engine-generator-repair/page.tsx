@@ -54,10 +54,11 @@ export default function Page() {
 
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             <Image
-                                src="/images/main-engine-generator-repair/component.webp"
-                                alt="Main Engine & Generator Overhaul performed by Leon International Marine Engineers"
+                                src="/images/main-engine/service-1.webp"
+                                alt="Marine engineers overhauling a large ship's main engine unit"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>

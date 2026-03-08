@@ -7,8 +7,6 @@ import FAQSchema from '@/components/seo/FAQSchema';
 import FAQSection from '@/components/ui/FAQSection';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
-
-
 export default function Page() {
     return (
         <main className="bg-primary-950 min-h-screen">
@@ -59,45 +57,45 @@ export default function Page() {
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             {/* Standardizing the image across all for now */}
                             <Image
-                                src="/images/protective-coatings/component.webp"
-                                alt="Marine Protective Coatings & Sandblasting performed by Leon International Marine Engineers"
+                                src="/images/coatings/service-1.webp"
+                                alt="Specialized marine protective coating application"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>
-
-                                    </div>
+                </div>
             </section>
 
             <FAQSchema faqs={[
-    {
-        "question": "What types of protective coatings do you apply?",
-        "answer": "We apply industrial protective coatings, Belzona applications, epoxy coatings, anti-corrosion treatments, and specialized marine-grade coatings for hull and deck protection."
-    },
-    {
-        "question": "Do you offer sandblasting and surface preparation?",
-        "answer": "Yes, we provide sandblasting, grit blasting, and comprehensive surface preparation services to ensure proper coating adhesion and long-lasting protection."
-    },
-    {
-        "question": "Do your coatings meet international maritime standards?",
-        "answer": "Yes, all our coating solutions meet international maritime standards and are approved for use by major classification societies."
-    }
-]} />
+                {
+                    "question": "What types of protective coatings do you apply?",
+                    "answer": "We apply industrial protective coatings, Belzona applications, epoxy coatings, anti-corrosion treatments, and specialized marine-grade coatings for hull and deck protection."
+                },
+                {
+                    "question": "Do you offer sandblasting and surface preparation?",
+                    "answer": "Yes, we provide sandblasting, grit blasting, and comprehensive surface preparation services to ensure proper coating adhesion and long-lasting protection."
+                },
+                {
+                    "question": "Do your coatings meet international maritime standards?",
+                    "answer": "Yes, all our coating solutions meet international maritime standards and are approved for use by major classification societies."
+                }
+            ]} />
             <FAQSection faqs={[
-    {
-        "question": "What types of protective coatings do you apply?",
-        "answer": "We apply industrial protective coatings, Belzona applications, epoxy coatings, anti-corrosion treatments, and specialized marine-grade coatings for hull and deck protection."
-    },
-    {
-        "question": "Do you offer sandblasting and surface preparation?",
-        "answer": "Yes, we provide sandblasting, grit blasting, and comprehensive surface preparation services to ensure proper coating adhesion and long-lasting protection."
-    },
-    {
-        "question": "Do your coatings meet international maritime standards?",
-        "answer": "Yes, all our coating solutions meet international maritime standards and are approved for use by major classification societies."
-    }
-]} />
+                {
+                    "question": "What types of protective coatings do you apply?",
+                    "answer": "We apply industrial protective coatings, Belzona applications, epoxy coatings, anti-corrosion treatments, and specialized marine-grade coatings for hull and deck protection."
+                },
+                {
+                    "question": "Do you offer sandblasting and surface preparation?",
+                    "answer": "Yes, we provide sandblasting, grit blasting, and comprehensive surface preparation services to ensure proper coating adhesion and long-lasting protection."
+                },
+                {
+                    "question": "Do your coatings meet international maritime standards?",
+                    "answer": "Yes, all our coating solutions meet international maritime standards and are approved for use by major classification societies."
+                }
+            ]} />
             <BreadcrumbSchema items={[
                 { name: "Home", url: "/" },
                 { name: "Services", url: "/services/" },

@@ -7,8 +7,6 @@ import FAQSchema from '@/components/seo/FAQSchema';
 import FAQSection from '@/components/ui/FAQSection';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
-
-
 export default function Page() {
     return (
         <main className="bg-primary-950 min-h-screen">
@@ -57,47 +55,46 @@ export default function Page() {
                         </div>
 
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
-                            {/* Standardizing the image across all for now */}
                             <Image
-                                src="/images/hvac/component.webp"
-                                alt="Marine HVAC & Refrigeration Solutions performed by Leon International Marine Engineers"
+                                src="/images/hvac/service-1.webp"
+                                alt="Marine HVAC unit inspection and diagnostic check"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>
-
-                                    </div>
+                </div>
             </section>
 
             <FAQSchema faqs={[
-    {
-        "question": "Can you repair marine air conditioning plant systems?",
-        "answer": "Yes, we service and repair complete marine AC plants including compressors, condensers, evaporators, and control systems for vessels of all sizes."
-    },
-    {
-        "question": "Do you handle cold storage and refrigeration on ships?",
-        "answer": "Yes, we provide complete cold storage system maintenance, refrigerant gas servicing, and compressor overhauling for marine refrigeration systems."
-    },
-    {
-        "question": "Do you service Freon-based systems?",
-        "answer": "Yes, we handle Freon gas charging, leak detection, and system servicing in compliance with current environmental regulations."
-    }
-]} />
+                {
+                    "question": "What HVAC services do you provide for ships?",
+                    "answer": "We provide installation, maintenance, and emergency repair services for central AC plants, split AC units, and ventilation systems onboard all types of vessels."
+                },
+                {
+                    "question": "Can you repair industrial-scale cold storage systems?",
+                    "answer": "Yes, we specialize in the repair and servicing of marine cold storage, pantry refrigerators, and industrial refrigeration equipment."
+                },
+                {
+                    "question": "Do you provide emergency HVAC services at anchorage?",
+                    "answer": "Yes, our technicians are available 24/7 for emergency HVAC and refrigeration repairs at Karachi anchorage and major ports."
+                }
+            ]} />
             <FAQSection faqs={[
-    {
-        "question": "Can you repair marine air conditioning plant systems?",
-        "answer": "Yes, we service and repair complete marine AC plants including compressors, condensers, evaporators, and control systems for vessels of all sizes."
-    },
-    {
-        "question": "Do you handle cold storage and refrigeration on ships?",
-        "answer": "Yes, we provide complete cold storage system maintenance, refrigerant gas servicing, and compressor overhauling for marine refrigeration systems."
-    },
-    {
-        "question": "Do you service Freon-based systems?",
-        "answer": "Yes, we handle Freon gas charging, leak detection, and system servicing in compliance with current environmental regulations."
-    }
-]} />
+                {
+                    "question": "What HVAC services do you provide for ships?",
+                    "answer": "We provide installation, maintenance, and emergency repair services for central AC plants, split AC units, and ventilation systems onboard all types of vessels."
+                },
+                {
+                    "question": "Can you repair industrial-scale cold storage systems?",
+                    "answer": "Yes, we specialize in the repair and servicing of marine cold storage, pantry refrigerators, and industrial refrigeration equipment."
+                },
+                {
+                    "question": "Do you provide emergency HVAC services at anchorage?",
+                    "answer": "Yes, our technicians are available 24/7 for emergency HVAC and refrigeration repairs at Karachi anchorage and major ports."
+                }
+            ]} />
             <BreadcrumbSchema items={[
                 { name: "Home", url: "/" },
                 { name: "Services", url: "/services/" },

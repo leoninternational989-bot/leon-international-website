@@ -50,7 +50,7 @@ export default function ProductsShowcase() {
                                     alt={category.name}
                                     fill
                                     className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                 />
                                 {/* Hover overlay gradient */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary-950 via-primary-950/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>

@@ -4,6 +4,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import FaqAccordion from '@/components/ui/FaqAccordion';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Food Supply Chain Support | Leon International',
+    description: 'We play a crucial role in the food supply chain by providing a comprehensive range of products and services from raw material to packaging.',
+    alternates: {
+        canonical: 'https://leon-international.com/food-supply-chain-support/',
+    },
+};
 
 export default function Page() {
     const partners = [
@@ -67,6 +76,7 @@ export default function Page() {
                                 alt="Food Supply Chain Support operations"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>

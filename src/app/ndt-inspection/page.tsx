@@ -7,8 +7,6 @@ import FAQSchema from '@/components/seo/FAQSchema';
 import FAQSection from '@/components/ui/FAQSection';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
-
-
 export default function Page() {
     return (
         <main className="bg-primary-950 min-h-screen">
@@ -57,51 +55,50 @@ export default function Page() {
                         </div>
 
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
-                            {/* Standardizing the image across all for now */}
                             <Image
-                                src="/images/ndt-inspection/component.webp"
-                                alt="NDT Inspection & Calibration Services performed by Leon International Marine Engineers"
+                                src="/images/ndt/service-1.webp"
+                                alt="Non-destructive testing (NDT) in progress on a ship's metal structure"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>
-
-                                    </div>
+                </div>
             </section>
 
             <FAQSchema faqs={[
-    {
-        "question": "What NDT methods do you offer for marine inspection?",
-        "answer": "We perform ultrasonic thickness gauging, ultrasonic flaw detection, magnetic particle inspection (MPI), dye penetrant testing (DPT), and hardness testing."
-    },
-    {
-        "question": "Do you provide crane load testing and certification?",
-        "answer": "Yes, we perform marine crane load testing, proof load testing, and provide certification in compliance with classification society requirements."
-    },
-    {
-        "question": "Can you perform hatch cover testing on vessels?",
-        "answer": "Yes, we conduct ultrasonic hatch cover testing to check weathertightness and structural integrity, meeting international maritime safety standards."
-    }
-]} />
+                {
+                    "question": "What types of NDT inspections do you perform?",
+                    "answer": "We offer a wide range of NDT services including Ultrasonic Thickness Gauging (UTG), Magnetic Particle Inspection (MPI), Dye Penetrant Testing (DPT), and Ultrasonic Flaw Detection."
+                },
+                {
+                    "question": "Are your NDT technicians certified?",
+                    "answer": "Yes, all our NDT inspectors are certified to international standards and our processes are approved by major classification societies including BV."
+                },
+                {
+                    "question": "Do you provide calibration services for marine tools?",
+                    "answer": "Yes, we specify in the calibration of various marine pressure gauges, temperature sensors, and other critical bridge and engine room instruments."
+                }
+            ]} />
             <FAQSection faqs={[
-    {
-        "question": "What NDT methods do you offer for marine inspection?",
-        "answer": "We perform ultrasonic thickness gauging, ultrasonic flaw detection, magnetic particle inspection (MPI), dye penetrant testing (DPT), and hardness testing."
-    },
-    {
-        "question": "Do you provide crane load testing and certification?",
-        "answer": "Yes, we perform marine crane load testing, proof load testing, and provide certification in compliance with classification society requirements."
-    },
-    {
-        "question": "Can you perform hatch cover testing on vessels?",
-        "answer": "Yes, we conduct ultrasonic hatch cover testing to check weathertightness and structural integrity, meeting international maritime safety standards."
-    }
-]} />
+                {
+                    "question": "What types of NDT inspections do you perform?",
+                    "answer": "We offer a wide range of NDT services including Ultrasonic Thickness Gauging (UTG), Magnetic Particle Inspection (MPI), Dye Penetrant Testing (DPT), and Ultrasonic Flaw Detection."
+                },
+                {
+                    "question": "Are your NDT technicians certified?",
+                    "answer": "Yes, all our NDT inspectors are certified to international standards and our processes are approved by major classification societies including BV."
+                },
+                {
+                    "question": "Do you provide calibration services for marine tools?",
+                    "answer": "Yes, we specify in the calibration of various marine pressure gauges, temperature sensors, and other critical bridge and engine room instruments."
+                }
+            ]} />
             <BreadcrumbSchema items={[
                 { name: "Home", url: "/" },
                 { name: "Services", url: "/services/" },
-                { name: "NDT Inspection", url: "/ndt-inspection/" }
+                { name: "NDT & Calibration", url: "/ndt-inspection/" }
             ]} />
             <QuickQuote />
         </main>

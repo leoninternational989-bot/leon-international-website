@@ -55,10 +55,11 @@ export default function Page() {
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             {/* Standardizing the image across all for now */}
                             <Image
-                                src="/images/dye-penetrant-testing/component.webp"
-                                alt="Dye Penetrant / Liquid Penetrant Testing performed by Leon International Marine Engineers"
+                                src="/images/dye-penetrant/service-1.webp"
+                                alt="Marine engineer performing dye penetrant testing on a hull weld"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>

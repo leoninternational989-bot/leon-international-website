@@ -54,10 +54,11 @@ export default function Page() {
 
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             <Image
-                                src="/images/hydraulic-pump-overhauling/component.webp"
-                                alt="Hydraulic Pump & System Overhaul performed by Leon International Marine Engineers"
+                                src="/images/hydraulic/service-1.webp"
+                                alt="Skilled technician overhauling high-pressure marine hydraulic pumps"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>

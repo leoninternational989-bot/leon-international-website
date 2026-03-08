@@ -7,8 +7,6 @@ import FAQSchema from '@/components/seo/FAQSchema';
 import FAQSection from '@/components/ui/FAQSection';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
-
-
 export default function Page() {
     return (
         <main className="bg-primary-950 min-h-screen">
@@ -60,44 +58,44 @@ export default function Page() {
                             {/* Standardizing the image across all for now */}
                             <Image
                                 src="/images/ship-repair/service-1.webp"
-                                alt="Marine engineers working on ship repairs"
+                                alt="Extensive structural and mechanical repairs on a commercial vessel in dry dock"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>
-
-                                    </div>
+                </div>
             </section>
 
             <FAQSchema faqs={[
-    {
-        "question": "What types of vessels can Leon International repair at Karachi Port?",
-        "answer": "We service vessels of all sizes including bulk carriers, tankers, container ships, tugboats, barges, and offshore vessels at Karachi Port and Port Bin Qasim."
-    },
-    {
-        "question": "Do you offer emergency ship repair at anchorage?",
-        "answer": "Yes, we provide 24/7 emergency repair services at anchorage with rapid mobilization capability. Our teams can be deployed within hours for urgent repairs."
-    },
-    {
-        "question": "What classification societies approve your ship repair work?",
-        "answer": "Our work is approved by Lloyd's Register, Bureau Veritas, DNV, ABS, and ClassNK. All repairs meet internationally recognized classification standards."
-    }
-]} />
+                {
+                    "question": "What types of vessels can Leon International repair at Karachi Port?",
+                    "answer": "We service vessels of all sizes including bulk carriers, tankers, container ships, tugboats, barges, and offshore vessels at Karachi Port and Port Bin Qasim."
+                },
+                {
+                    "question": "Do you offer emergency ship repair at anchorage?",
+                    "answer": "Yes, we provide 24/7 emergency repair services at anchorage with rapid mobilization capability. Our teams can be deployed within hours for urgent repairs."
+                },
+                {
+                    "question": "What classification societies approve your ship repair work?",
+                    "answer": "Our work is approved by Lloyd's Register, Bureau Veritas, DNV, ABS, and ClassNK. All repairs meet internationally recognized classification standards."
+                }
+            ]} />
             <FAQSection faqs={[
-    {
-        "question": "What types of vessels can Leon International repair at Karachi Port?",
-        "answer": "We service vessels of all sizes including bulk carriers, tankers, container ships, tugboats, barges, and offshore vessels at Karachi Port and Port Bin Qasim."
-    },
-    {
-        "question": "Do you offer emergency ship repair at anchorage?",
-        "answer": "Yes, we provide 24/7 emergency repair services at anchorage with rapid mobilization capability. Our teams can be deployed within hours for urgent repairs."
-    },
-    {
-        "question": "What classification societies approve your ship repair work?",
-        "answer": "Our work is approved by Lloyd's Register, Bureau Veritas, DNV, ABS, and ClassNK. All repairs meet internationally recognized classification standards."
-    }
-]} />
+                {
+                    "question": "What types of vessels can Leon International repair at Karachi Port?",
+                    "answer": "We service vessels of all sizes including bulk carriers, tankers, container ships, tugboats, barges, and offshore vessels at Karachi Port and Port Bin Qasim."
+                },
+                {
+                    "question": "Do you offer emergency ship repair at anchorage?",
+                    "answer": "Yes, we provide 24/7 emergency repair services at anchorage with rapid mobilization capability. Our teams can be deployed within hours for urgent repairs."
+                },
+                {
+                    "question": "What classification societies approve your ship repair work?",
+                    "answer": "Our work is approved by Lloyd's Register, Bureau Veritas, DNV, ABS, and ClassNK. All repairs meet internationally recognized classification standards."
+                }
+            ]} />
             <BreadcrumbSchema items={[
                 { name: "Home", url: "/" },
                 { name: "Services", url: "/services/" },

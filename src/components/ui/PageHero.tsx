@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import JsonLd from '@/components/JsonLd';
@@ -43,10 +44,13 @@ export default function PageHero({
         <section className={`relative min-h-[40vh] py-20 lg:py-28 w-full overflow-hidden top-[-80px] lg:top-[-96px] mb-[-80px] lg:mb-[-96px] flex flex-col justify-end ${image ? 'bg-primary-950/80' : bgClass}`}>
             {image && (
                 <div className="absolute inset-0 w-full h-full">
-                    <img
+                    <Image
                         src={image}
                         alt={`${title} Background`}
-                        className="object-cover w-full h-full opacity-80"
+                        fill
+                        className="object-cover opacity-80"
+                        priority
+                        sizes="100vw"
                     />
                 </div>
             )}

@@ -193,7 +193,14 @@ export default function Header() {
                         <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
                             <span className="sr-only">Leon International</span>
                             <div className="relative h-[50px] lg:h-[83px] w-[118px] lg:w-[185px] flex items-center justify-center -my-2 lg:-my-[17px]">
-                                <Image src="/images/logo-transparent.png" alt="Leon International Logo" fill className="object-contain" priority />
+                                <Image
+                                    src="/images/logo-transparent.png"
+                                    alt="Leon International Logo"
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                    sizes="(max-width: 1024px) 118px, 185px"
+                                />
                             </div>
                         </Link>
                     </div>

@@ -29,7 +29,7 @@ export default function Page() {
                             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                                 Our highly trained technicians and marine engineers ensure that every project meets the highest international maritime standards. Whether it's emergency response at anchorage or routine maintenance, you can rely on our expertise.
                             </p>
-                            
+
                             <h3 className="text-xl font-bold text-white mb-4">Why Choose Leon International?</h3>
                             <ul className="space-y-4 mb-8">
                                 {[
@@ -49,14 +49,15 @@ export default function Page() {
                                 Request a Quote <ArrowRight className="h-4 w-4" />
                             </Link>
                         </div>
-                        
+
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             {/* Standardizing the image across all for now */}
-                            <Image 
-                                src="/images/ship-repair/service-1.webp"
-                                alt="Propulsion Systems & Shafts performed by Leon International Marine Engineers"
+                            <Image
+                                src="/images/propulsion/service-1.webp"
+                                alt="Inspection and repair of a large marine propulsion propeller and shaft assembly"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>
@@ -64,22 +65,22 @@ export default function Page() {
                     <div className="mt-24 pt-16 border-t border-white/10 w-full">
                         <h2 className="text-3xl font-bold text-white mb-12 text-center font-plus-jakarta-sans">Frequently Asked Questions</h2>
                         <div className="max-w-4xl mx-auto space-y-6">
-                            
+
                             <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
                                 <h3 className="text-xl font-bold text-white mb-3">What propulsion systems & shafts does Leon International supply?</h3>
                                 <p className="text-gray-300">Leon International supplies high-quality OEM and aftermarket propulsion systems & shafts for marine engines and industrial applications, serving vessels globally.</p>
                             </div>
-                            
+
                             <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
                                 <h3 className="text-xl font-bold text-white mb-3">Are the propulsion systems & shafts OEM or aftermarket?</h3>
                                 <p className="text-gray-300">We supply both Genuine/OEM parts and high-quality European/Japanese aftermarket equivalents depending on client budgets and requirements.</p>
                             </div>
-                            
+
                             <div className="bg-primary-900/50 p-6 rounded-xl border border-white/5">
                                 <h3 className="text-xl font-bold text-white mb-3">How quickly can you deliver marine spare parts?</h3>
                                 <p className="text-gray-300">With stock at key locations and a global logistics network, we ensure rapid dispatch of critical parts to minimize vessel downtime.</p>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

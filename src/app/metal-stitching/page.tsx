@@ -55,10 +55,11 @@ export default function Page() {
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             {/* Standardizing the image across all for now */}
                             <Image
-                                src="/images/metal-stitching/component.webp"
-                                alt="Cold Metal Stitching performed by Leon International Marine Engineers"
+                                src="/images/metal-stitching/service-1.webp"
+                                alt="Cold metal stitching repair on a cracked marine engine block"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>

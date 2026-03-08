@@ -36,9 +36,10 @@ export default function Page() {
                         <div className="relative h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(46,134,193,0.15)] border border-white/10 group">
                             <Image
                                 src="/images/steel-structure/service-1.webp"
-                                alt="Marine structural engineer inspecting a massive heavy-duty steel hull plate weld"
+                                alt="Precision steel structure fabrication for marine vessels"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-primary-950/90 via-transparent to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-8">

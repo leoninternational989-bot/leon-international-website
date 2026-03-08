@@ -39,6 +39,7 @@ export default function Page() {
                                 alt="Marine engineers performing precision maintenance inside a commercial dry dock"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-primary-950/90 via-transparent to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-8">

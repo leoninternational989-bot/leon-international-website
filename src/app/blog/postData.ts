@@ -43,7 +43,7 @@ export const initialPosts: BlogPost[] = [
             <p>When an emergency strikes at anchorage, hesitation is costly. Document the exact operational symptoms, secure the vessel, and immediately contact a certified 24/7 marine engineering partner capable of delivering both the manpower and the OEM spares directly to your coordinates.</p>
         `,
         category: 'Ship Repair',
-        image: 'https://images.unsplash.com/photo-1542393278-f07bd0fb5d7c?q=80&w=1000&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1542393278-f07bd0fb5d7c?auto=format&fit=crop&w=1200&q=80',
         date: '2024-03-05',
         formattedDate: 'Mar 05, 2024',
         lastUpdated: new Date().toISOString().split('T')[0],
@@ -74,7 +74,7 @@ export const initialPosts: BlogPost[] = [
                 <li><strong>The Cons:</strong> Inconsistent metallurgy. A third-party exhaust valve might look identical to an OEM valve, but if it lacks the proper heat treatment, it will shatter under combustion pressures, destroying the turbocharger and potentially the entire engine block.</li>
             </ul>
 
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" alt="Precision marine engine components laid out for inspection" />
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="Precision marine engine components laid out for inspection" />
 
             <h2>The Verdict: Which is Safer?</h2>
             
@@ -86,7 +86,7 @@ export const initialPosts: BlogPost[] = [
             <p>At Leon International, we eliminate the guesswork. As a specialized marine engineering and procurement firm, we exclusively source from vetted, Tier-1 manufacturers. When you request a spare part for a critical auxiliary generator or main propulsion engine, we verify its authenticity and class certification before it ever reaches your vessel, ensuring absolute compliance and unparalleled safety at sea.</p>
         `,
         category: 'Spare Parts',
-        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
         date: '2024-02-12',
         formattedDate: 'Feb 12, 2024',
         lastUpdated: new Date().toISOString().split('T')[0],
@@ -116,7 +116,7 @@ export const initialPosts: BlogPost[] = [
                 <li><strong>Excessive Vibration:</strong> Often severe enough to be felt through the deck, indicating potential misalignment or bearing wear.</li>
             </ul>
 
-            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop" alt="Engine Overhaul in Progress" />
+            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=80" alt="Engine Overhaul in Progress" />
             
             <h2>3. When Replacement is the Only Viable Option</h2>
             <p>There are scenarios where sinking capital into an old engine is throwing good money after bad. A complete repower is usually justified under the following conditions:</p>
@@ -134,7 +134,7 @@ export const initialPosts: BlogPost[] = [
             <p>Whether you choose to overhaul your existing workhorse or invest in a modern, fuel-efficient replacement, having a trusted engineering partner is vital. At Leon International, we stock spare parts for over 20 global brands including <em>Caterpillar, Wärtsilä, MAN, and MTU</em>, and our riding squads are available 24/7 globally to assist with your decision.</p>
         `,
         category: 'Engine Maintenance',
-        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
         date: '2023-11-15',
         formattedDate: 'Nov 15, 2023',
         readTime: '6 min read',
@@ -175,7 +175,7 @@ export const initialPosts: BlogPost[] = [
             <p>Choosing the correct NDT method is vital for preventing catastrophic failures at sea. Leon International provides certified NDT inspectors worldwide, approved by major classification societies including Lloyd's Register, ABS, and DNV.</p>
         `,
         category: 'Inspection & Safety',
-        image: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=80&w=1000&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1200&q=80',
         date: '2023-10-28',
         formattedDate: 'Oct 28, 2023',
         readTime: '8 min read',
@@ -219,7 +219,7 @@ export const initialPosts: BlogPost[] = [
             <p>For critical moving parts involved in combustion (injectors, bearings), Genuine or OEM is non-negotiable. For heavy static components (cylinder blocks, covers, engine frames), certified reconditioned parts are an incredibly smart financial decision. Contact Leon International's procurement team to find the exact balance for your fleet's budget.</p>
         `,
         category: 'Spare Parts',
-        image: 'https://images.unsplash.com/photo-1533090368676-1fd25485ea2c?q=80&w=1000&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1533090368676-1fd25485ea2c?auto=format&fit=crop&w=1200&q=80',
         date: '2023-10-12',
         formattedDate: 'Oct 12, 2023',
         readTime: '5 min read',
@@ -258,7 +258,7 @@ export const initialPosts: BlogPost[] = [
             <p>Leon International provides fully certified crane load testing using state-of-the-art water weight systems and certified calibrated digital load cells. Our tests are attended and approved by major IACS classification societies.</p>
         `,
         category: 'Deck Machinery',
-        image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1000&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80',
         date: '2023-09-22',
         formattedDate: 'Sep 22, 2023',
         readTime: '4 min read',
@@ -298,7 +298,7 @@ export const initialPosts: BlogPost[] = [
             <p>Leon International's surface treatment specialists are factory-trained in surface preparation (grit blasting) and precise application of specialized industrial coatings, ensuring your equipment achieves its maximum possible lifespan.</p>
         `,
         category: 'Surface Treatment',
-        image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=1000&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1200&q=80',
         date: '2023-09-05',
         formattedDate: 'Sep 05, 2023',
         readTime: '7 min read',
@@ -348,7 +348,7 @@ export const initialPosts: BlogPost[] = [
             <p>If your vessel is exhibiting any combination of these signs, contact the engineering experts at <strong>Leon International</strong> immediately to schedule a dry-dock or voyage repair overhaul.</p>
         `,
         category: 'Engine Maintenance',
-        image: 'https://images.unsplash.com/photo-1621611135767-f2fb7079d2bf?q=80&w=1000&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1621611135767-f2fb7079d2bf?auto=format&fit=crop&w=1200&q=80',
         date: '2023-08-18',
         formattedDate: 'Aug 18, 2023',
         readTime: '6 min read',

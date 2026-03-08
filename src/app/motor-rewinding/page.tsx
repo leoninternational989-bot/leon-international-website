@@ -54,10 +54,11 @@ export default function Page() {
 
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             <Image
-                                src="/images/motor-rewinding/component.webp"
-                                alt="Electric Motor Rewinding performed by Leon International Marine Engineers"
+                                src="/images/motor-rewinding/service-1.webp"
+                                alt="Large marine electric motor being professionally rewound by technicians"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>

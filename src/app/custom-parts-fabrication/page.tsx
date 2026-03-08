@@ -54,10 +54,11 @@ export default function Page() {
 
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             <Image
-                                src="/images/custom-parts-fabrication/component.webp"
-                                alt="Custom Spare Parts Fabrication performed by Leon International Marine Engineers"
+                                src="/images/custom-fabrication/service-1.webp"
+                                alt="Custom marine component fabrication by Leon International"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>

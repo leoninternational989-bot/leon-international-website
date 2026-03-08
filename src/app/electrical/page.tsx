@@ -7,8 +7,6 @@ import FAQSchema from '@/components/seo/FAQSchema';
 import FAQSection from '@/components/ui/FAQSection';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
-
-
 export default function Page() {
     return (
         <main className="bg-primary-950 min-h-screen">
@@ -58,45 +56,45 @@ export default function Page() {
 
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             <Image
-                                src="/images/electrical/component.webp"
-                                alt="Marine Electrical & Electronics Services performed by Leon International Marine Engineers"
+                                src="/images/electrical/service-1.webp"
+                                alt="Marine electrician working on ship's main power distribution board"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>
-
-                                    </div>
+                </div>
             </section>
 
             <FAQSchema faqs={[
-    {
-        "question": "What types of marine motors can you rewind?",
-        "answer": "We rewind AC and DC motors of all sizes for marine and industrial applications, including main propulsion motors, pump motors, and auxiliary motors."
-    },
-    {
-        "question": "Do you repair PCB cards and electronic boards?",
-        "answer": "Yes, our electronics team specializes in PCB card repair, component-level troubleshooting, and replacement for marine navigation and control systems."
-    },
-    {
-        "question": "Can you overhaul gyro compass systems?",
-        "answer": "Yes, we provide complete gyro compass overhauling, calibration, and servicing for all major manufacturers."
-    }
-]} />
+                {
+                    "question": "What types of marine motors can you rewind?",
+                    "answer": "We rewind AC and DC motors of all sizes for marine and industrial applications, including main propulsion motors, pump motors, and auxiliary motors."
+                },
+                {
+                    "question": "Do you repair PCB cards and electronic boards?",
+                    "answer": "Yes, our electronics team specializes in PCB card repair, component-level troubleshooting, and replacement for marine navigation and control systems."
+                },
+                {
+                    "question": "Can you overhaul gyro compass systems?",
+                    "answer": "Yes, we provide complete gyro compass overhauling, calibration, and servicing for all major manufacturers."
+                }
+            ]} />
             <FAQSection faqs={[
-    {
-        "question": "What types of marine motors can you rewind?",
-        "answer": "We rewind AC and DC motors of all sizes for marine and industrial applications, including main propulsion motors, pump motors, and auxiliary motors."
-    },
-    {
-        "question": "Do you repair PCB cards and electronic boards?",
-        "answer": "Yes, our electronics team specializes in PCB card repair, component-level troubleshooting, and replacement for marine navigation and control systems."
-    },
-    {
-        "question": "Can you overhaul gyro compass systems?",
-        "answer": "Yes, we provide complete gyro compass overhauling, calibration, and servicing for all major manufacturers."
-    }
-]} />
+                {
+                    "question": "What types of marine motors can you rewind?",
+                    "answer": "We rewind AC and DC motors of all sizes for marine and industrial applications, including main propulsion motors, pump motors, and auxiliary motors."
+                },
+                {
+                    "question": "Do you repair PCB cards and electronic boards?",
+                    "answer": "Yes, our electronics team specializes in PCB card repair, component-level troubleshooting, and replacement for marine navigation and control systems."
+                },
+                {
+                    "question": "Can you overhaul gyro compass systems?",
+                    "answer": "Yes, we provide complete gyro compass overhauling, calibration, and servicing for all major manufacturers."
+                }
+            ]} />
             <BreadcrumbSchema items={[
                 { name: "Home", url: "/" },
                 { name: "Services", url: "/services/" },

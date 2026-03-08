@@ -5,9 +5,9 @@ import { Facebook, Instagram, Linkedin, MessageCircle, Youtube } from 'lucide-re
 export default function Footer() {
     return (
         <footer className="bg-primary-950 text-gray-300 mt-auto" aria-labelledby="footer-heading">
-            <h2 id="footer-heading" className="sr-only">
+            <span id="footer-heading" className="sr-only" aria-hidden="true">
                 Footer
-            </h2>
+            </span>
             <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
                 <div className="xl:grid xl:grid-cols-4 xl:gap-8">
 
@@ -15,13 +15,20 @@ export default function Footer() {
                     <div className="space-y-8 xl:col-span-1">
                         <Link href="/" className="flex items-center gap-2">
                             <div className="relative h-[83px] w-[183px] flex items-center justify-center">
-                                <Image src="/images/logo-transparent.png" alt="Leon International Logo" fill className="object-contain" priority />
+                                <Image
+                                    src="/images/logo-transparent.png"
+                                    alt="Leon International Logo"
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                    sizes="183px"
+                                />
                             </div>
                         </Link>
                         <p className="text-sm leading-6 text-gray-300">
                             Your global partner in marine engineering, ship repair, and industrial spare parts supply.
                         </p>
-                        <div className="flex flex-wrap gap-x-6 gap-y-4">
+                        <div className="flex flex-wrap gap-x-5 gap-y-4 max-w-[280px]">
                             <a href="https://www.facebook.com/profile.php?id=61586251654169" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-accent-200 transition-colors">
                                 <span className="sr-only">Facebook</span>
                                 <Facebook className="h-6 w-6" aria-hidden="true" />
@@ -69,10 +76,10 @@ export default function Footer() {
                             <div>
                                 <h3 className="text-sm font-semibold leading-6 text-white uppercase tracking-wider">Quick Links</h3>
                                 <ul role="list" className="mt-6 space-y-4">
-                                    {['About Us', 'Services', 'Products', 'Projects', 'Blog', 'Contact Us', 'Support Hub'].map((item) => (
+                                    {['About', 'Services', 'Products', 'Projects', 'Blog', 'Contact', 'Support Hub'].map((item) => (
                                         <li key={item}>
                                             <Link href={item === 'Support Hub' ? '/support/' : `/${item.toLowerCase().replace(' ', '-')}/`} className="text-sm leading-6 hover:text-accent-200 transition-colors">
-                                                {item}
+                                                {item === 'Contact' ? 'Contact Us' : item === 'About' ? 'About Us' : item}
                                             </Link>
                                         </li>
                                     ))}

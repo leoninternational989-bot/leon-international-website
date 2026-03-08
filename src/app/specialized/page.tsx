@@ -7,8 +7,6 @@ import FAQSchema from '@/components/seo/FAQSchema';
 import FAQSection from '@/components/ui/FAQSection';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
-
-
 export default function Page() {
     return (
         <main className="bg-primary-950 min-h-screen">
@@ -59,45 +57,45 @@ export default function Page() {
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             {/* Standardizing the image across all for now */}
                             <Image
-                                src="/images/specialized/component-v2.webp"
-                                alt="Specialized Marine Services performed by Leon International Marine Engineers"
+                                src="/images/specialized/service-1.webp"
+                                alt="Marine engineers working on specialized components"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>
-
-                                    </div>
+                </div>
             </section>
 
             <FAQSchema faqs={[
-    {
-        "question": "What specialized marine services does Leon International offer?",
-        "answer": "We provide tools calibration, gyro compass servicing, marine instruments testing, load testing, and comprehensive vessel inspection services."
-    },
-    {
-        "question": "Do you calibrate marine measurement tools and instruments?",
-        "answer": "Yes, we offer professional calibration services for marine tools, gauges, and measurement instruments to ensure accuracy and compliance with standards."
-    },
-    {
-        "question": "Can you service navigation equipment onboard vessels?",
-        "answer": "Yes, our technicians service radar systems, GPS equipment, echo sounders, and other navigation electronics from major manufacturers."
-    }
-]} />
+                {
+                    "question": "What specialized marine services does Leon International offer?",
+                    "answer": "We provide tools calibration, gyro compass servicing, marine instruments testing, load testing, and comprehensive vessel inspection services."
+                },
+                {
+                    "question": "Do you calibrate marine measurement tools and instruments?",
+                    "answer": "Yes, we offer professional calibration services for marine tools, gauges, and measurement instruments to ensure accuracy and compliance with standards."
+                },
+                {
+                    "question": "Can you service navigation equipment onboard vessels?",
+                    "answer": "Yes, our technicians service radar systems, GPS equipment, echo sounders, and other navigation electronics from major manufacturers."
+                }
+            ]} />
             <FAQSection faqs={[
-    {
-        "question": "What specialized marine services does Leon International offer?",
-        "answer": "We provide tools calibration, gyro compass servicing, marine instruments testing, load testing, and comprehensive vessel inspection services."
-    },
-    {
-        "question": "Do you calibrate marine measurement tools and instruments?",
-        "answer": "Yes, we offer professional calibration services for marine tools, gauges, and measurement instruments to ensure accuracy and compliance with standards."
-    },
-    {
-        "question": "Can you service navigation equipment onboard vessels?",
-        "answer": "Yes, our technicians service radar systems, GPS equipment, echo sounders, and other navigation electronics from major manufacturers."
-    }
-]} />
+                {
+                    "question": "What specialized marine services does Leon International offer?",
+                    "answer": "We provide tools calibration, gyro compass servicing, marine instruments testing, load testing, and comprehensive vessel inspection services."
+                },
+                {
+                    "question": "Do you calibrate marine measurement tools and instruments?",
+                    "answer": "Yes, we offer professional calibration services for marine tools, gauges, and measurement instruments to ensure accuracy and compliance with standards."
+                },
+                {
+                    "question": "Can you service navigation equipment onboard vessels?",
+                    "answer": "Yes, our technicians service radar systems, GPS equipment, echo sounders, and other navigation electronics from major manufacturers."
+                }
+            ]} />
             <BreadcrumbSchema items={[
                 { name: "Home", url: "/" },
                 { name: "Services", url: "/services/" },

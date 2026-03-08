@@ -7,8 +7,6 @@ import FAQSchema from '@/components/seo/FAQSchema';
 import FAQSection from '@/components/ui/FAQSection';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
-
-
 export default function Page() {
     return (
         <main className="bg-primary-950 min-h-screen">
@@ -58,45 +56,45 @@ export default function Page() {
 
                         <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/5 mx-auto w-full">
                             <Image
-                                src="/images/mechanical-repair/component.webp"
-                                alt="Mechanical Repair & Reconditioning performed by Leon International Marine Engineers"
+                                src="/images/mechanical/service-1.webp"
+                                alt="Marine engineers performing complex mechanical repairs on ship machinery"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>
-
-                                    </div>
+                </div>
             </section>
 
             <FAQSchema faqs={[
-    {
-        "question": "Which engine brands do you service?",
-        "answer": "We cover 20+ brands including MAN B&W, Wartsila, Cummins, Caterpillar, MTU, Volvo Penta, Yanmar, Daihatsu, DEUTZ, Perkins, and more."
-    },
-    {
-        "question": "Can you overhaul a complete main engine?",
-        "answer": "Yes, we perform complete main engine overhauling including crankshaft grinding, cylinder liner replacement, piston reconditioning, and full reassembly with testing."
-    },
-    {
-        "question": "Do you provide hydraulic pump repair services?",
-        "answer": "Yes, we offer comprehensive hydraulic pump overhauling, testing, and reconditioning for all major marine hydraulic systems and deck machinery."
-    }
-]} />
+                {
+                    "question": "What core mechanical repair services do you offer?",
+                    "answer": "We provide main and auxiliary engine overhauling, boiler repair, hydraulic system maintenance, pump servicing, and specialized component reconditioning."
+                },
+                {
+                    "question": "Can you perform mechanical repairs while the vessel is at anchorage?",
+                    "answer": "Yes, our mobile engineering teams are fully equipped to perform a wide range of mechanical repairs at Karachi anchorage or major ports internationally."
+                },
+                {
+                    "question": "Are your mechanical repair services class-approved?",
+                    "answer": "Yes, Leon International is BV and ISO 9001:2008 certified, and all our repair and reconditioning work meets the standards of major classification societies."
+                }
+            ]} />
             <FAQSection faqs={[
-    {
-        "question": "Which engine brands do you service?",
-        "answer": "We cover 20+ brands including MAN B&W, Wartsila, Cummins, Caterpillar, MTU, Volvo Penta, Yanmar, Daihatsu, DEUTZ, Perkins, and more."
-    },
-    {
-        "question": "Can you overhaul a complete main engine?",
-        "answer": "Yes, we perform complete main engine overhauling including crankshaft grinding, cylinder liner replacement, piston reconditioning, and full reassembly with testing."
-    },
-    {
-        "question": "Do you provide hydraulic pump repair services?",
-        "answer": "Yes, we offer comprehensive hydraulic pump overhauling, testing, and reconditioning for all major marine hydraulic systems and deck machinery."
-    }
-]} />
+                {
+                    "question": "What core mechanical repair services do you offer?",
+                    "answer": "We provide main and auxiliary engine overhauling, boiler repair, hydraulic system maintenance, pump servicing, and specialized component reconditioning."
+                },
+                {
+                    "question": "Can you perform mechanical repairs while the vessel is at anchorage?",
+                    "answer": "Yes, our mobile engineering teams are fully equipped to perform a wide range of mechanical repairs at Karachi anchorage or major ports internationally."
+                },
+                {
+                    "question": "Are your mechanical repair services class-approved?",
+                    "answer": "Yes, Leon International is BV and ISO 9001:2008 certified, and all our repair and reconditioning work meets the standards of major classification societies."
+                }
+            ]} />
             <BreadcrumbSchema items={[
                 { name: "Home", url: "/" },
                 { name: "Services", url: "/services/" },

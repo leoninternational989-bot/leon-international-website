@@ -56,9 +56,10 @@ export default function Page() {
                             {/* Standardizing the image across all for now */}
                             <Image
                                 src="/images/sandblasting/component.webp"
-                                alt="Marine Sandblasting & Surface Prep performed by Leon International Marine Engineers"
+                                alt="Professional marine sandblasting and surface preparation"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>
